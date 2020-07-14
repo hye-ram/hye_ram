@@ -16,7 +16,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Ninom</title>
+  <title>Hye-Ram</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
@@ -36,9 +36,9 @@
   <div class="hero_area">
     <!-- header section strats -->
     <div class="brand_box">
-      <a class="navbar-brand" href="index.html">
-        <span>
-          Ninom
+      <a class="navbar-brand" href="home">
+        <span> <!-- 사이트 제목 -->
+          Hye-Ram
         </span>
       </a>
     </div>
@@ -49,17 +49,17 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="img-box">
-              <img src="resources/images/slider-img.jpg" alt="">
+              <img src="resources/images/new-slider-img.jpg" alt="">
             </div>
           </div>
           <div class="carousel-item">
             <div class="img-box">
-              <img src="resources/images/slider-img.jpg" alt="">
+              <img src="resources/images/new-slider-img.jpg" alt="">
             </div>
           </div>
           <div class="carousel-item">
             <div class="img-box">
-              <img src="resources/images/slider-img.jpg" alt="">
+              <img src="resources/images/new-slider-img.jpg" alt="">
             </div>
           </div>
         </div>
@@ -88,26 +88,25 @@
             <div class="d-flex  flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html">About </a>
+                
+                  <a class="nav-link" href="clothes">Clothes </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="fruit.html">Our Fruit </a>
+                  <a class="nav-link" href="review">Review </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="testimonial.html">Testimonial</a>
+                  <a class="nav-link" href="notice">Notice</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Login</a>
+                  <a class="nav-link" href="qna">QnA</a>
                 </li>
               </ul>
               <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                <input type="text" name="search-box" value="">
               </form>
             </div>
           </div>
@@ -161,7 +160,7 @@
               <hr>
               <h2>
                 About Our Fruit Shop
-              </h2>
+              </h2>c
             </div>
             <p>
               There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
