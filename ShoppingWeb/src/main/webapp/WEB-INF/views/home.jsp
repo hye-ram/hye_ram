@@ -43,9 +43,14 @@
           Hye-Ram
         </span>
       </a>
-      <div class="cart-icon" href="cart">
-    dfsdfsdfsdf
-    </div>
+      <div class="icon-set">
+	      <ul class="top-set">
+	      	<li><a class="top-set-li" href="login">login</a></li>
+	      	<li><a class="top-set-li" href="join">join</a></li>
+	      	<li><a class="top-set-li" href="cart"><i class="fas fa-shopping-cart"></i></a></li>
+	      </ul>
+      </div>
+      
     </div>
      
     <!-- end header section -->

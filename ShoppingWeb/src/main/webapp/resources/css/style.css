@@ -39,14 +39,18 @@ body {
   margin-top: 0;
   background-color: #252525;
 }
-
- .cart-icon{ /* 장바구니 */
-	width: 500px;
-	height: 500px;
-	background-color: red;
-	background-image: url(../images/cart.png);
+.icon-set{ /* div */
 	position: absolute;
-	color: red;
+	top : 24px;
+	right: 10%;
+}
+.top-set{ /* ul */
+	list-style: none;
+    display: flex;
+}
+.top-set-li{ /* a */
+	color:black;
+	margin-left: 10px;
 }
 
 .brand_box {
