@@ -15,29 +15,29 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Ninom</title>
+  <title>Hye-Ram > clothes</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css" />
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Dosis:400,600,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
+  <link href="resources/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+  <link href="resources/css/responsive.css" rel="stylesheet" />
 </head>
 
 <body class="sub_page">
   <div class="hero_area">
     <!-- header section strats -->
-    <div class="brand_box">
-      <a class="navbar-brand" href="index.html">
+    <div class="brand_box" style="background-image: url('resources/images/sub-top.jpg');">
+      <a class="navbar-brand" href="home">
         <span>
-          Ninom
+          Hye-Ram
         </span>
       </a>
     </div>
@@ -46,8 +46,6 @@
 
   <!-- nav section -->
   
-  <span style="font-size: 20px;">옷옷옷ㅇ송송송소</span>
-
   <section class="nav_section">
     <div class="container">
       <div class="custom_nav2">
@@ -60,22 +58,19 @@
             <div class="d-flex  flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html">About </a>
+                  <a class="nav-link" href="clothes">Clothes </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="fruit.html">Our Fruit </a>
+                  <a class="nav-link" href="review">Review </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="testimonial.html">Testimonial</a>
+                  <a class="nav-link" href="notice">Notice</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Login</a>
+                  <a class="nav-link" href="qna">QnA</a>
                 </li>
               </ul>
               <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">

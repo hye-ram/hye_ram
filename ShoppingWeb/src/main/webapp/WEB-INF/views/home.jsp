@@ -30,6 +30,8 @@
   <link href="resources/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="resources/css/responsive.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -41,10 +43,16 @@
           Hye-Ram
         </span>
       </a>
+      <div class="cart-icon" href="cart">
+    dfsdfsdfsdf
     </div>
+    </div>
+     
     <!-- end header section -->
+   
     <!-- slider section -->
     <section class=" slider_section position-relative">
+
       <div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -69,6 +77,7 @@
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
           <span class="sr-only">Next</span>
         </a>
+       
       </div>
     </section>
     <!-- end slider section -->
@@ -105,7 +114,6 @@
               </ul>
               <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-                <input type="text" name="search-box" value="">
               </form>
             </div>
           </div>

@@ -40,6 +40,15 @@ body {
   background-color: #252525;
 }
 
+ .cart-icon{ /* 장바구니 */
+	width: 500px;
+	height: 500px;
+	background-color: red;
+	background-image: url(../images/cart.png);
+	position: absolute;
+	color: red;
+}
+
 .brand_box {
   position: absolute;
   top: 0;
@@ -98,6 +107,8 @@ a:focus {
 }
 
 /*end header section*/
+
+
 /* slider section */
 .slider_section div#carouselExampleControls {
   overflow: hidden;
@@ -138,6 +149,7 @@ a:focus {
   right: -45px;
   background-position: 20px center;
 }
+
 
 /* end slider section */
 .nav_section {
