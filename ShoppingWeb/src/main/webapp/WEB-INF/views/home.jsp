@@ -30,6 +30,8 @@
   <link href="resources/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="resources/css/responsive.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -41,10 +43,16 @@
           Hye-Ram
         </span>
       </a>
+      <div class="cart-icon" href="cart">
+    dfsdfsdfsdf
     </div>
+    </div>
+     
     <!-- end header section -->
+   
     <!-- slider section -->
     <section class=" slider_section position-relative">
+
       <div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -69,6 +77,7 @@
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
           <span class="sr-only">Next</span>
         </a>
+       
       </div>
     </section>
     <!-- end slider section -->
@@ -91,7 +100,6 @@
                   <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                
                   <a class="nav-link" href="clothes">Clothes </a>
                 </li>
                 <li class="nav-item">
@@ -160,7 +168,7 @@
               <hr>
               <h2>
                 About Our Fruit Shop
-              </h2>c
+              </h2>
             </div>
             <p>
               There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
