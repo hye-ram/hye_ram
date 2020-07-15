@@ -92,7 +92,7 @@
       <div class="heading_container">
         <hr>
         <h2>
-          Fresh Fruit
+          Shop by product
         </h2>
       </div>
     </div>
@@ -100,10 +100,10 @@
 
       <div class="fruit_container">
         <div class="box">
-          <img src="resources/images/f-1.jpg" alt="">
+          <img src="resources/images/outer.jfif" alt="">
           <div class="link_box">
             <h5>
-              Orange
+              Outers
             </h5>
             <a href="">
               Buy Now
@@ -111,10 +111,10 @@
           </div>
         </div>
         <div class="box">
-          <img src="resources/images/f-2.jpg" alt="">
+          <img src="resources/images/blouseshirt.jfif" alt="">
           <div class="link_box">
             <h5>
-              Blueberry
+              Blouses/Shirts
             </h5>
             <a href="">
               Buy Now
@@ -122,10 +122,10 @@
           </div>
         </div>
         <div class="box">
-          <img src="resources/images/f-3.jpg" alt="">
+          <img src="resources/images/top.jfif" alt="" >
           <div class="link_box">
             <h5>
-              Banana
+              Tops
             </h5>
             <a href="">
               Buy Now
@@ -133,10 +133,10 @@
           </div>
         </div>
         <div class="box">
-          <img src="resources/images/f-4.jpg" alt="">
+          <img src="resources/images/bottom.jfif" alt="">
           <div class="link_box">
             <h5>
-              Apple
+              Bottoms
             </h5>
             <a href="">
               Buy Now
@@ -144,10 +144,10 @@
           </div>
         </div>
         <div class="box">
-          <img src="resources/images/f-5.jpg" alt="">
+          <img src="resources/images/dress.jfif" alt="">
           <div class="link_box">
             <h5>
-              Mango
+              Dresses
             </h5>
             <a href="">
               Buy Now
@@ -155,10 +155,10 @@
           </div>
         </div>
         <div class="box">
-          <img src="resources/images/f-6.jpg" alt="">
+          <img src="resources/images/acc.jfif" alt="">
           <div class="link_box">
             <h5>
-              Strawberry
+              Accessories
             </h5>
             <a href="">
               Buy Now

@@ -40,11 +40,16 @@ body {
   background-color: #252525;
 }
 
+<<<<<<< HEAD
  .cart-icon{ /* ��ٱ��� */
+=======
+ .cart-icon{ /* ��ٱ��� */
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 	width: 500px;
 	height: 500px;
 	background-color: red;
 	background-image: url(../images/cart.png);
+	background-repeat: no-repeat;
 	position: absolute;
 	color: red;
 }
