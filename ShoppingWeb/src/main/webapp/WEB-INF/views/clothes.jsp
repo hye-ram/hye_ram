@@ -29,6 +29,8 @@
   <link href="resources/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="resources/css/responsive.css" rel="stylesheet" />
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body class="sub_page">
@@ -40,6 +42,13 @@
           Hye-Ram
         </span>
       </a>
+      <div class="icon-set">
+	      <ul class="top-set">
+	      	<li><a class="top-set-li" href="login">login</a></li>
+	      	<li><a class="top-set-li" href="join">join</a></li>
+	      	<li><a class="top-set-li" href="cart"><i class="fas fa-shopping-cart"></i></a></li>
+	      </ul>
+      </div>
     </div>
     <!-- end header section -->
   </div>
