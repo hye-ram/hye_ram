@@ -49,8 +49,9 @@ body {
     display: flex;
 }
 .top-set-li{ /* a */
-	color:black;
+	color:white;
 	margin-left: 10px;
+	font-size:18px;
 }
 
 .brand_box {

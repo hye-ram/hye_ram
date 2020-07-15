@@ -1,4 +1,4 @@
-package com.project.shoppingweb;
+package com.project.shoppingweb.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
