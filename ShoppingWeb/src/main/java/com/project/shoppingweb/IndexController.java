@@ -50,9 +50,20 @@ public class IndexController {
 	public String notice() {
 		return "notice";
 	}
-	@RequestMapping("qna")
-	public String qna() {
-		return "qna";
+	@RequestMapping("cart")
+	public String cart() {
+		return "cart";
 	}
+
+	@RequestMapping("login")
+	public String login() {
+		return "login";
+	}
+
+	@RequestMapping("join")
+	public String join() {
+		return "join";
+	}
+	
 
 }

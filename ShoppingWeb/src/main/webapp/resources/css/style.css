@@ -39,13 +39,7 @@ body {
   margin-top: 0;
   background-color: #252525;
 }
-
- .cart-icon{ /* ��ٱ��� */
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
-	width: 500px;
-	height: 500px;
-	background-color: red;
-	background-image: url(../images/cart.png);
+.icon-set{ /* div */
 	position: absolute;
 	top : 24px;
 	right: 10%;
@@ -55,8 +49,9 @@ body {
     display: flex;
 }
 .top-set-li{ /* a */
-	color:black;
+	color:white;
 	margin-left: 10px;
+	font-size:18px;
 }
 
 .brand_box {
@@ -742,4 +737,4 @@ a:focus {
 }
 
 /* end footer section*/
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.css.map */s

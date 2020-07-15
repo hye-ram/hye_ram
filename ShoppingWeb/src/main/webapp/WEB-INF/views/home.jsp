@@ -29,7 +29,7 @@
   <!-- Custom styles for this template -->
   <link href="resources/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="resources/css/responsive.css" rel="stylesheet" />
+  <link href="${pageContext.request.contextPath}/resources/css/responsive.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
 </head>
@@ -43,9 +43,14 @@
           Hye-Ram
         </span>
       </a>
-      <div class="cart-icon" href="cart">
-    dfsdfsdfsdf
-    </div>
+      <div class="icon-set">
+	      <ul class="top-set">
+	      	<li><a class="top-set-li" href="login">login</a></li>
+	      	<li><a class="top-set-li" href="join">join</a></li>
+	      	<li><a class="top-set-li" href="cart"><i class="fas fa-shopping-cart"></i></a></li>
+	      </ul>
+      </div>
+      
     </div>
      
     <!-- end header section -->
