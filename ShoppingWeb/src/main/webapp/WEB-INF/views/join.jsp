@@ -15,7 +15,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>로그인  - Hye-Ram</title>
+  <title>회원가입  - Hye-Ram</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
@@ -113,24 +113,31 @@
 					<th>우편번호</th>
 					<th>
 					<input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="addr1" id="addr1" type="text" readonly="readonly" >
-    				<button type="button" class="btn btn-default" onclick="execPostCode();"><i class="fa fa-search"></i> 우편번호 찾기</button>
-					<input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="addr2" id="addr2" type="text" readonly="readonly" />
+    				<button type="button" class="btn btn-default" onclick="execDaumPostCode();"><i class="fa fa-search"></i> 우편번호 찾기</button>
+					<input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="addr2" id="addr2" type="text" readonly="readonly"/>
 					<input class="form-control" placeholder="상세주소" name="addr3" id="addr3" type="text"  />
 					</th>
-					
-				</tr>
-				<tr>
-					<th>주소</th>
-					<th><input type="email" name="email" class="email1"></th>
 				</tr>
 				<tr>
 					<th>휴대폰 번호</th>
-					<th><input type="radio" name="sex" value="man">남 <input
-						type="radio" name="sex" value="woman">여</th>
+					<th>
+						<select id="cellno1" name="cellno1">
+							<option value="010">010</option>
+							<option value="011">011</option>
+							<option value="016">016</option>
+							<option value="017">017</option>
+							<option value="018">018</option>
+							<option value="019">019</option>
+						</select>
+						-
+						<input type="text" id="cellno2" name="cellno2" style="width: 60px">
+						-
+						<input type="text" id="cellno3" name="cellno3" style="width: 60px">
+					</th>
 				</tr>
 				<tr>
 					<th>이메일</th>
-					<th><input type="date" name="age" class="birth1"></th>
+					<th><input type="text" name="email" id="email" class="email1"></th>
 				</tr>
 			</table>
 			<input class="gab" type="submit" value="가입"> <input
@@ -233,53 +240,49 @@
   <script type="text/javascript" src="js/custom.js"></script>
   <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
   <script>
-  function execPostCode() {
-      new daum.Postcode({
-          oncomplete: function(data) {
-             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+    // 우편번호 찾기 화면을 넣을 element
+    var element_layer = document.getElementById('layer');
 
-             // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
-             // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-             var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
-             var extraRoadAddr = ''; // 도로명 조합형 주소 변수
-           
+    function closeDaumPostcode() {
+        // iframe을 넣은 element를 안보이게 한다.
+        element_layer.style.display = 'none';
+    }
 
-             // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-             // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-             if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                 extraRoadAddr += data.bname;
-             }
-             // 건물명이 있고, 공동주택일 경우 추가한다.
-             if(data.buildingName !== '' && data.apartment === 'Y'){
-                extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-             }
-             // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-             if(extraRoadAddr !== ''){
-                 extraRoadAddr = ' (' + extraRoadAddr + ')';
-             }
-             // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
-             if(fullRoadAddr !== ''){
-                 fullRoadAddr += extraRoadAddr;
-             }
-             alert(data.zonecode);
-             
-             // 우편번호와 주소 정보를 해당 필드에 넣는다.
-             console.log(data.zonecode);
-             console.log(fullRoadAddr);
-             
-             
-             $("[name=addr1]").val(data.zonecode);
-             $("[name=addr2]").val(fullRoadAddr);
+    function execDaumPostCode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-             document.getElementById('addr1').value = data.zonecode; //5자리 새우편번호 사용
-             document.getElementById('addr2').value = fullAddr;
-             
-             /* document.getElementById('signUpUserPostNo').value = data.zonecode; //5자리 새우편번호 사용
-             document.getElementById('signUpUserCompanyAddress').value = fullRoadAddr;
-             document.getElementById('signUpUserCompanyAddressDetail').value = data.jibunAddress; */
-         }
-      }).open();
-  }
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var fullAddr = data.address; // 최종 주소 변수
+                var extraAddr = ''; // 조합형 주소 변수
+
+                // 기본 주소가 도로명 타입일때 조합한다.
+                if(data.addressType === 'R'){
+                    //법정동명이 있을 경우 추가한다.
+                    if(data.bname !== ''){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있을 경우 추가한다.
+                    if(data.buildingName !== ''){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('addr1').value = data.zonecode; //5자리 새우편번호 사용
+                document.getElementById('addr2').value = fullAddr;
+                
+                document.getElementById('addr3').focus();
+               
+            },
+            width : '100%',
+            height : '100%'
+        }).open();
+    }
 
   </script>
 
