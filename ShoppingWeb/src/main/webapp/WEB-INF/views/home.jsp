@@ -29,7 +29,7 @@
   <!-- Custom styles for this template -->
   <link href="resources/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="${pageContext.request.contextPath}/resources/css/responsive.css" rel="stylesheet" />
+  <link href="resources/css/responsive.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
 </head>
