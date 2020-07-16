@@ -114,7 +114,7 @@
             <h5>
               Outers
             </h5>
-            <a href="">
+            <a href="outer">
               Buy Now
             </a>
           </div>
@@ -125,7 +125,7 @@
             <h5>
               Blouses/Shirts
             </h5>
-            <a href="">
+            <a href="blouseshirts">
               Buy Now
             </a>
           </div>
@@ -136,7 +136,7 @@
             <h5>
               Tops
             </h5>
-            <a href="">
+            <a href="top">
               Buy Now
             </a>
           </div>
@@ -147,7 +147,7 @@
             <h5>
               Bottoms
             </h5>
-            <a href="">
+            <a href="bottom">
               Buy Now
             </a>
           </div>
@@ -158,7 +158,7 @@
             <h5>
               Dresses
             </h5>
-            <a href="">
+            <a href="dress">
               Buy Now
             </a>
           </div>
@@ -169,7 +169,7 @@
             <h5>
               Accessories
             </h5>
-            <a href="">
+            <a href="acc">
               Buy Now
             </a>
           </div>
@@ -187,7 +187,7 @@
     <div class="container">
       <div class="info_logo">
         <h2>
-          NiNom
+          Hye-Ram
         </h2>
       </div>
       <div class="info_contact">

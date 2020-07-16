@@ -65,5 +65,34 @@ public class IndexController {
 		return "join";
 	}
 	
+	@RequestMapping("outer")
+	public String outer() {
+		return "outer";
+	}
+	
+	@RequestMapping("blouseshirts")
+	public String blouseshirts() {
+		return "blouseshirts";
+	}
+	@RequestMapping("top")
+	public String top() {
+		return "top";
+	}
+	
+	@RequestMapping("bottom")
+	public String bottom() {
+		return "bottom";
+	}
+	
+	@RequestMapping("dress")
+	public String dress() {
+		return "dress";
+	}
+	
+	@RequestMapping("acc")
+	public String acc() {
+		return "acc";
+	}
+	
 
 }
