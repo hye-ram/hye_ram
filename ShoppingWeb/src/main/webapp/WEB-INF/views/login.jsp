@@ -93,8 +93,6 @@
   </section>
 
   <!-- end nav section -->
-	아이디
-	비밀번호
 	<c:choose>
 			<c:when test="${empty sessionScope.userId}">
 			<!-- 로그인이 안되어 있으면 -->
