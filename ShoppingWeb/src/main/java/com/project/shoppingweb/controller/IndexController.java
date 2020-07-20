@@ -47,18 +47,22 @@ public class IndexController {
 	public String home() {
 		return "home";
 	}
+
 	@RequestMapping("clothes")
 	public String clothes() {
 		return "clothes";
 	}
+
 	@RequestMapping("review")
 	public String review() {
 		return "review";
 	}
+
 	@RequestMapping("notice")
 	public String notice() {
 		return "notice";
 	}
+
 	@RequestMapping("cart")
 	public String cart() {
 		return "cart";
@@ -68,36 +72,5 @@ public class IndexController {
 	public String login() {
 		return "login";
 	}
-	
-	/*
-	 * @Autowired private MemberService memberService;
-	 * 
-	 * //로그인 처리
-	 * 
-	 * @RequestMapping(value="/loginCheck.do") public ModelAndView
-	 * loginCheck(@ModelAttribute shopDTO dto, HttpSession session) {
-	 * 
-	 * boolean result = memberService.loginCheck(dto, session); ModelAndView mav =
-	 * new ModelAndView();
-	 * 
-	 * mav.setViewName("login");
-	 * 
-	 * if(result) { mav.addObject("msg","성공"); }else { mav.addObject("msg","실패"); }
-	 * 
-	 * return mav; }
-	 * 
-	 * //로그아웃 처리
-	 * 
-	 * @RequestMapping("logout.do") public ModelAndView logout(HttpSession session)
-	 * {
-	 * 
-	 * memberService.logout(session); ModelAndView mav = new ModelAndView();
-	 * mav.setViewName("login"); mav.addObject("msg", "logout");
-	 * 
-	 * return mav; }
-	 * 
-	 * @RequestMapping("join") public String join() { return "join"; }
-	 */
-	
 
 }

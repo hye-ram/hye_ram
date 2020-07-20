@@ -37,8 +37,5 @@ public class shopDTO {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-	
-	
-
 
 }
