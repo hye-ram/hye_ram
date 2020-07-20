@@ -91,6 +91,6 @@
   </section>
 
   <!-- end nav section -->
-	
+	공지사항
 </body>
 </html>
