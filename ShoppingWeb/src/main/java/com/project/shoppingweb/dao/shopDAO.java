@@ -14,7 +14,6 @@ import com.project.shoppingweb.bean.*;
 
 @Repository
 public interface shopDAO {
-	
 
 	// 01. 회원 로그인 체크
 	public boolean loginCheck(shopDTO dto);

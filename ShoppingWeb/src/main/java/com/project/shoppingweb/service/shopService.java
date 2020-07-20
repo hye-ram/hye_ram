@@ -2,9 +2,6 @@ package com.project.shoppingweb.service;
 
 import java.util.List;
 import javax.servlet.http.HttpSession;
-
-import org.springframework.stereotype.Component;
-
 import com.project.shoppingweb.dao.*;
 import com.project.shoppingweb.bean.*;
 

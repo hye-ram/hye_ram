@@ -4,13 +4,12 @@ import java.util.List;
 
 import javax.inject.*;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Service;
 
 import com.project.shoppingweb.dao.*;
 import com.project.shoppingweb.bean.*;
 
-@Service //현재 클래스를 스프링에서 관리하는 service bean으로 등록
+@Service 
 public class shopServiceImpl implements shopService {
 	
 	@Inject
@@ -93,5 +92,4 @@ public class shopServiceImpl implements shopService {
 		
 	}
 
-	
 }
