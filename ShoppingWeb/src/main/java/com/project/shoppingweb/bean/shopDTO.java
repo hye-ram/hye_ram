@@ -7,6 +7,12 @@ public class shopDTO {
 	private String userPW;
 	private String userName;
 	private String userEmail;
+	
+	@Override
+	public String toString() {
+		return "LoginVO [userId=" + userID + ", passwd=" + userPW + "]";
+	}
+	
 	public String getUserID() {
 		return userID;
 	}

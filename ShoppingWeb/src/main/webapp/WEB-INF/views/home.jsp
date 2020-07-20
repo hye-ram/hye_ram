@@ -31,7 +31,7 @@
   <!-- responsive style -->
   <link href="resources/css/responsive.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-
+  <script scr="//cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
 </head>
 
 <body>
