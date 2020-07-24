@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
+<<<<<<< HEAD
 	<pluginVersion><![CDATA[3.9.12.202003180620-RELEASE]]></pluginVersion>
+=======
+	<pluginVersion><![CDATA[3.9.13.202006180736-RELEASE]]></pluginVersion>
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
+		<config>src/main/resources/root-context.xml</config>
 	</configs>
 	<autoconfigs>
+<<<<<<< HEAD
 		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/root-context.xml</config>
+=======
+		<config>src/main/resources/config/spring/context-mapper.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>
+		<config>src/main/resources/config/spring/context-datasource.xml</config>
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 	</autoconfigs>
 	<configSets>
 	</configSets>

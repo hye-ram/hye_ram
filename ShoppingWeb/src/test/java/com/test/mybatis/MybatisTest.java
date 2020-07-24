@@ -16,6 +16,7 @@ public class MybatisTest
     @Inject
     private SqlSessionFactory sqlFactory;
     
+<<<<<<< HEAD
     @Test
     public void testFactory(){
         System.out.println("\n >>>>>>>>>> sqlFactory Ãâ·Â : "+sqlFactory);
@@ -35,3 +36,23 @@ public class MybatisTest
     
 }
 
+=======
+   /* @Test
+    public void testFactory(){
+        System.out.println("\n >>>>>>>>>> sqlFactory ì¶œë ¥ : "+sqlFactory);
+    }
+    
+    @Test
+    public void testSession() throws Exception{
+        
+        try(SqlSession session = sqlFactory.openSession()){
+            
+            System.out.println(" >>>>>>>>>> session ì¶œë ¥ : "+session+"\n");
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }*/
+    
+}
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git

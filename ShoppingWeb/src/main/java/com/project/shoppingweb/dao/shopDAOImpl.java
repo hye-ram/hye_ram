@@ -36,32 +36,31 @@ public class shopDAOImpl implements shopDAO {
 
 	@Override
 	public void create(shopDTO dto) throws Exception {
-		// TODO Auto-generated method stub
+		sqlSession.insert("board.insert", dto);
 		
 	}
 
 	@Override
 	public shopDTO read(int bno) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		 return sqlSession.selectOne("board.view", bno);
 	}
 
 	@Override
 	public void update(shopDTO dto) throws Exception {
-		// TODO Auto-generated method stub
+		sqlSession.update("board.updateArticle", dto);
 		
 	}
 
 	@Override
 	public void delete(int bno) throws Exception {
-		// TODO Auto-generated method stub
+		sqlSession.delete("board.deleteArticle",bno);
 		
 	}
 
 	@Override
 	public List<shopDTO> listAll() {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("testMapper.listAll");
+		 return sqlSession.selectList("board.listAll");
 	}
 
 	@Override

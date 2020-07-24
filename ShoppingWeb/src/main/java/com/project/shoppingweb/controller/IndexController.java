@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,6 +31,8 @@ import com.project.shoppingweb.service.*;
 @Controller
 @SessionAttributes("login")
 public class IndexController {
+	 @Inject
+	  shopService shopService;
 
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
@@ -71,9 +75,62 @@ public class IndexController {
 	
 	//°øÁö»çÇ×
 	@RequestMapping("notice")
-	public String notice() {
-		return "notice";
-	}
+	public ModelAndView list() throws Exception{
+        List<shopDTO> list = shopService.listAll();
+        // ModelAndView - ëª¨ë¸ê³? ë·?
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("notice"); 
+        mav.addObject("list", list); // ?°?´?„°ë¥? ???¥
+        return mav; // list.jspë¡? Listê°? ? „?‹¬?œ?‹¤.
+    }
+	// 02_01. ê²Œì‹œê¸? ?‘?„±?™”ë©?
+    // @RequestMapping("board/write.do")
+    // value="", method="? „?†¡ë°©ì‹"
+    @RequestMapping(value="write", method=RequestMethod.GET)
+    public String write(){
+        return "write"; // write.jspë¡? ?´?™
+    }
+    
+    // 02_02. ê²Œì‹œê¸? ?‘?„±ì²˜ë¦¬
+    @RequestMapping(value="insert", method=RequestMethod.POST)
+    public String insert(@ModelAttribute shopDTO vo) throws Exception{
+        shopService.create(vo);
+        return "redirect:notice";
+    }
+    
+    // 03. ê²Œì‹œê¸? ?ƒ?„¸?‚´?š© ì¡°íšŒ, ê²Œì‹œê¸? ì¡°íšŒ?ˆ˜ ì¦ê? ì²˜ë¦¬
+    // @RequestParam : get/postë°©ì‹?œ¼ë¡? ? „?‹¬?œ ë³??ˆ˜ 1ê°?
+    // HttpSession ?„¸?…˜ê°ì²´
+    @RequestMapping(value="view", method=RequestMethod.GET)
+    public ModelAndView view(@RequestParam int bno, HttpSession session) throws Exception{
+        // ì¡°íšŒ?ˆ˜ ì¦ê? ì²˜ë¦¬
+		/*
+		 * shopService.increaseViewcnt(bno, session); // ëª¨ë¸(?°?´?„°)+ë·?(?™”ë©?)ë¥? ?•¨ê»? ? „?‹¬?•˜?Š” ê°ì²´
+		 */       
+    	ModelAndView mav = new ModelAndView();
+        // ë·°ì˜ ?´ë¦?
+        mav.setViewName("view");
+        // ë·°ì— ? „?‹¬?•  ?°?´?„°
+        mav.addObject("dto", shopService.read(bno));
+        return mav;
+    }
+    
+    // 04. ê²Œì‹œê¸? ?ˆ˜? •
+    // ?¼?—?„œ ?…? ¥?•œ ?‚´?š©?“¤?? @ModelAttribute BoardVO voë¡? ? „?‹¬?¨
+    @RequestMapping(value="update", method=RequestMethod.POST)
+    public String update(@ModelAttribute shopDTO vo) throws Exception{
+        shopService.update(vo);
+        return "redirect:notice";
+    }
+    
+    // 05. ê²Œì‹œê¸? ?‚­? œ
+    @RequestMapping("delete")
+    public String delete(@RequestParam int bno) throws Exception{
+        shopService.delete(bno);
+        return "redirect:notice";
+    }
+    
+	
 	
 	//Àå¹Ù±¸´Ï È­¸é
 	@RequestMapping("cart")
