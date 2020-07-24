@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>ㄴ
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,19 +29,7 @@
   <link href="resources/css/responsive.css" rel="stylesheet" />
   
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-  
-  <script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="resources/js/bootstrap.js"></script>
-  <script type="text/javascript" src="resources/js/custom.js"></script>
-  
-  <script>
-    $(document).ready(function(){
-        $("#btnWrite").click(function(){
-            // 페이지 주소 변경(이동)
-            location.href = "write";
-        });
-    });
-</script>
+
 </head>
 
 <body class="sub_page">
@@ -106,26 +92,61 @@
   </section>
 
   <!-- end nav section -->
-	
-<h2>게시글 목록</h2>
-<button type="button" id="btnWrite">글쓰기</button>
-<table border="1" width="600px">
-    <tr>
-        <th>번   호</th>
-        <th>제   목</th>
-        <th>작 성 자</th>
-        <th>작 성 일</th>
-    </tr>
-    <c:forEach var="row" items="${list}">
-    <tr>
-        <td>${row.bno}</td>
-        <td><a href="${path}/shoppingweb/view?bno=${row.bno}">${row.title} ${path}</a></td>
-        <td>${row.writer}</td>
-        <td>${row.regdate}</td>
-        
-    </tr>    
-    </c:forEach>
-</table>
+  
+  <script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="resources/js/bootstrap.js"></script>
+  <script type="text/javascript" src="resources/js/custom.js"></script>
+  
+  <script>
+    $(document).ready(function(){
+        $("#btnSave").click(function(){
+            //var title = document.form1.title.value; ==> name속성으로 처리할 경우
+            //var content = document.form1.content.value;
+            //var writer = document.form1.writer.value;
+            var title = $("#title").val();
+            var content = $("#content").val();
+            var writer = $("#writer").val();
+            if(title == ""){
+                alert("제목을 입력하세요");
+                document.form1.title.focus();
+                return;
+            }
+            if(content == ""){
+                alert("내용을 입력하세요");
+                document.form1.content.focus();
+                return;
+            }
+            if(writer == ""){
+                alert("이름을 입력하세요");
+                document.form1.writer.focus();
+                return;
+            }
+            // 폼에 입력한 데이터를 서버로 전송
+            document.form1.submit();
+        });
+    });
+</script>
+</head>
+<body>
 
+<h2>게시글 작성</h2>
+<form name="form1" method="post" action="${path}/shoppingweb/insert">
+    <div>
+        제목
+        <input name="title" id="title" size="80" placeholder="제목을 입력해주세요">
+    </div>
+    <div>
+        내용
+        <textarea name="content" id="content" rows="4" cols="80" placeholder="내용을 입력해주세요"></textarea>
+    </div>
+    <div>
+        이름
+        <input name="writer" id="writer" placeholder="이름을 입력해주세요">
+    </div>
+    <div style="width:650px; text-align: center;">
+        <button type="button" id="btnSave">확인</button>
+        <button type="reset">취소</button>
+    </div>
+</form>
 </body>
 </html>
