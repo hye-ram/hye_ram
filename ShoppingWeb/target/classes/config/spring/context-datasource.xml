@@ -8,11 +8,7 @@
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-<<<<<<< HEAD
 		<property name="url" value="jdbc:mysql://localhost:3306/shopdb?useSSL=false"/>
-=======
-		<property name="url" value="jdbc:mysql://localhost/shopDB?useSSL=false"/>
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 		<property name="username" value="root"/>
 		<property name="password" value="1234"/>
    </bean>

@@ -1,22 +1,10 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<configuration>
-<!-- 자동으로 카멜케이스 규칙으로 변환 -->
-	<mappers>
-		<mapper resource="mapper/test_SQL.xml"></mapper>
-	</mappers>
-</configuration>
-=======
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
- 
     <mappers>
 		<mapper resource="mapper/noticeMapper.xml"/>
+		<mapper resource="mapper/memberMapper.xml"/>
 	</mappers>
- 
 </configuration>
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git

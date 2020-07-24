@@ -14,11 +14,6 @@ public class shopDTO {
 	private String userCell02;
 	private String userCell03;
 	private String userEmail;
-
-	@Override
-	public String toString() {
-		return "LoginVO [userId=" + userId + ", passwd=" + userPw + "]";
-	}
 	
 	private int bno; //글 번호
 	private String title; // 글 제목

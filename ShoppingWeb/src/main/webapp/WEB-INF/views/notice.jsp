@@ -91,6 +91,26 @@
   </section>
 
   <!-- end nav section -->
-	공지사항
+	
+<h2>게시글 목록</h2>
+<button type="button" id="btnWrite">글쓰기</button>
+<table border="1" width="600px">
+    <tr>
+        <th>번   호</th>
+        <th>제   목</th>
+        <th>작 성 자</th>
+        <th>작 성 일</th>
+    </tr>
+    <c:forEach var="row" items="${list}">
+    <tr>
+        <td>${row.bno}</td>
+        <td><a href="${path}/shoppingweb/view?bno=${row.bno}">${row.title} ${path}</a></td>
+        <td>${row.writer}</td>
+        <td>${row.regdate}</td>
+        
+    </tr>    
+    </c:forEach>
+</table>
+
 </body>
 </html>

@@ -52,9 +52,6 @@ public class IndexController {
 		 * return "home"; }
 		 */
 	
-	@Autowired
-	private shopService shopService;
-	
 	//홈페이지
 	@RequestMapping({ "/", "/home" })
 	public String home() {
