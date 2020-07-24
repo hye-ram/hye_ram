@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +13,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>·Î±×ÀÎ  - Hye-Ram</title>
+  <title>ë¡œê·¸ì¸  - Hye-Ram</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
@@ -100,28 +100,28 @@
   <script>
     $(document).ready(function(){
         $("#btnSave").click(function(){
-            //var title = document.form1.title.value; ==> name¼Ó¼ºÀ¸·Î Ã³¸®ÇÒ °æ¿ì
+            //var title = document.form1.title.value; ==> nameì†ì„±ìœ¼ë¡œ ì²˜ë¦¬í•  ê²½ìš°
             //var content = document.form1.content.value;
             //var writer = document.form1.writer.value;
             var title = $("#title").val();
             var content = $("#content").val();
             var writer = $("#writer").val();
             if(title == ""){
-                alert("Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä");
+                alert("ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”");
                 document.form1.title.focus();
                 return;
             }
             if(content == ""){
-                alert("³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä");
+                alert("ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”");
                 document.form1.content.focus();
                 return;
             }
             if(writer == ""){
-                alert("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä");
+                alert("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”");
                 document.form1.writer.focus();
                 return;
             }
-            // Æû¿¡ ÀÔ·ÂÇÑ µ¥ÀÌÅÍ¸¦ ¼­¹ö·Î Àü¼Û
+            // í¼ì— ì…ë ¥í•œ ë°ì´í„°ë¥¼ ì„œë²„ë¡œ ì „ì†¡
             document.form1.submit();
         });
     });
@@ -129,23 +129,23 @@
 </head>
 <body>
 
-<h2>°Ô½Ã±Û ÀÛ¼º</h2>
+<h2>ê²Œì‹œê¸€ ì‘ì„±</h2>
 <form name="form1" method="post" action="${path}/shoppingweb/insert">
     <div>
-        Á¦¸ñ
-        <input name="title" id="title" size="80" placeholder="Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä">
+        ì œëª©
+        <input name="title" id="title" size="80" placeholder="ì œëª©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”">
     </div>
     <div>
-        ³»¿ë
-        <textarea name="content" id="content" rows="4" cols="80" placeholder="³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä"></textarea>
+        ë‚´ìš©
+        <textarea name="content" id="content" rows="4" cols="80" placeholder="ë‚´ìš©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”"></textarea>
     </div>
     <div>
-        ÀÌ¸§
-        <input name="writer" id="writer" placeholder="ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä">
+        ì´ë¦„
+        <input name="writer" id="writer" placeholder="ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”">
     </div>
     <div style="width:650px; text-align: center;">
-        <button type="button" id="btnSave">È®ÀÎ</button>
-        <button type="reset">Ãë¼Ò</button>
+        <button type="button" id="btnSave">í™•ì¸</button>
+        <button type="reset">ì·¨ì†Œ</button>
     </div>
 </form>
 </body>

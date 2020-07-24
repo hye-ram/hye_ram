@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>·Î±×ÀÎ  - Hye-Ram</title>
+  <title>ë¡œê·¸ì¸  - Hye-Ram</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
@@ -39,7 +39,7 @@
   <script>
     $(document).ready(function(){
         $("#btnWrite").click(function(){
-            // ÆäÀÌÁö ÁÖ¼Ò º¯°æ(ÀÌµ¿)
+            // íŽ˜ì´ì§€ ì£¼ì†Œ ë³€ê²½(ì´ë™)
             location.href = "write";
         });
     });
@@ -107,14 +107,14 @@
 
   <!-- end nav section -->
 	
-<h2>°Ô½Ã±Û ¸ñ·Ï</h2>
-<button type="button" id="btnWrite">±Û¾²±â</button>
+<h2>ê²Œì‹œê¸€ ëª©ë¡</h2>
+<button type="button" id="btnWrite">ê¸€ì“°ê¸°</button>
 <table border="1" width="600px">
     <tr>
-        <th>¹ø   È£</th>
-        <th>Á¦   ¸ñ</th>
-        <th>ÀÛ ¼º ÀÚ</th>
-        <th>ÀÛ ¼º ÀÏ</th>
+        <th>ë²ˆ   í˜¸</th>
+        <th>ì œ   ëª©</th>
+        <th>ìž‘ ì„± ìž</th>
+        <th>ìž‘ ì„± ì¼</th>
     </tr>
     <c:forEach var="row" items="${list}">
     <tr>
