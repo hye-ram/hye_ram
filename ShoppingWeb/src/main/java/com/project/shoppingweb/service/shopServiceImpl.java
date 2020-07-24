@@ -14,46 +14,28 @@ public class shopServiceImpl implements shopService {
 	
 	@Inject
 	shopDAO shopDao;
-	
-
-	  
-		/*
-		 * // 01. 회원 로그인 체크
-		 * 
-		 * @Override public boolean loginCheck(shopDTO dto, HttpSession session) {
-		 * boolean result = shopDao.loginCheck(dto); if (result == true) { //true 일경우 세션
-		 * 등록 //세션 변수 등록 session.setAttribute("userId",dto.getUserID()); } return
-		 * result; }
-		 * 
-		 * // 02. 회원 로그인 정보
-		 * 
-		 * @Override public shopDTO viewMember(shopDTO dto) { // TODO Auto-generated
-		 * method stub return shopDao.viewMember(dto); }
-		 * 
-		 * // 03. 회원 로그아웃
-		 * 
-		 * @Override public void logout(HttpSession session) { // TODO Auto-generated
-		 * method stub // 세션 변수 개별 삭제 // session.removeAttribute("userId"); // 세션 정보를
-		 * 초기화 시킴 //session.invalidate(); shopDao.logout(session); }
-		 * 
-		 */
 
 	@Override
 	public boolean loginCheck(shopDTO dto, HttpSession session) {
 		// TODO Auto-generated method stub
-		return false;
+		
+		boolean result = shopDao.loginCheck(dto);
+		if (result == true) {	//true 일경우 세션 등록
+			//세션 변수 등록
+			session.setAttribute("userId",dto.getUserId());
+		}
+		return result;
 	}
 
 	@Override
-	public shopDTO viewMember(shopDTO dto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public List<shopDTO> viewMember() throws Exception {
+        return shopDao.listAll();
+    }
 
 	@Override
 	public void logout(HttpSession session) {
 		// TODO Auto-generated method stub
-		
+		shopDao.logout(session);
 	}
 
 	@Override
@@ -81,15 +63,28 @@ public class shopServiceImpl implements shopService {
 	}
 
 	@Override
-	public List<shopDTO> listAll() throws Exception {
+	public List<shopDTO> listAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return shopDao.listAll();
 	}
 
 	@Override
 	public void increaseViewcnt(int bno, HttpSession session) throws Exception {
 		// TODO Auto-generated method stub
 		
+	}
+
+	
+	// 01. 가입 아이디 중복 체크
+	@Override
+	public int idCheck(String userId) {
+		int result = shopDao.idCheck(userId);
+		return result;
+	}
+	// 02. 가입 
+	@Override
+	public void signUp(shopDTO dto) {
+		shopDao.signUp(dto);
 	}
 
 }

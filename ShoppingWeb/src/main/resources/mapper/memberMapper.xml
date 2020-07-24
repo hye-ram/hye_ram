@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="memberMapper">
+	<select id="loginCheck" resultType="String">
+
+		SELECT count(*) FROM member
+		WHERE id = #{userId} AND pw = #{userPw}
+	</select>
+	<select id="idCheck" resultType="int">
+		SELECT count(*) FROM member
+		WHERE id = #{userId}
+	</select>
+	<select id="signUp">
+		insert into member(id, pw, name, addr01, addr02, addr03, cell01, cell02, cell03, email)
+		values (#{userId},#{userPw},#{userName}, #{userAddr01} , #{userAddr02}
+		,#{userAddr03} ,#{userCell01} ,#{userCell02} ,#{userCell03}
+		,#{userEmail})
+
+	</select>
+</mapper>

@@ -19,9 +19,10 @@
     <!-- Root Context: defines shared resources visible to all other web components -->
     
     <!-- MySQL dataSource -->
+    
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"> 
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/> 
-        <property name="url" value="jdbc:mysql://localhost:3306/shopDB"/> 
+        <property name="url" value="jdbc:mysql://localhost:3306/shopdb?useSSL=false"/> 
         <property name="username" value="root"/> 
         <property name="password" value="1234"/>
     </bean>
@@ -30,7 +31,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:/mybatis-config.xml" />
-		<property name="mapperLocations" value="classpath:/mappers/*Mapper.xml" />		
+		<property name="mapperLocations" value="classpath:/mapper/*_SQL.xml" />		
 	</bean>    
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>

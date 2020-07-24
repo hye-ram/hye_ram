@@ -19,20 +19,19 @@ public class shopDAOImpl implements shopDAO {
 	
 	@Override
 	public boolean loginCheck(shopDTO dto) {
-		// TODO Auto-generated method stub
-		return false;
+		String name = sqlSession.selectOne("memberMapper.loginCheck",dto);
+		// 검색이 안되면 0을 반환해주기 때문에 0과 비교해서 참이면 false, 틀리면 true를 반환
+		return (Integer.parseInt(name)==0)?false:true;
 	}
 
 	@Override
-	public shopDTO viewMember(shopDTO dto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public List<shopDTO> viewMember() throws Exception {
+		return sqlSession.selectList("testMapper.listAll");
+    }
 
 	@Override
 	public void logout(HttpSession session) {
-		// TODO Auto-generated method stub
-		
+		session.invalidate();
 	}
 
 	@Override
@@ -60,15 +59,27 @@ public class shopDAOImpl implements shopDAO {
 	}
 
 	@Override
-	public List<shopDTO> listAll() throws Exception {
+	public List<shopDTO> listAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList("testMapper.listAll");
 	}
 
 	@Override
 	public void increaseViewcnt(int bno, HttpSession session) throws Exception {
 		// TODO Auto-generated method stub
 		
+	}
+	// 01. 가입 아이디 중복 체크
+	@Override
+	public int idCheck(String userId) {
+		int result = sqlSession.selectOne("memberMapper.idCheck", userId);
+		return result;
+	}
+	// 02. 가입
+	@Override
+	public void signUp(shopDTO dto) {
+		System.out.println("회원가입");
+		sqlSession.insert("memberMapper.signUp", dto);
 	}
 }
 
