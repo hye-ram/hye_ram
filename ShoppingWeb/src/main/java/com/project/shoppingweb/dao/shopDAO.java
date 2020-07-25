@@ -32,7 +32,7 @@ public interface shopDAO {
 	// 04. �Խñ� ����
 	public void delete(int bno) throws Exception;
 	// 05. �Խñ� ��ü ���
-	public List<shopDTO> listAll(String boardId);
+	public List<shopDTO> listAll();
 	// 06. �Խñ� ��ȸ
-	
+	public void increaseViewcnt(int bno, HttpSession session) throws Exception;
 }

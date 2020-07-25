@@ -28,6 +28,11 @@ public class shopServiceImpl implements shopService {
 		return result;
 	}
 
+	// 02. ȸ�� �α��� ����
+	@Override
+	public List<shopDTO> viewMember() throws Exception {
+		return shopDao.listAll();
+	}
 
 	// 03. ȸ�� �α׾ƿ�
 	@Override
@@ -92,15 +97,14 @@ public class shopServiceImpl implements shopService {
 
 	// 05. �Խñ� ��ü ���
 	@Override
-	public List<shopDTO> listAll(String boardId) {
-		return shopDao.listAll(boardId);
+	public List<shopDTO> listAll() {
+		return shopDao.listAll();
 	}
 
 	@Override
-	public List<shopDTO> viewMember() throws Exception {
+	public void increaseViewcnt(int bno, HttpSession session) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
-	}
 
+	}
 
 }

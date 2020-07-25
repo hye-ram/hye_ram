@@ -74,11 +74,17 @@ public class shopDAOImpl implements shopDAO {
 	}
 	// 05. �Խñ� ��ü ���
 	@Override
-	public List<shopDTO> listAll(String boardId) {
+	public List<shopDTO> listAll() {
 		// TODO Auto-generated method stub
-		 return sqlSession.selectList("board.listAll", boardId);
+		 return sqlSession.selectList("board.listAll");
 	}
-
+	// 06. �Խñ� ��ȸ
+	@Override
+	public void increaseViewcnt(int bno, HttpSession session) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }
 
 

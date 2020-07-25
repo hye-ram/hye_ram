@@ -19,9 +19,7 @@ public class shopDTO {
 	private String writer; // �۾���
 	private String regdate; // �۾� ��¥
 
-
-	private String boardId;
-
+	private int viewcnt; // ��ȸ��
 
 	/*
 	 * @Override public String toString() { return "LoginVO [userId=" + userID +
@@ -147,11 +145,12 @@ public class shopDTO {
 		this.regdate = regdate;
 	}
 
-	public String getBboardId() {
-		return boardId;
+	public int getViewcnt() {
+		return viewcnt;
 	}
-	public void setBboardId(String boardId) {
-		this.boardId = boardId;
+
+	public void setViewcnt(int viewcnt) {
+		this.viewcnt = viewcnt;
 	}
 
 	// toString()
