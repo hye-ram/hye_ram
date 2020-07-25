@@ -16,6 +16,20 @@ public class MySqlConnectionTest {
     
     @Inject
     private DataSource ds;
+<<<<<<< HEAD
+ 
+    @Test
+    public void testConnection() throws Exception {
+ 
+        try (Connection con = ds.getConnection()) {
+ 
+            System.out.println("\n >>>>>>>>>> Connection Ãâ·Â : " + con + "\n");
+ 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+=======
 	/*
 	 * @Test public void testConnection() throws Exception {
 	 * 
@@ -25,5 +39,6 @@ public class MySqlConnectionTest {
 	 * 
 	 * } catch (Exception e) { e.printStackTrace(); } }
 	 */
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
     
 }

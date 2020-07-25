@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -31,6 +32,7 @@
   <link href="resources/css/responsive.css" rel="stylesheet" />
   
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
   
   <script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="resources/js/bootstrap.js"></script>
@@ -39,11 +41,12 @@
   <script>
     $(document).ready(function(){
         $("#btnWrite").click(function(){
-            // 페이지 주소 변경(이동)
+            // ���댁� 二쇱�� 蹂�寃�(�대��)
             location.href = "write";
         });
     });
 </script>
+
 </head>
 
 <body class="sub_page">
@@ -112,8 +115,8 @@
 <table border="1" width="600px">
     <tr>
         <th>번   호</th>
-        <th>제   목</th>
-        <th>작 성 자</th>
+        <th>제       목</th>
+        <th>글 쓴 이</th>
         <th>작 성 일</th>
     </tr>
     <c:forEach var="row" items="${list}">
