@@ -4,39 +4,48 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.session.SqlSession;
-import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.project.shoppingweb.bean.*;
-
-
 
 @Repository
 public interface shopDAO {
 
-	// 01. È¸¿ø ·Î±×ÀÎ Ã¼Å©
+	// 01. È¸ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ Ã¼Å©
 	public boolean loginCheck(shopDTO dto);
-	// 02. È¸¿ø ·Î±×ÀÎ Á¤º¸
-	public List<shopDTO> viewMember() throws Exception;
-	// 03. È¸¿ø ·Î±×¾Æ¿ô
+
+	// 02. È¸ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	public List<shopDTO> memInfo(String userId);
+
+	// 03. È¸ï¿½ï¿½ ï¿½Î±×¾Æ¿ï¿½
 	public void logout(HttpSession session);
-	
-	// 01. °¡ÀÔ ¾ÆÀÌµğ Áßº¹ Ã¼Å©
+
+	// 01. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ßºï¿½ Ã¼Å©
 	public int idCheck(String userId);
-	// 02. °¡ÀÔ 
+
+	// 02. ï¿½ï¿½ï¿½ï¿½
 	public void signUp(shopDTO dto);
-	 
-	// 01. °Ô½Ã±Û ÀÛ¼º
-	public void create(shopDTO dto) throws Exception;
-	// 02. °Ô½Ã±Û »ó¼¼º¸±â
-	public shopDTO read(int bno) throws Exception;
-	// 03. °Ô½Ã±Û ¼öÁ¤
-	public void update(shopDTO dto) throws Exception;
-	// 04. °Ô½Ã±Û »èÁ¦
+
+	// íŒ¨ìŠ¤ì›Œë“œ ì²´í¬
+	public int passCheck(shopDTO dto);
+
+	// íšŒì›íƒˆí‡´
+	public void secession(shopDTO dto, HttpSession session);
+
+	// 01. ï¿½Ô½Ã±ï¿½ ï¿½Û¼ï¿½
+	public void create(boardDTO dto) throws Exception;
+
+	// 02. ï¿½Ô½Ã±ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½
+	public boardDTO read(int bno) throws Exception;
+
+	// 03. ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
+	public void update(boardDTO dto) throws Exception;
+
+	// 04. ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public void delete(int bno) throws Exception;
-	// 05. °Ô½Ã±Û ÀüÃ¼ ¸ñ·Ï
-	public List<shopDTO> listAll();
-	// 06. °Ô½Ã±Û Á¶È¸
+
+	// 05. ï¿½Ô½Ã±ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½
+	public List<boardDTO> listAll();
+
+	// 06. ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È¸
 	public void increaseViewcnt(int bno, HttpSession session) throws Exception;
 }

@@ -8,7 +8,7 @@
             title, 
             content, 
             writer,
-            regdate, 
+            regdate 
             <!-- viewcnt  -->
         FROM 
             notice
@@ -22,12 +22,14 @@
           bno, 
           title, 
           content, 
-          writer
+          writer,
+          regdate
         ) VALUES (
-          (SELECT NVL(MAX(bno)+1, 1)FROM notice),
+          null,
           #{title},
           #{content},
-          #{writer}
+          #{writer},
+          now()
         )
     </insert>
     <!--03. 게시글 상세보기 조회 -->
@@ -45,7 +47,8 @@
         UPDATE notice SET
             title = #{title},
             content = #{content},
-            writer = #{writer}
+            writer = #{writer},
+            regdate = now()
         WHERE bno = #{bno}
     </update>
     <!-- 06. 게시글 삭제처리 -->

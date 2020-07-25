@@ -2,35 +2,48 @@ package com.project.shoppingweb.service;
 
 import java.util.List;
 import javax.servlet.http.HttpSession;
-import com.project.shoppingweb.dao.*;
 import com.project.shoppingweb.bean.*;
 
 public interface shopService {
-	
-	// 01. È¸¿ø ·Î±×ÀÎ Ã¼Å©
+
+	// 01. ë¡œê·¸ì¸ ì²´í¬
 	public boolean loginCheck(shopDTO dto, HttpSession session);
-	// 02. È¸¿ø ·Î±×ÀÎ Á¤º¸
-	public List<shopDTO> viewMember() throws Exception;
-	// 03. È¸¿ø ·Î±×¾Æ¿ô
+
+	// 02. íšŒì› ì •ë³´
+	public List<shopDTO> memInfo(String userId);
+
+	// 03. ë¡œê·¸ì•„ì›ƒ
 	public void logout(HttpSession session);
-	
-	// 01. °¡ÀÔ ¾ÆÀÌµğ Áßº¹ Ã¼Å©
+
+	// 01. ì•„ì´ë”” ì¤‘ë³µ ì²´í¬
 	public int idCheck(String userId);
-	// 02. °¡ÀÔ 
+
+	// 02. íšŒì› ê°€ì…
 	public void signUp(shopDTO dto);
+
+	// íŒ¨ìŠ¤ì›Œë“œ ì²´í¬
+	public int passCheck(shopDTO dto);
+
+	// íšŒì› íƒˆí‡´
+	public void secession(shopDTO dto, HttpSession session);
+
 	
-	
-	// 01. °Ô½Ã±Û ÀÛ¼º
-	public void create(shopDTO dto) throws Exception;
-	// 02. °Ô½Ã±Û »ó¼¼º¸±â
-	public shopDTO read(int bno) throws Exception;
-	// 03. °Ô½Ã±Û ¼öÁ¤
-	public void update(shopDTO dto) throws Exception;
-	// 04. °Ô½Ã±Û »èÁ¦
+	// 01. ê²Œì‹œê¸€ ì‘ì„±
+	public void create(boardDTO dto) throws Exception;
+
+	// 02. ï¿½Ô½Ã±ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½
+	public boardDTO read(int bno) throws Exception;
+
+	// 03. ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
+	public void update(boardDTO dto) throws Exception;
+
+	// 04. ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public void delete(int bno) throws Exception;
-	// 05. °Ô½Ã±Û ÀüÃ¼ ¸ñ·Ï
-	public List<shopDTO> listAll();
-	// 06. °Ô½Ã±Û Á¶È¸
+
+	// 05. ï¿½Ô½Ã±ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½
+	public List<boardDTO> listAll();
+
+	// 06. ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È¸
 	public void increaseViewcnt(int bno, HttpSession session) throws Exception;
-	
+
 }

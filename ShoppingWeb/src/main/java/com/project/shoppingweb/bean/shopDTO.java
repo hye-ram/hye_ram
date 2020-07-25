@@ -1,7 +1,5 @@
 package com.project.shoppingweb.bean;
 
-import java.sql.Date;
-
 public class shopDTO {
 	private String userId;
 	private String userPw;
@@ -14,31 +12,28 @@ public class shopDTO {
 	private String userCell02;
 	private String userCell03;
 	private String userEmail;
-	
-	private int bno; //글 번호
-	private String title; // 글 제목
-	private String content; // 글 내용
-	private String writer; // 글쓴이
-	private String regdate; // 글쓴 날짜
 
-	private int viewcnt; // 조회수
+	@Override
+	public String toString() {
+		return "shopDTO [userId=" + userId + ", userPw=" + userPw  + ", userName=" + userName + ", userEmail=" + userEmail  + "]";
+	}
 
-	/*
-	 * @Override public String toString() { return "LoginVO [userId=" + userID +
-	 * ", passwd=" + userPW + "]"; }
-	 */
 	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(String userID) {
-		this.userId = userID;
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
+
 	public String getUserPw() {
 		return userPw;
 	}
-	public void setUserPw(String userPW) {
-		this.userPw = userPW;
+
+	public void setUserPw(String userPw) {
+		this.userPw = userPw;
 	}
+
 	public String getUserPw02() {
 		return userPw02;
 	}
@@ -50,10 +45,11 @@ public class shopDTO {
 	public String getUserName() {
 		return userName;
 	}
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	
+
 	public String getUserAddr01() {
 		return userAddr01;
 	}
@@ -101,65 +97,13 @@ public class shopDTO {
 	public void setUserCell03(String userCell03) {
 		this.userCell03 = userCell03;
 	}
+
 	public String getUserEmail() {
 		return userEmail;
 	}
+
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
-	}
-	public int getBno() {
-		return bno;
-	}
-
-	public void setBno(int bno) {
-		this.bno = bno;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public String getWriter() {
-		return writer;
-	}
-
-	public void setWriter(String writer) {
-		this.writer = writer;
-	}
-
-	public String getRegdate() {
-		return regdate;
-	}
-
-	public void setRegdate(String regdate) {
-		this.regdate = regdate;
-	}
-
-	public int getViewcnt() {
-		return viewcnt;
-	}
-
-	public void setViewcnt(int viewcnt) {
-		this.viewcnt = viewcnt;
-	}
-
-	// toString()
-	@Override
-	public String toString() {
-		return "shopDTO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate="
-				+ regdate /* + ", viewcnt=" + viewcnt */ + "]";
 	}
 
 }
