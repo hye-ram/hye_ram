@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +13,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 
-<title>·Î±×ÀÎ - Hye-Ram</title>
+<title>ë¡œê·¸ì¸ - Hye-Ram</title>
 
 <!-- slider stylesheet -->
 <link rel="stylesheet" type="text/css"
@@ -103,36 +102,36 @@
 	<script>
 		$(document).ready(function() {
 			$("#btnDelete").click(function() {
-				if (confirm("»èÁ¦ÇÏ½Ã°Ú½À´Ï±î?")) {
+				if (confirm("ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?")) {
 					document.form1.action = "${path}/shoppingweb/delete";
 					document.form1.submit();
 				}
 			});
 
 			$("#btnUpdete").click(function() {
-				//var title = document.form1.title.value; ==> name¼Ó¼ºÀ¸·Î Ã³¸®ÇÒ °æ¿ì
+				//var title = document.form1.title.value; ==> nameì†ì„±ìœ¼ë¡œ ì²˜ë¦¬í•  ê²½ìš°
 				//var content = document.form1.content.value;
 				//var writer = document.form1.writer.value;
 				var title = $("#title").val();
 				var content = $("#content").val();
 				var writer = $("#writer").val();
 				if (title == "") {
-					alert("Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä");
+					alert("ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”");
 					document.form1.title.focus();
 					return;
 				}
 				if (content == "") {
-					alert("³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä");
+					alert("ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”");
 					document.form1.content.focus();
 					return;
 				}
 				if (writer == "") {
-					alert("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä");
+					alert("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”");
 					document.form1.writer.focus();
 					return;
 				}
 				document.form1.action = "${path}/shoppingweb/update"
-				// Æû¿¡ ÀÔ·ÂÇÑ µ¥ÀÌÅÍ¸¦ ¼­¹ö·Î Àü¼Û
+				// í¼ì— ì…ë ¥í•œ ë°ì´í„°ë¥¼ ì„œë²„ë¡œ ì „ì†¡
 				document.form1.submit();
 			});
 		});
@@ -140,34 +139,34 @@
 </head>
 <body>
 
-	<h2>°Ô½Ã±Û º¸±â</h2>
+	<h2>ê²Œì‹œê¸€ ë³´ê¸°</h2>
 	<form name="form1" method="post">
 		<div>
-			<!-- ¿øÇÏ´Â ³¯Â¥Çü½ÄÀ¸·Î Ãâ·ÂÇÏ±â À§ÇØ fmtÅÂ±× »ç¿ë -->
-			ÀÛ¼ºÀÏÀÚ :
+			<!-- ì›í•˜ëŠ” ë‚ ì§œí˜•ì‹ìœ¼ë¡œ ì¶œë ¥í•˜ê¸° ìœ„í•´ fmtíƒœê·¸ ì‚¬ìš© -->
+			ì‘ì„±ì¼ì :
 			<fmt:formatDate value="${dto.regdate}"
 				pattern="yyyy-MM-dd a HH:mm:ss" />
-			<!-- ³¯Â¥ Çü½Ä => yyyy 4ÀÚ¸®¿¬µµ, MM ¿ù, dd ÀÏ, a ¿ÀÀü/¿ÀÈÄ, HH 24½Ã°£Á¦, hh 12½Ã°£Á¦, mm ºĞ, ss ÃÊ -->
+			<!-- ë‚ ì§œ í˜•ì‹ => yyyy 4ìë¦¬ì—°ë„, MM ì›”, dd ì¼, a ì˜¤ì „/ì˜¤í›„, HH 24ì‹œê°„ì œ, hh 12ì‹œê°„ì œ, mm ë¶„, ss ì´ˆ -->
 		</div>
-		<div>Á¶È¸¼ö : ${dto.viewcnt}</div>
+		<div>ì¡°íšŒìˆ˜ : ${dto.viewcnt}</div>
 		<div>
-			Á¦¸ñ <input name="title" id="title" size="80" value="${dto.title}"
-				placeholder="Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä">
+			ì œëª© <input name="title" id="title" size="80" value="${dto.title}"
+				placeholder="ì œëª©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”">
 		</div>
 		<div>
-			³»¿ë
+			ë‚´ìš©
 			<textarea name="content" id="content" rows="4" cols="80"
-				placeholder="³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä">${dto.content}</textarea>
+				placeholder="ë‚´ìš©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”">${dto.content}</textarea>
 		</div>
 		<div>
-			ÀÌ¸§ <input name="writer" id="writer" value="${dto.writer}"
-				placeholder="ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä">
+			ì´ë¦„ <input name="writer" id="writer" value="${dto.writer}"
+				placeholder="ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”">
 		</div>
 		<div style="width: 650px; text-align: center;">
-			<!-- °Ô½Ã¹°¹øÈ£¸¦ hiddenÀ¸·Î Ã³¸® -->
+			<!-- ê²Œì‹œë¬¼ë²ˆí˜¸ë¥¼ hiddenìœ¼ë¡œ ì²˜ë¦¬ -->
 			<input type="hidden" name="bno" value="${dto.bno}">
-			<button type="button" id="btnUpdete">¼öÁ¤</button>
-			<button type="button" id="btnDelete">»èÁ¦</button>
+			<button type="button" id="btnUpdete">ìˆ˜ì •</button>
+			<button type="button" id="btnDelete">ì‚­ì œ</button>
 		</div>
 	</form>
 

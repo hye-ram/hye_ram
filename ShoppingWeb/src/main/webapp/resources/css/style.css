@@ -48,6 +48,10 @@ body {
 	list-style: none;
     display: flex;
 }
+.top-set-li-id{
+	color:white;
+	font-size:18px;
+}
 .top-set-li{ /* a */
 	color:white;
 	margin-left: 10px;

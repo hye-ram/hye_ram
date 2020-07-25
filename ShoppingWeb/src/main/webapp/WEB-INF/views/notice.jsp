@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +16,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>�α���  - Hye-Ram</title>
+  <title>로그인  - Hye-Ram</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
@@ -29,6 +32,21 @@
   <link href="resources/css/responsive.css" rel="stylesheet" />
   
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+  
+  <script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="resources/js/bootstrap.js"></script>
+  <script type="text/javascript" src="resources/js/custom.js"></script>
+  
+  <script>
+    $(document).ready(function(){
+        $("#btnWrite").click(function(){
+            // ���댁� 二쇱�� 蹂�寃�(�대��)
+            location.href = "write";
+        });
+    });
+</script>
+
 </head>
 
 <body class="sub_page">
@@ -37,7 +55,7 @@
     <div class="brand_box" style="background-image: url('resources/images/sub-top.jpg');">
       <a class="navbar-brand" href="home">
         <span>
-          Hye-Ram
+         	공지사항 - Hye-Ram
         </span>
       </a>
       <div class="icon-set">
@@ -92,14 +110,14 @@
 
   <!-- end nav section -->
 	
-<h2>�Խñ� ���</h2>
-<button type="button" id="btnWrite">�۾���</button>
+<h2>게시글 목록</h2>
+<button type="button" id="btnWrite">글쓰기</button>
 <table border="1" width="600px">
     <tr>
-        <th>��   ȣ</th>
-        <th>��   ��</th>
-        <th>�� �� ��</th>
-        <th>�� �� ��</th>
+        <th>번   호</th>
+        <th>제       목</th>
+        <th>글 쓴 이</th>
+        <th>작 성 일</th>
     </tr>
     <c:forEach var="row" items="${list}">
     <tr>
