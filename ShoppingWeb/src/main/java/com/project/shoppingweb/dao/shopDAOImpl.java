@@ -49,6 +49,9 @@ public class shopDAOImpl implements shopDAO {
 		System.out.println("ȸ������");
 		sqlSession.insert("memberMapper.signUp", dto);
 	}
+	
+	
+	
 	// 01. �Խñ� �ۼ�
 	@Override
 	public void create(shopDTO dto) throws Exception {
@@ -71,12 +74,9 @@ public class shopDAOImpl implements shopDAO {
 	}
 	// 05. �Խñ� ��ü ���
 	@Override
-	public List<shopDTO> listAll() {
+	public List<shopDTO> listAll(String boardId) {
 		// TODO Auto-generated method stub
-		 return sqlSession.selectList("board.listAll");
-
-	
-		 
+		 return sqlSession.selectList("board.listAll", boardId);
 	}
 
 }

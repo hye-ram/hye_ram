@@ -1,7 +1,5 @@
 package com.project.shoppingweb.bean;
 
-import java.sql.Date;
-
 public class shopDTO {
 	private String userId;
 	private String userPw;
@@ -15,13 +13,15 @@ public class shopDTO {
 	private String userCell03;
 	private String userEmail;
 	
-	private int bno; //±Û ¹øÈ£
-	private String title; // ±Û Á¦¸ñ
-	private String content; // ±Û ³»¿ë
-	private String writer; // ±Û¾´ÀÌ
-	private String regdate; // ±Û¾´ ³¯Â¥
+	private int bno; //ï¿½ï¿½ ï¿½ï¿½È£
+	private String title; // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private String content; // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private String writer; // ï¿½Û¾ï¿½ï¿½ï¿½
+	private String regdate; // ï¿½Û¾ï¿½ ï¿½ï¿½Â¥
 
-	private int viewcnt; // Á¶È¸¼ö
+
+	private String boardId;
+
 
 	/*
 	 * @Override public String toString() { return "LoginVO [userId=" + userID +
@@ -147,12 +147,11 @@ public class shopDTO {
 		this.regdate = regdate;
 	}
 
-	public int getViewcnt() {
-		return viewcnt;
+	public String getBboardId() {
+		return boardId;
 	}
-
-	public void setViewcnt(int viewcnt) {
-		this.viewcnt = viewcnt;
+	public void setBboardId(String boardId) {
+		this.boardId = boardId;
 	}
 
 	// toString()

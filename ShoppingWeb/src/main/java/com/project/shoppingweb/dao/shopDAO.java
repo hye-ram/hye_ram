@@ -4,9 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.session.SqlSession;
-import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Repository;
 import com.project.shoppingweb.bean.*;
 
@@ -34,7 +32,7 @@ public interface shopDAO {
 	// 04. �Խñ� ����
 	public void delete(int bno) throws Exception;
 	// 05. �Խñ� ��ü ���
-	public List<shopDTO> listAll();
+	public List<shopDTO> listAll(String boardId);
 	// 06. �Խñ� ��ȸ
 	
 }

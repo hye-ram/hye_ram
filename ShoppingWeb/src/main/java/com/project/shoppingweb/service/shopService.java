@@ -2,7 +2,6 @@ package com.project.shoppingweb.service;
 
 import java.util.List;
 import javax.servlet.http.HttpSession;
-import com.project.shoppingweb.dao.*;
 import com.project.shoppingweb.bean.*;
 
 public interface shopService {
@@ -29,7 +28,7 @@ public interface shopService {
 	// 04. �Խñ� ����
 	public void delete(int bno) throws Exception;
 	// 05. �Խñ� ��ü ���
-	public List<shopDTO> listAll();
+	public List<shopDTO> listAll(String boardId);
 	// 06. �Խñ� ��ȸ
 
 	

@@ -1,9 +1,7 @@
 package com.project.shoppingweb.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.inject.Inject;
@@ -35,21 +33,6 @@ public class IndexController {
 
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 *//*
-		 * @RequestMapping("/") public String home(Locale locale, Model model) {
-		 * logger.info("Welcome home! The client locale is {}.", locale);
-		 * 
-		 * Date date = new Date(); DateFormat dateFormat =
-		 * DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		 * 
-		 * String formattedDate = dateFormat.format(date);
-		 * 
-		 * model.addAttribute("serverTime", formattedDate );
-		 * 
-		 * return "home"; }
-		 */
 	
 	//Ȩ������
 	@RequestMapping({ "/", "/home" })
@@ -63,19 +46,23 @@ public class IndexController {
 		return "clothes";
 	}
 	
-	//����Խ���
-	@RequestMapping("review")
-	public String review() {
-		return "review";
-	}
-	
+	/*
+	 * //����Խ���
+	 * 
+	 * @RequestMapping("review") public String review() { return "review"; }
+	 */
 	//��������
-	@RequestMapping("notice")
-	public ModelAndView list() throws Exception{
-        List<shopDTO> list = shopService.listAll();
+	@RequestMapping(value="goBoard", method = RequestMethod.GET, produces = "application/text; charset=utf8")
+	@ResponseBody
+	public ModelAndView list(HttpServletRequest request) throws Exception{
+		String boardId = request.getParameter("boardId");
+		System.out.println(boardId);
+        List<shopDTO> list = shopService.listAll(boardId);
+        System.out.println(" 뒤" + boardId);
         // ModelAndView - 모델�? �?
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("notice"); 
+        mav.setViewName(boardId); 
+        System.out.println("md웅앵 뒤" + boardId);
         mav.addObject("list", list); // ?��?��?���? ???��
         return mav; // list.jsp�? List�? ?��?��?��?��.
     }
@@ -145,7 +132,7 @@ public class IndexController {
 	public ModelAndView loginCheck(@ModelAttribute shopDTO dto, HttpSession session) {
 		boolean result = shopService.loginCheck(dto, session);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("login");
+		mav.setViewName("home");
 		if(result) {
 			mav.addObject("msg","성공");
 		}else {
@@ -156,10 +143,9 @@ public class IndexController {
 	//�α׾ƿ� ó��
 	@RequestMapping("logout")
 	public ModelAndView logout(HttpSession session) {
-	
 		shopService.logout(session);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("login");
+		mav.setViewName("home");
 		mav.addObject("msg", "logout");
 		return mav;
 	}
@@ -185,11 +171,17 @@ public class IndexController {
 		int result=shopService.idCheck(userId); 
 		return Integer.toString(result);	
 	}
+
+		
+	//�Ƿ� ī�װ� ȭ��
+	@RequestMapping("mypage")
+	public String outer() {
+		return "mypage";
+	}	
 	
-	
-	 @RequestMapping("list")
+	@RequestMapping("memInfo")
 	    public String listAll(Model model) {
-	        List<shopDTO> list = shopService.listAll();
+	        List<shopDTO> list = shopService.listAll(null);
 	       model.addAttribute("list",list);
 	        return "member_list";
 	    }
