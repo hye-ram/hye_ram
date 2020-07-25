@@ -5,6 +5,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib prefix="c1" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 
@@ -87,9 +88,10 @@
 
 		<!-- end header section -->
 
+		</div>
+
 		<!-- slider section -->
 		<section class=" slider_section position-relative">
-
 			<div id="carouselExampleControls" class="carousel slide "
 				data-ride="carousel">
 				<div class="carousel-inner">
@@ -114,13 +116,10 @@
 				</a> <a class="carousel-control-next" href="#carouselExampleControls"
 					role="button" data-slide="next"> <span class="sr-only">Next</span>
 				</a>
-
-			</div>
-		</section>
+	
 		<!-- end slider section -->
-	</div>
-
-	<!-- nav section -->
+		</div>
+		<!-- nav section -->
 
 	<section class="nav_section">
 		<div class="container">
@@ -159,9 +158,8 @@
 	</section>
 
 	<!-- end nav section -->
-
+				
 	<!-- shop section -->
-
 	<section class="shop_section layout_padding">
 		<div class="container">
 			<div class="box">
@@ -180,10 +178,10 @@
 		</div>
 	</section>
 
+
 	<!-- end shop section -->
-
 	<!-- about section -->
-
+	
 	<section class="about_section">
 		<div class="container-fluid">
 			<div class="row">
@@ -207,9 +205,8 @@
 			</div>
 		</div>
 	</section>
-
 	<!-- end about section -->
-
+	
 	<!-- fruit section -->
 
 	<section class="fruit_section layout_padding">
@@ -354,9 +351,6 @@
 	</section>
 
 	<!-- end client section -->
-
-
-
 
 	<tr>
 		<td><jsp:include page="bottom.jsp" flush="false" /></td>
