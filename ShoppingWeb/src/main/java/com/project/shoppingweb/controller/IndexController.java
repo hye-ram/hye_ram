@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -52,75 +51,75 @@ public class IndexController {
 		 * return "home"; }
 		 */
 	
-	//È¨ÆäÀÌÁö
+	//È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping({ "/", "/home" })
 	public String home() {
 		return "home";
 	}
 	
-	//¿Ê Ä«Å×°í¸®
+	//ï¿½ï¿½ Ä«ï¿½×°ï¿½
 	@RequestMapping("clothes")
 	public String clothes() {
 		return "clothes";
 	}
 	
-	//¸®ºä°Ô½ÃÆÇ
+	//ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½
 	@RequestMapping("review")
 	public String review() {
 		return "review";
 	}
 	
-	//°øÁö»çÇ×
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("notice")
 	public ModelAndView list() throws Exception{
         List<shopDTO> list = shopService.listAll();
-        // ModelAndView - ëª¨ë¸ê³? ë·?
+        // ModelAndView - ëª¨ë¸ï¿½? ï¿½?
         ModelAndView mav = new ModelAndView();
         mav.setViewName("notice"); 
-        mav.addObject("list", list); // ?°?´?„°ë¥? ???¥
-        return mav; // list.jspë¡? Listê°? ? „?‹¬?œ?‹¤.
+        mav.addObject("list", list); // ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ï¿½? ???ï¿½ï¿½
+        return mav; // list.jspï¿½? Listï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½.
     }
-	// 02_01. ê²Œì‹œê¸? ?‘?„±?™”ë©?
+	// 02_01. ê²Œì‹œï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ï¿½?
     // @RequestMapping("board/write.do")
-    // value="", method="? „?†¡ë°©ì‹"
+    // value="", method="?ï¿½ï¿½?ï¿½ï¿½ë°©ì‹"
     @RequestMapping(value="write", method=RequestMethod.GET)
     public String write(){
-        return "write"; // write.jspë¡? ?´?™
+        return "write"; // write.jspï¿½? ?ï¿½ï¿½?ï¿½ï¿½
     }
     
-    // 02_02. ê²Œì‹œê¸? ?‘?„±ì²˜ë¦¬
+    // 02_02. ê²Œì‹œï¿½? ?ï¿½ï¿½?ï¿½ï¿½ì²˜ë¦¬
     @RequestMapping(value="insert", method=RequestMethod.POST)
     public String insert(@ModelAttribute shopDTO vo) throws Exception{
         shopService.create(vo);
         return "redirect:notice";
     }
     
-    // 03. ê²Œì‹œê¸? ?ƒ?„¸?‚´?š© ì¡°íšŒ, ê²Œì‹œê¸? ì¡°íšŒ?ˆ˜ ì¦ê? ì²˜ë¦¬
-    // @RequestParam : get/postë°©ì‹?œ¼ë¡? ? „?‹¬?œ ë³??ˆ˜ 1ê°?
-    // HttpSession ?„¸?…˜ê°ì²´
+    // 03. ê²Œì‹œï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ì¡°íšŒ, ê²Œì‹œï¿½? ì¡°íšŒ?ï¿½ï¿½ ì¦ï¿½? ì²˜ë¦¬
+    // @RequestParam : get/postë°©ì‹?ï¿½ï¿½ï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ï¿½??ï¿½ï¿½ 1ï¿½?
+    // HttpSession ?ï¿½ï¿½?ï¿½ï¿½ê°ì²´
     @RequestMapping(value="view", method=RequestMethod.GET)
     public ModelAndView view(@RequestParam int bno, HttpSession session) throws Exception{
-        // ì¡°íšŒ?ˆ˜ ì¦ê? ì²˜ë¦¬
+        // ì¡°íšŒ?ï¿½ï¿½ ì¦ï¿½? ì²˜ë¦¬
 		/*
-		 * shopService.increaseViewcnt(bno, session); // ëª¨ë¸(?°?´?„°)+ë·?(?™”ë©?)ë¥? ?•¨ê»? ? „?‹¬?•˜?Š” ê°ì²´
+		 * shopService.increaseViewcnt(bno, session); // ëª¨ë¸(?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½)+ï¿½?(?ï¿½ï¿½ï¿½?)ï¿½? ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ê°ì²´
 		 */       
     	ModelAndView mav = new ModelAndView();
-        // ë·°ì˜ ?´ë¦?
+        // ë·°ì˜ ?ï¿½ï¿½ï¿½?
         mav.setViewName("view");
-        // ë·°ì— ? „?‹¬?•  ?°?´?„°
+        // ë·°ì— ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½
         mav.addObject("dto", shopService.read(bno));
         return mav;
     }
     
-    // 04. ê²Œì‹œê¸? ?ˆ˜? •
-    // ?¼?—?„œ ?…? ¥?•œ ?‚´?š©?“¤?? @ModelAttribute BoardVO voë¡? ? „?‹¬?¨
+    // 04. ê²Œì‹œï¿½? ?ï¿½ï¿½?ï¿½ï¿½
+    // ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?? @ModelAttribute BoardVO voï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½
     @RequestMapping(value="update", method=RequestMethod.POST)
     public String update(@ModelAttribute shopDTO vo) throws Exception{
         shopService.update(vo);
         return "redirect:notice";
     }
     
-    // 05. ê²Œì‹œê¸? ?‚­? œ
+    // 05. ê²Œì‹œï¿½? ?ï¿½ï¿½?ï¿½ï¿½
     @RequestMapping("delete")
     public String delete(@RequestParam int bno) throws Exception{
         shopService.delete(bno);
@@ -129,32 +128,32 @@ public class IndexController {
     
 	
 	
-	//Àå¹Ù±¸´Ï È­¸é
+	//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ È­ï¿½ï¿½
 	@RequestMapping("cart")
 	public String cart() {
 		return "cart";
 	}
 	
-	//·Î±×ÀÎ È­¸é
+	//ï¿½Î±ï¿½ï¿½ï¿½ È­ï¿½ï¿½
 	@RequestMapping("login")
 	public String login() {
 		return "login";
 	}
 	
-	//·Î±×ÀÎ Ã³¸®
+	//ï¿½Î±ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	@RequestMapping(value = "/loginCheck")
 	public ModelAndView loginCheck(@ModelAttribute shopDTO dto, HttpSession session) {
 		boolean result = shopService.loginCheck(dto, session);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("login");
 		if(result) {
-			mav.addObject("msg","¼º°ø");
+			mav.addObject("msg","ì„±ê³µ");
 		}else {
-			mav.addObject("msg","½ÇÆĞ");
+			mav.addObject("msg","ì‹¤íŒ¨");
 		}
 		return mav;
 	}
-	//·Î±×¾Æ¿ô Ã³¸®
+	//ï¿½Î±×¾Æ¿ï¿½ Ã³ï¿½ï¿½
 	@RequestMapping("logout")
 	public ModelAndView logout(HttpSession session) {
 	
@@ -165,53 +164,26 @@ public class IndexController {
 		return mav;
 	}
 	
-	//È¸¿ø°¡ÀÔ È­¸é
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½
 	@RequestMapping("join")
 	public String join(){
 		return "join";
 	}
 	
-	//È¸¿ø°¡ÀÔ ½ÇÇà
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("goJoin")
 	public String goJoin(shopDTO dto) {
 		shopService.signUp(dto);
 		return "login";
 	}
 	
-	//produces´Â ajax »ç¿ë½Ã ±úÁü ¹æÁö
+	//producesï¿½ï¿½ ajax ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value="idCheck", method = RequestMethod.GET, produces = "application/text; charset=utf8")
 	@ResponseBody
 	public String idCheck(HttpServletRequest request) {
 		String userId = request.getParameter("userId");
 		int result=shopService.idCheck(userId); 
 		return Integer.toString(result);	
-	}
-		
-	
-	//ÀÇ·ù Ä«Å×°í¸® È­¸é
-	@RequestMapping("outer")
-	public String outer() {
-		return "outer";
-	}
-	@RequestMapping("blouseshirts")
-	public String blouseshirts() {
-		return "blouseshirts";
-	}
-	@RequestMapping("top")
-	public String top() {
-		return "top";
-	}
-	@RequestMapping("bottom")
-	public String bottom() {
-		return "bottom";
-	}
-	@RequestMapping("dress")
-	public String dress() {
-		return "dress";
-	}
-	@RequestMapping("acc")
-	public String acc() {
-		return "acc";
 	}
 	
 	

@@ -15,53 +15,53 @@ public class shopServiceImpl implements shopService {
 	@Inject
 	shopDAO shopDao;
 
-	// 01. È¸¿ø ·Î±×ÀÎ Ã¼Å©
+	// 01. È¸ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ Ã¼Å©
 	@Override
 	public boolean loginCheck(shopDTO dto, HttpSession session) {
 		// TODO Auto-generated method stub
 
 		boolean result = shopDao.loginCheck(dto);
-		if (result == true) { // true ÀÏ°æ¿ì ¼¼¼Ç µî·Ï
-			// ¼¼¼Ç º¯¼ö µî·Ï
+		if (result == true) { // true ï¿½Ï°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			session.setAttribute("userId", dto.getUserId());
 		}
 		return result;
 	}
 
-	// 02. È¸¿ø ·Î±×ÀÎ Á¤º¸
+	// 02. È¸ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public List<shopDTO> viewMember() throws Exception {
 		return shopDao.listAll();
 	}
 
-	// 03. È¸¿ø ·Î±×¾Æ¿ô
+	// 03. È¸ï¿½ï¿½ ï¿½Î±×¾Æ¿ï¿½
 	@Override
 	public void logout(HttpSession session) {
 		// TODO Auto-generated method stub
 		shopDao.logout(session);
 	}
 
-	// 01. °¡ÀÔ ¾ÆÀÌµğ Áßº¹ Ã¼Å©
+	// 01. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ßºï¿½ Ã¼Å©
 	@Override
 	public int idCheck(String userId) {
 		int result = shopDao.idCheck(userId);
 		return result;
 	}
 
-	// 02. °¡ÀÔ
+	// 02. ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public void signUp(shopDTO dto) {
 		shopDao.signUp(dto);
 	}
 
-	// 01. °Ô½Ã±Û ÀÛ¼º
+	// 01. ï¿½Ô½Ã±ï¿½ ï¿½Û¼ï¿½
 	@Override
 	public void create(shopDTO vo) throws Exception {
 		String title = vo.getTitle();
 		String content = vo.getContent();
 		String writer = vo.getWriter();
-		// *?ƒœê·¸ë¬¸? ì²˜ë¦¬ (< ==> &lt; > ==> &gt;)
-		// replace(A, B) Aë¥? Bë¡? ë³?ê²?
+		// *?ï¿½ï¿½ê·¸ë¬¸?ï¿½ï¿½ ì²˜ë¦¬ (< ==> &lt; > ==> &gt;)
+		// replace(A, B) Aï¿½? Bï¿½? ï¿½?ï¿½?
 		title = title.replace("<", "&lt;");
 		title = title.replace("<", "&gt;");
 		writer = writer.replace("<", "&lt;");
@@ -69,7 +69,7 @@ public class shopServiceImpl implements shopService {
 		// *ê³µë°±ë¬¸ì ì²˜ë¦¬
 		title = title.replace("  ", "&nbsp;&nbsp;");
 		writer = writer.replace("  ", "&nbsp;&nbsp;");
-		// *ì¤„ë°”ê¿? ë¬¸ìì²˜ë¦¬
+		// *ì¤„ë°”ï¿½? ë¬¸ìì²˜ë¦¬
 		content = content.replace("\n", "<br>");
 		vo.setTitle(title);
 		vo.setContent(content);
@@ -77,34 +77,30 @@ public class shopServiceImpl implements shopService {
 		shopDao.create(vo);
 	}
 
-	// 02. °Ô½Ã±Û »ó¼¼º¸±â
+	// 02. ï¿½Ô½Ã±ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½
 	@Override
 	public shopDTO read(int bno) throws Exception {
 		return shopDao.read(bno);
 	}
 
-	// 03. °Ô½Ã±Û ¼öÁ¤
+	// 03. ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public void update(shopDTO vo) throws Exception {
 		shopDao.update(vo);
 	}
 
-	// 04. °Ô½Ã±Û »èÁ¦
+	// 04. ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public void delete(int bno) throws Exception {
 		shopDao.delete(bno);
 	}
 
-	// 05. °Ô½Ã±Û ÀüÃ¼ ¸ñ·Ï
+	// 05. ï¿½Ô½Ã±ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½
 	@Override
 	public List<shopDTO> listAll() {
 		return shopDao.listAll();
 	}
 
-	@Override
-	public void increaseViewcnt(int bno, HttpSession session) throws Exception {
-		// TODO Auto-generated method stub
 
-	}
 
 }

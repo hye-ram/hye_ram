@@ -18,70 +18,67 @@ public class shopDAOImpl implements shopDAO {
 	private SqlSession sqlSession;
 	
 	
-	// 01. ·Î±×ÀÎ Ã¼Å©
+	// 01. ï¿½Î±ï¿½ï¿½ï¿½ Ã¼Å©
 	@Override
 	public boolean loginCheck(shopDTO dto) {
 		String name = sqlSession.selectOne("memberMapper.loginCheck",dto);
-		// °Ë»öÀÌ ¾ÈµÇ¸é 0À» ¹ÝÈ¯ÇØÁÖ±â ¶§¹®¿¡ 0°ú ºñ±³ÇØ¼­ ÂüÀÌ¸é false, Æ²¸®¸é true¸¦ ¹ÝÈ¯
+		// ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ÈµÇ¸ï¿½ 0ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ false, Æ²ï¿½ï¿½ï¿½ï¿½ trueï¿½ï¿½ ï¿½ï¿½È¯
 		return (Integer.parseInt(name)==0)?false:true;
 	}
-	// 02. È¸¿ø ·Î±×ÀÎ Á¤º¸
+	// 02. È¸ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public List<shopDTO> viewMember() throws Exception {
 		return sqlSession.selectList("testMapper.listAll");
     }
-	// 03. È¸¿ø ·Î±×¾Æ¿ô
+	// 03. È¸ï¿½ï¿½ ï¿½Î±×¾Æ¿ï¿½
 	@Override
 	public void logout(HttpSession session) {
 		session.invalidate();
 	}
 	
 	
-	// 01. °¡ÀÔ ¾ÆÀÌµð Áßº¹ Ã¼Å©
+	// 01. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ßºï¿½ Ã¼Å©
 	@Override
 	public int idCheck(String userId) {
 		int result = sqlSession.selectOne("memberMapper.idCheck", userId);
 		return result;
 	}
-	// 02. °¡ÀÔ
+	// 02. ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public void signUp(shopDTO dto) {
-		System.out.println("È¸¿ø°¡ÀÔ");
+		System.out.println("È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		sqlSession.insert("memberMapper.signUp", dto);
 	}
-	// 01. °Ô½Ã±Û ÀÛ¼º
+	// 01. ï¿½Ô½Ã±ï¿½ ï¿½Û¼ï¿½
 	@Override
 	public void create(shopDTO dto) throws Exception {
 		sqlSession.insert("board.insert", dto);
 	}
-	// 02. °Ô½Ã±Û »ó¼¼º¸±â
+	// 02. ï¿½Ô½Ã±ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½
 	@Override
 	public shopDTO read(int bno) throws Exception {
 		 return sqlSession.selectOne("board.view", bno);
 	}
-	// 03. °Ô½Ã±Û ¼öÁ¤
+	// 03. ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public void update(shopDTO dto) throws Exception {
 		sqlSession.update("board.updateArticle", dto);
 	}
-	// 04. °Ô½Ã±Û »èÁ¦
+	// 04. ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public void delete(int bno) throws Exception {
 		sqlSession.delete("board.deleteArticle",bno);
 	}
-	// 05. °Ô½Ã±Û ÀüÃ¼ ¸ñ·Ï
+	// 05. ï¿½Ô½Ã±ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½
 	@Override
 	public List<shopDTO> listAll() {
 		// TODO Auto-generated method stub
 		 return sqlSession.selectList("board.listAll");
-	}
-	// 06. °Ô½Ã±Û Á¶È¸
-	@Override
-	public void increaseViewcnt(int bno, HttpSession session) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
+		 
+	}
+
 }
 
 
