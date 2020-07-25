@@ -4,7 +4,7 @@
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib prefix="c1" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c1" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 
