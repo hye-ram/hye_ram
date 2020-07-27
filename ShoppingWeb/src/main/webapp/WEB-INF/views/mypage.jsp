@@ -123,6 +123,8 @@
 		</div>
 	</form>
 	<br>
+	
+	
 	<a href="secession">회원탈퇴</a>
 	<tr>
 		<td><jsp:include page="bottom.jsp" flush="false" /></td>
