@@ -12,26 +12,36 @@ public class shopDTO {
 	private String userCell02;
 	private String userCell03;
 	private String userEmail;
+<<<<<<< HEAD
 	
+=======
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 
+<<<<<<< HEAD
 
+=======
+	@Override
+	public String toString() {
+		return "shopDTO [userId=" + userId + ", userPw=" + userPw  + ", userName=" + userName + ", userEmail=" + userEmail  + "]";
+	}
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 
-	/*
-	 * @Override public String toString() { return "LoginVO [userId=" + userID +
-	 * ", passwd=" + userPW + "]"; }
-	 */
 	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(String userID) {
-		this.userId = userID;
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
+
 	public String getUserPw() {
 		return userPw;
 	}
-	public void setUserPw(String userPW) {
-		this.userPw = userPW;
+
+	public void setUserPw(String userPw) {
+		this.userPw = userPw;
 	}
+
 	public String getUserPw02() {
 		return userPw02;
 	}
@@ -43,10 +53,11 @@ public class shopDTO {
 	public String getUserName() {
 		return userName;
 	}
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	
+
 	public String getUserAddr01() {
 		return userAddr01;
 	}
@@ -94,11 +105,17 @@ public class shopDTO {
 	public void setUserCell03(String userCell03) {
 		this.userCell03 = userCell03;
 	}
+
 	public String getUserEmail() {
 		return userEmail;
 	}
+
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 }
 

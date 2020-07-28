@@ -20,8 +20,12 @@ public class shopServiceImpl implements shopService {
 		// TODO Auto-generated method stub
 
 		boolean result = shopDao.loginCheck(dto);
+<<<<<<< HEAD
 		if (result == true) { // true �ϰ�� ���� ���
 			// ���� ���� ���
+=======
+		if (result == true) {
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 			session.setAttribute("userId", dto.getUserId());
 		}
 		return result;
@@ -29,8 +33,13 @@ public class shopServiceImpl implements shopService {
 
 	// 02. ȸ�� �α��� ����
 	@Override
+<<<<<<< HEAD
 	public List<shopDTO> viewMember() throws Exception {
 		return shopDao.viewMember();
+=======
+	public List<shopDTO> memInfo(String userId) {
+		return shopDao.memInfo(userId);
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 	}
 
 	// 03. ȸ�� �α׾ƿ�
@@ -53,7 +62,76 @@ public class shopServiceImpl implements shopService {
 		shopDao.signUp(dto);
 	}
 
+<<<<<<< HEAD
+=======
+	// 01. �Խñ� �ۼ�
+	@Override
+	public void create(boardDTO vo) throws Exception {
+		String title = vo.getTitle();
+		String content = vo.getContent();
+		String writer = vo.getWriter();
+		// *?��그문?�� 처리 (< ==> &lt; > ==> &gt;)
+		// replace(A, B) A�? B�? �?�?
+		title = title.replace("<", "&lt;");
+		title = title.replace("<", "&gt;");
+		writer = writer.replace("<", "&lt;");
+		writer = writer.replace("<", "&gt;");
+		// *공백문자 처리
+		title = title.replace("  ", "&nbsp;&nbsp;");
+		writer = writer.replace("  ", "&nbsp;&nbsp;");
+		// *줄바�? 문자처리
+		content = content.replace("\n", "<br>");
+		vo.setTitle(title);
+		vo.setContent(content);
+		vo.setWriter(writer);
+		shopDao.create(vo);
+	}
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 
+<<<<<<< HEAD
+=======
+	// 02. �Խñ� �󼼺���
+	@Override
+	public boardDTO read(int bno) throws Exception {
+		return shopDao.read(bno);
+	}
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 
+<<<<<<< HEAD
+=======
+	// 03. �Խñ� ����
+	@Override
+	public void update(boardDTO vo) throws Exception {
+		shopDao.update(vo);
+	}
 
+	// 04. �Խñ� ����
+	@Override
+	public void delete(int bno) throws Exception {
+		shopDao.delete(bno);
+	}
+
+	// 05. �Խñ� ��ü ���
+	@Override
+	public List<boardDTO> listAll() {
+		return shopDao.listAll();
+	}
+
+	@Override
+	public void increaseViewcnt(int bno, HttpSession session) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
+
+	@Override
+	public int passCheck(shopDTO dto) {
+		int result = shopDao.passCheck(dto);
+		return result;
+	}
+
+	@Override
+	public void secession(shopDTO dto, HttpSession session) {
+		shopDao.secession(dto, session);
+	}
 }

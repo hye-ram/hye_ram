@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="memberMapper">
+<mapper namespace="member">
 	<select id="loginCheck" resultType="String">
 		SELECT count(*) FROM member
 		WHERE id = #{userId} AND pw = #{userPw}
@@ -11,17 +11,32 @@
 		WHERE id = #{userId}
 	</select>
 	<select id="signUp">
-		insert into member(id, pw, name, addr01, addr02, addr03, cell01, cell02, cell03, email)
-		values (#{userId},#{userPw},#{userName}, #{userAddr01} , #{userAddr02}
+		insert into member(id, pw, name, addr01, addr02,
+		addr03, cell01, cell02, cell03, email)
+		values
+		(#{userId},#{userPw},#{userName}, #{userAddr01} , #{userAddr02}
 		,#{userAddr03} ,#{userCell01} ,#{userCell02} ,#{userCell03}
 		,#{userEmail})
 	</select>
-    <select id="viewMember" resultType="com.project.shoppingweb.bean.shopDTO">
-        SELECT 
-           id, pw, name, addr01, addr02, addr03, cell01, cell02, cell03, email
-            <!-- viewcnt  -->
-        FROM 
-            member
-       	WHERE id = #{userId}
-    </select>
+	<select id="memInfo"
+		resultType="com.project.shoppingweb.bean.shopDTO">
+		SELECT
+		id as userId,
+		pw as userPw,
+		name as userName,
+		addr01 as userAddr01,
+		addr02 as userAddr02,
+		addr03 as userAddr03,
+		cell01 as userCell01,
+		cell02 as userCell02,
+		cell03 as userCell03,
+		email as userEmail 
+		FROM member
+		WHERE id = #{userId}
+	</select>
+	<delete id="secession">
+		DELETE FROM member
+		WHERE id=#{userId} and pw=#{userPw}
+	</delete>
+
 </mapper>

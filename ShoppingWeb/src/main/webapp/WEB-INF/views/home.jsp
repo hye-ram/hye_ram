@@ -4,7 +4,6 @@
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@taglib prefix="c1" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -76,7 +75,7 @@
 					<div class="icon-set">
 						<ul class="top-set">
 							<li class="top-set-li-id">${sessionScope.userId}님</li>
-							<li><a class="top-set-li" href="mypage">mypage</a></li>
+							<li><a class="top-set-li" href="${path}/shoppingweb/mypage">mypage</a></li>
 							<li><a class="top-set-li" href="logout">logout</a></li>
 							<li><a class="top-set-li" href="cart"><i
 									class="fas fa-shopping-cart"></i></a></li>
@@ -138,7 +137,7 @@
 								<li class="nav-item active"><a class="nav-link" href="home">Home
 										<span class="sr-only">(current)</span>
 								</a></li>
-								<li class="nav-item"><a class="nav-link" href="clothes">Clothes
+								<li class="nav-item"><a class="nav-link" href="${path}/shoppingweb/product_list">Clothes
 								</a></li>
 								<li class="nav-item"><a class="nav-link" href="review">Review
 								</a></li>

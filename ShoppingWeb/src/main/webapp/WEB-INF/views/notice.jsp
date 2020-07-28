@@ -19,7 +19,11 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 
+<<<<<<< HEAD
 <title>Hye-Ram</title>
+=======
+  <title>공지사항 - Hye-Ram</title>
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 
 <!-- slider stylesheet -->
 <link rel="stylesheet" type="text/css"
@@ -59,9 +63,30 @@
 </head>
 
 <body class="sub_page">
+<<<<<<< HEAD
 	<tr>
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
+=======
+  <div class="hero_area">
+    <!-- header section strats -->
+    <div class="brand_box" style="background-image: url('resources/images/sub-top.jpg');">
+      <a class="navbar-brand" href="home">
+        <span>
+         	Hye-Ram
+        </span>
+      </a>
+      <div class="icon-set">
+	      <ul class="top-set">
+	      	<li><a class="top-set-li" href="login">login</a></li>
+	      	<li><a class="top-set-li" href="join">join</a></li>
+	      	<li><a class="top-set-li" href="cart"><i class="fas fa-shopping-cart"></i></a></li>
+	      </ul>
+      </div>
+    </div>
+    <!-- end header section -->
+  </div>
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 
 	<!-- end nav section -->
 
@@ -82,9 +107,33 @@
 				<td>${row.writer}</td>
 				<td>${row.regdate}</td>
 
+<<<<<<< HEAD
 			</tr>
 		</c:forEach>
 	</table>
+=======
+  <!-- end nav section -->
+	
+<h2>게시글 목록</h2>
+<button type="button" id="btnWrite">글쓰기</button>
+<table border="1" width="600px">
+    <tr>
+        <th>번     호</th>
+        <th>제       목</th>
+        <th>글 쓴 이</th>
+        <th>작 성 일</th>
+    </tr>
+    <c:forEach var="row" items="${list}">
+    <tr>
+        <td>${row.bno}</td>
+        <td><a href="${path}/shoppingweb/view?bno=${row.bno}">${row.title}</a></td>
+        <td>${row.writer}</td>
+        <td>${row.regdate}</td>
+        
+    </tr>    
+    </c:forEach>
+</table>
+>>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 
 </body>
 </html>

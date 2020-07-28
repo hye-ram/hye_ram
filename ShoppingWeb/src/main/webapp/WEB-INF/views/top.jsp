@@ -70,6 +70,7 @@
 					</a>
 					<div class="icon-set">
 						<ul class="top-set">
+							<li class="top-set-li-id">${sessionScope.userId}님</li>
 							<li><a class="top-set-li" href="mypage">mypage</a></li>
 							<li><a class="top-set-li" href="logout">logout</a></li>
 							<li><a class="top-set-li" href="cart"><i

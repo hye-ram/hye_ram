@@ -4,7 +4,6 @@
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@taglib prefix="c1" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 
@@ -53,86 +52,80 @@
 	<tr>
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
-	<c:choose>
-		<c:when test="${empty sessionScope.userId}">
-			<!-- 로그인이 안되어 있으면 -->
-			홈페이지로 이동 시킴
-		</c:when>
-		<c:otherwise>
-		
-			화면실행...
-			본인 회원정보 조회/수정 , 찜, 장바, 주문내역, 리뷰, 문의 조회 가능
-			<form id="modifyFrm" name="modifyFrm" action="goModify">
-				<div class="new">
-					<div class="title">회원가입</div>
-					<table>
-						<tr>
-							<th>아이디</th>
-							<th><input type="text" id="userId" name="userId"
-								class="userId"></th>
-							<th><input type="button" id="check" value="중복체크">
-						</tr>
-						<tr>
-							<td colspan=3 id="idCheck"></td>
-						</tr>
-						<tr>
-							<th>패스워드</th>
-							<th><input type="password" id="userPw" name="userPw"
-								class="userPw"></th>
-						</tr>
-						<tr>
-							<th>패스워드 확인</th>
-							<th><input type="password" id="userPw02" name="userPw02"
-								class="userPw02"></th>
-						</tr>
-						<tr>
-							<th>이름</th>
-							<th><input type="text" id="userName" name="userName"
-								class="userName"></th>
-						</tr>
-						<tr>
-							<th>우편번호</th>
-							<th><input class="form-control"
-								style="width: 40%; display: inline;" placeholder="우편번호"
-								name="userAddr01" id="userAddr01" type="text"
-								readonly="readonly">
-								<button type="button" class="btn btn-default"
-									onclick="execDaumPostCode();">
-									<i class="fa fa-search"></i> 우편번호 찾기
-								</button> <input class="form-control" style="top: 5px;"
-								placeholder="도로명 주소" name="userAddr02" id="userAddr02"
-								type="text" readonly="readonly" /> <input class="form-control"
-								placeholder="상세주소" name="userAddr03" id="userAddr03" type="text" /></th>
-						</tr>
-						<tr>
-							<th>휴대폰 번호</th>
-							<th><select id="userCell01" name="userCell01">
-									<option value="010">010</option>
-									<option value="011">011</option>
-									<option value="016">016</option>
-									<option value="017">017</option>
-									<option value="018">018</option>
-									<option value="019">019</option>
-							</select> - <input type="number" id="userCell02" name="userCell02"
-								style="width: 60px" maxlength="4"
-								oninput="numberMaxLength(this);"> - <input type="number"
-								id="userCell03" name="userCell03" style="width: 60px"
-								maxlength="4" oninput="numberMaxLength(this);"></th>
-						</tr>
-						<tr>
-							<th>이메일</th>
-							<th><input type="text" name="userEmail" id="userEmail"
-								class="userEmail"></th>
-						</tr>
-					</table>
-					<input type="button" id="goJoin" value="회원가입"> <input
-						type="button" id="cancel" value="취소">
-				</div>
-			</form>
 
-		</c:otherwise>
-	</c:choose>
-
+	본인 회원정보 조회/수정 , 찜, 장바, 주문내역, 리뷰, 문의 조회 가능
+	<br>
+	<hr>
+	<form id="upMemFrm" name="upMemFrm" action="updateMem">
+		<div class="new">
+			<div class="title">회원 정보 수정</div>
+			<br>
+			<table>
+				<c:forEach var="row" items="${memInfo}">
+					<tr>
+						<th>아이디</th>
+						<th>${row.userId}</th>
+					</tr>
+					<tr>
+						<th>패스워드</th>
+						<th><input type="password" id="userPw" name="userPw"
+							class="userPw"></th>
+					</tr>
+					<tr>
+						<th>패스워드 확인</th>
+						<th><input type="password" id="userPw02" name="userPw02"
+							class="userPw02"></th>
+					</tr>
+					<tr>
+						<th>이름</th>
+						<th>${row.userName}</th>
+					</tr>
+					<tr>
+						<th>우편번호</th>
+						<th><input class="form-control"
+							style="width: 40%; display: inline;" placeholder="우편번호"
+							name="userAddr01" id="userAddr01" type="text" readonly="readonly"
+							value="${row.userAddr01}">
+							<button type="button" class="btn btn-default"
+								onclick="execDaumPostCode();">
+								<i class="fa fa-search"></i> 우편번호 찾기
+							</button> <input class="form-control" style="top: 5px;"
+							placeholder="도로명 주소" name="userAddr02" id="userAddr02"
+							type="text" readonly="readonly" value="${row.userAddr02}" /> <input
+							class="form-control" placeholder="상세주소" name="userAddr03"
+							id="userAddr03" type="text" value="${row.userAddr03}" /></th>
+					</tr>
+					<tr>
+						<th>휴대폰 번호</th>
+						<th><select id="userCell01" name="userCell01">
+								<option value="010">010</option>
+								<option value="011">011</option>
+								<option value="016">016</option>
+								<option value="017">017</option>
+								<option value="018">018</option>
+								<option value="019">019</option>
+						</select> - <input type="number" id="userCell02" value="${row.userCell02}"
+							name="userCell02" style="width: 60px" maxlength="4"
+							oninput="numberMaxLength(this);"> - <input type="number"
+							id="userCell03" name="userCell03" value="${row.userCell03}"
+							style="width: 60px" maxlength="4"
+							oninput="numberMaxLength(this);"></th>
+					</tr>
+					<tr>
+						<th>이메일</th>
+						<th><input type="text" name="userEmail" id="userEmail"
+							class="userEmail" value="${row.userEmail}"></th>
+					</tr>
+				</c:forEach>
+			</table>
+			<br> <input type="button" id="updateMemer" value="수정하기"> <input
+				type="button" id="cancel" value="취소">
+		</div>
+	</form>
+	<br>
+	
+	
+	<a href="secession">회원탈퇴</a>
 	<tr>
 		<td><jsp:include page="bottom.jsp" flush="false" /></td>
 	</tr>
