@@ -4,7 +4,7 @@
 
 	<!-- 01. 게시글 전체 목록 조회 -->
 	<select id="listAll"
-		resultType="com.project.shoppingweb.bean.shopDTO">
+		resultType="com.project.shoppingweb.bean.boardDTO">
 		SELECT
 		bno,
 		title,
@@ -25,23 +25,23 @@
 		title,
 		content,
 		writer,
-		regdate
+		regdate,
+		fname
 		) VALUES (
 		null,
 		#{title},
 		#{content},
 		#{writer},
-		now()
+		now(),
+		 #{fname}
 		)
 	</insert>
 	<!--03. 게시글 상세보기 조회 -->
 	<select id="view"
-		resultType="com.project.shoppingweb.bean.shopDTO">
+		resultType="com.project.shoppingweb.bean.boardDTO">
 		SELECT * FROM notice
 		WHERE bno = #{bno}
 	</select>
-	<!-- 04. 게시글 조회수 증가처리 <update id="increaseViewcnt"> UPDATE notice SET viewcnt 
-		= viewcnt + 1 WHERE bno = #{bno} </update> -->
 	<!-- 05. 게시글 수정처리 -->
 	<update id="updateArticle">
 		UPDATE notice SET

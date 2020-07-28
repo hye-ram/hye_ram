@@ -33,20 +33,6 @@
   
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
-  
-  <script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="resources/js/bootstrap.js"></script>
-  <script type="text/javascript" src="resources/js/custom.js"></script>
-  
-  <script>
-    $(document).ready(function(){
-        $("#btnWrite").click(function(){
-            // ���댁� 二쇱�� 蹂�寃�(�대��)
-            location.href = "write";
-        });
-    });
-</script>
-
 </head>
 
 <body class="sub_page">
@@ -68,13 +54,25 @@
     <c:forEach var="row" items="${list}">
     <tr>
         <td>${row.bno}</td>
-        <td><a href="${path}/shoppingweb/view?bno=${row.bno}">${row.title} ${path}</a></td>
+        <td><a href="${path}/shoppingweb/re_view?bno=${row.bno}">${row.title}</a></td>
         <td>${row.writer}</td>
         <td>${row.regdate}</td>
         
     </tr>    
     </c:forEach>
 </table>
-
+  
+  <script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="resources/js/bootstrap.js"></script>
+  <script type="text/javascript" src="resources/js/custom.js"></script>
+  
+  <script>
+    $(document).ready(function(){
+        $("#btnWrite").click(function(){
+            // ���댁� 二쇱�� 蹂�寃�(�대��)
+            location.href = "re_write";
+        });
+    });
+</script>
 </body>
 </html>

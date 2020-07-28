@@ -51,40 +51,8 @@ public class shopDAOImpl implements shopDAO {
 	}
 	
 	
-	
-	// 01. �Խñ� �ۼ�
-	@Override
-	public void create(shopDTO dto) throws Exception {
-		sqlSession.insert("board.insert", dto);
-	}
-	// 02. �Խñ� �󼼺���
-	@Override
-	public shopDTO read(int bno) throws Exception {
-		 return sqlSession.selectOne("board.view", bno);
-	}
-	// 03. �Խñ� ����
-	@Override
-	public void update(shopDTO dto) throws Exception {
-		sqlSession.update("board.updateArticle", dto);
-	}
-	// 04. �Խñ� ����
-	@Override
-	public void delete(int bno) throws Exception {
-		sqlSession.delete("board.deleteArticle",bno);
-	}
-	// 05. �Խñ� ��ü ���
-	@Override
-	public List<shopDTO> listAll() {
-		// TODO Auto-generated method stub
-		 return sqlSession.selectList("board.listAll");
-	}
-	// 06. �Խñ� ��ȸ
-	@Override
-	public void increaseViewcnt(int bno, HttpSession session) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-	
+
+
 }
 
 

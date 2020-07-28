@@ -1,14 +1,18 @@
 package com.project.shoppingweb.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -17,7 +21,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -62,70 +65,6 @@ public class IndexController {
 	public String clothes() {
 		return "clothes";
 	}
-	
-	//����Խ���
-	@RequestMapping("review")
-	public String review() {
-		return "review";
-	}
-	
-	//��������
-	@RequestMapping("notice")
-	public ModelAndView list() throws Exception{
-        List<shopDTO> list = shopService.listAll();
-        // ModelAndView - 모델�? �?
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("notice"); 
-        mav.addObject("list", list); // ?��?��?���? ???��
-        return mav; // list.jsp�? List�? ?��?��?��?��.
-    }
-	// 02_01. 게시�? ?��?��?���?
-    // @RequestMapping("board/write.do")
-    // value="", method="?��?��방식"
-    @RequestMapping(value="write", method=RequestMethod.GET)
-    public String write(){
-        return "write"; // write.jsp�? ?��?��
-    }
-    
-    // 02_02. 게시�? ?��?��처리
-    @RequestMapping(value="insert", method=RequestMethod.POST)
-    public String insert(@ModelAttribute shopDTO vo) throws Exception{
-        shopService.create(vo);
-        return "redirect:notice";
-    }
-    
-    // 03. 게시�? ?��?��?��?�� 조회, 게시�? 조회?�� 증�? 처리
-    // @RequestParam : get/post방식?���? ?��?��?�� �??�� 1�?
-    // HttpSession ?��?��객체
-    @RequestMapping(value="view", method=RequestMethod.GET)
-    public ModelAndView view(@RequestParam int bno, HttpSession session) throws Exception{
-        // 조회?�� 증�? 처리
-		/*
-		 * shopService.increaseViewcnt(bno, session); // 모델(?��?��?��)+�?(?���?)�? ?���? ?��?��?��?�� 객체
-		 */       
-    	ModelAndView mav = new ModelAndView();
-        // 뷰의 ?���?
-        mav.setViewName("view");
-        // 뷰에 ?��?��?�� ?��?��?��
-        mav.addObject("dto", shopService.read(bno));
-        return mav;
-    }
-    
-    // 04. 게시�? ?��?��
-    // ?��?��?�� ?��?��?�� ?��?��?��?? @ModelAttribute BoardVO vo�? ?��?��?��
-    @RequestMapping(value="update", method=RequestMethod.POST)
-    public String update(@ModelAttribute shopDTO vo) throws Exception{
-        shopService.update(vo);
-        return "redirect:notice";
-    }
-    
-    // 05. 게시�? ?��?��
-    @RequestMapping("delete")
-    public String delete(@RequestParam int bno) throws Exception{
-        shopService.delete(bno);
-        return "redirect:notice";
-    }
-    
 	
 	
 	//��ٱ��� ȭ��
@@ -193,10 +132,11 @@ public class IndexController {
 	}	
 	
 	@RequestMapping("memInfo")
-	    public String listAll(Model model) {
-	        List<shopDTO> list = shopService.listAll();
+	    public String listAll(Model model) throws Exception {
+	        List<shopDTO> list = shopService.viewMember();
 	       model.addAttribute("list",list);
 	        return "member_list";
 	}
+	
 	
 }

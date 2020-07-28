@@ -2,7 +2,6 @@ package com.project.shoppingweb.service;
 
 import java.util.List;
 import javax.servlet.http.HttpSession;
-import com.project.shoppingweb.dao.*;
 import com.project.shoppingweb.bean.*;
 
 public interface shopService {
@@ -19,18 +18,5 @@ public interface shopService {
 	// 02. ���� 
 	public void signUp(shopDTO dto);
 	
-	
-	// 01. �Խñ� �ۼ�
-	public void create(shopDTO dto) throws Exception;
-	// 02. �Խñ� �󼼺���
-	public shopDTO read(int bno) throws Exception;
-	// 03. �Խñ� ����
-	public void update(shopDTO dto) throws Exception;
-	// 04. �Խñ� ����
-	public void delete(int bno) throws Exception;
-	// 05. �Խñ� ��ü ���
-	public List<shopDTO> listAll();
-	// 06. �Խñ� ��ȸ
-	public void increaseViewcnt(int bno, HttpSession session) throws Exception;
 	
 }
