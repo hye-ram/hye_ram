@@ -33,6 +33,7 @@ public class reviewDAOImpl implements reviewDAO {
 	@Override
 	public void reviewcreate(reviewDTO dto) throws Exception {
 		sqlSession.insert("review.reinsert", dto);
+		System.out.println("dao"+dto);
 	}
 	//리뷰 읽기
 	@Override

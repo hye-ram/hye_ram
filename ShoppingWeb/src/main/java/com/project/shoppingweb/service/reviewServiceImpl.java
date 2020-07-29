@@ -28,17 +28,18 @@ public class reviewServiceImpl implements reviewService{
 	    String title = vo.getTitle();
 	    String editor = vo.getEditor();
 	    String writer = vo.getWriter();
-	    title = title.replace("<", "&lt;");
-	    title = title.replace("<", "&gt;");
-	    writer = writer.replace("<", "&lt;");
-	    writer = writer.replace("<", "&gt;");
-	    title = title.replace("  ",    "&nbsp;&nbsp;");
-	    writer = writer.replace("  ",    "&nbsp;&nbsp;");
-	    editor = editor.replace("\n", "<br>");
+		/*
+		 * title = title.replace("<", "&lt;"); title = title.replace("<", "&gt;");
+		 * writer = writer.replace("<", "&lt;"); writer = writer.replace("<", "&gt;");
+		 * title = title.replace("  ", "&nbsp;&nbsp;"); writer = writer.replace("  ",
+		 * "&nbsp;&nbsp;"); editor = editor.replace("\n", "<br>");
+		 */
+	    System.out.println(editor);
 	    vo.setTitle(title);
 	    vo.setEditor(editor);
 	    vo.setWriter(writer);
 	    reviewDao.reviewcreate(vo);
+	    System.out.println("서비스임플"+vo);
 
 	}
 	//리뷰 보기

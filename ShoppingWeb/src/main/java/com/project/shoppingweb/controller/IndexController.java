@@ -1,6 +1,5 @@
 package com.project.shoppingweb.controller;
 
-<<<<<<< HEAD
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -9,8 +8,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
-=======
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
+
 import javax.servlet.http.HttpServletRequest;
 
 import java.util.HashMap;
@@ -58,83 +56,6 @@ public class IndexController {
 	public String clothes() {
 		return "clothes";
 	}
-<<<<<<< HEAD
-	
-	
-	//��ٱ��� ȭ��
-	@RequestMapping("cart")
-	public String cart() {
-		return "cart";
-=======
-
-	// ����Խ���
-	@RequestMapping("review")
-	public String review() {
-		return "review";
-	}
-
-	// ��������
-	@RequestMapping("notice")
-	public ModelAndView list() throws Exception {
-		List<boardDTO> list = shopService.listAll();
-		// ModelAndView - 모델�? �?
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("notice");
-		mav.addObject("list", list); // ?��?��?���? ???��
-		return mav; // list.jsp�? List�? ?��?��?��?��.
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
-	}
-
-	// 02_01. 게시�? ?��?��?���?
-	// @RequestMapping("board/write.do")
-	// value="", method="?��?��방식"
-	@RequestMapping(value = "write", method = RequestMethod.GET)
-	public String write() {
-		return "write"; // write.jsp�? ?��?��
-	}
-
-	// 02_02. 게시�? ?��?��처리
-	@RequestMapping(value = "insert", method = RequestMethod.POST)
-	public String insert(@ModelAttribute boardDTO vo) throws Exception {
-		shopService.create(vo);
-		return "redirect:notice";
-	}
-
-	// 03. 게시�? ?��?��?��?�� 조회, 게시�? 조회?�� 증�? 처리
-	// @RequestParam : get/post방식?���? ?��?��?�� �??�� 1�?
-	// HttpSession ?��?��객체
-	@RequestMapping(value = "view", method = RequestMethod.GET)
-	public ModelAndView view(@RequestParam int bno, HttpSession session) throws Exception {
-		// 조회?�� 증�? 처리
-		/*
-		 * shopService.increaseViewcnt(bno, session); // 모델(?��?��?��)+�?(?���?)�? ?���?
-		 * ?��?��?��?�� 객체
-		 */
-		ModelAndView mav = new ModelAndView();
-		// 뷰의 ?���?
-		mav.setViewName("view");
-		// 뷰에 ?��?��?�� ?��?��?��
-		mav.addObject("dto", shopService.read(bno));
-		System.out.println(bno);
-		System.out.println(mav);
-		return mav;
-	}
-
-	// 04. 게시�? ?��?��
-	// ?��?��?�� ?��?��?�� ?��?��?��?? @ModelAttribute BoardVO vo�? ?��?��?��
-	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public String update(@ModelAttribute boardDTO vo) throws Exception {
-		shopService.update(vo);
-		return "redirect:notice";
-	}
-
-	// 05. 게시�? ?��?��
-	@RequestMapping("delete")
-	public String delete(@RequestParam int bno) throws Exception {
-		shopService.delete(bno);
-		return "redirect:notice";
-	}
-
 
 	// �α��� ȭ��
 	@RequestMapping("login")
@@ -188,9 +109,7 @@ public class IndexController {
 		String userId = request.getParameter("userId");
 		int result = shopService.idCheck(userId);
 		return Integer.toString(result);
-	}
-<<<<<<< HEAD
-		
+	}	
 	
 	//�Ƿ� ī�װ� ȭ��
 	@RequestMapping("mypage")
@@ -203,8 +122,7 @@ public class IndexController {
 	        List<shopDTO> list = shopService.viewMember();
 	       model.addAttribute("list",list);
 	        return "member_list";
-=======
-
+	}
 	// 회원정보
 	@RequestMapping(value = "mypage", method = RequestMethod.GET)
 	public  ModelAndView mypage(HttpSession session, ModelAndView mav) {
@@ -212,9 +130,7 @@ public class IndexController {
 		if(userId!=null) { 
             //로그인한 상태이면 실행
 			
-			
 			List<shopDTO> list = shopService.memInfo(userId);
-			
             mav.setViewName("mypage"); //이동할 페이지의 이름
             mav.addObject("memInfo", list); //데이터 저장
             return mav; //화면 이동
@@ -222,12 +138,8 @@ public class IndexController {
             return new ModelAndView("login", "", null);
             //로그인을 하지 않았으면 로그인 페이지로 이동시킨다.
         }
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 	}
-	
-	
-<<<<<<< HEAD
-=======
+
 
 	// 회원탈퇴 페이지
 	@RequestMapping(value = "secession")
@@ -249,5 +161,5 @@ public class IndexController {
 		int result = shopService.passCheck(dto);
 		return Integer.toString(result);
 	}
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
+
 }

@@ -12,20 +12,11 @@ public class shopDTO {
 	private String userCell02;
 	private String userCell03;
 	private String userEmail;
-<<<<<<< HEAD
-	
-=======
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 
-<<<<<<< HEAD
-
-=======
 	@Override
 	public String toString() {
 		return "shopDTO [userId=" + userId + ", userPw=" + userPw  + ", userName=" + userName + ", userEmail=" + userEmail  + "]";
 	}
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
-
 	public String getUserId() {
 		return userId;
 	}
@@ -113,9 +104,5 @@ public class shopDTO {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 }
 

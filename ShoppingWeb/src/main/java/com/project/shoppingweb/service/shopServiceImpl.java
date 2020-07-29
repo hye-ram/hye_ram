@@ -20,28 +20,22 @@ public class shopServiceImpl implements shopService {
 		// TODO Auto-generated method stub
 
 		boolean result = shopDao.loginCheck(dto);
-<<<<<<< HEAD
+
 		if (result == true) { // true �ϰ�� ���� ���
-			// ���� ���� ���
-=======
-		if (result == true) {
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
-			session.setAttribute("userId", dto.getUserId());
 		}
-		return result;
+			return result;
+		
 	}
 
 	// 02. ȸ�� �α��� ����
 	@Override
-<<<<<<< HEAD
+
 	public List<shopDTO> viewMember() throws Exception {
 		return shopDao.viewMember();
-=======
+	}
 	public List<shopDTO> memInfo(String userId) {
 		return shopDao.memInfo(userId);
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 	}
-
 	// 03. ȸ�� �α׾ƿ�
 	@Override
 	public void logout(HttpSession session) {
@@ -62,8 +56,6 @@ public class shopServiceImpl implements shopService {
 		shopDao.signUp(dto);
 	}
 
-<<<<<<< HEAD
-=======
 	// 01. �Խñ� �ۼ�
 	@Override
 	public void create(boardDTO vo) throws Exception {
@@ -86,19 +78,13 @@ public class shopServiceImpl implements shopService {
 		vo.setWriter(writer);
 		shopDao.create(vo);
 	}
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 
-<<<<<<< HEAD
-=======
 	// 02. �Խñ� �󼼺���
 	@Override
 	public boardDTO read(int bno) throws Exception {
 		return shopDao.read(bno);
 	}
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 
-<<<<<<< HEAD
-=======
 	// 03. �Խñ� ����
 	@Override
 	public void update(boardDTO vo) throws Exception {
@@ -122,7 +108,6 @@ public class shopServiceImpl implements shopService {
 		// TODO Auto-generated method stub
 
 	}
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 
 	@Override
 	public int passCheck(shopDTO dto) {

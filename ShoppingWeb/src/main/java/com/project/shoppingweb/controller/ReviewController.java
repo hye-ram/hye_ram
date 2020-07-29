@@ -50,6 +50,8 @@ public class ReviewController {
 	    //리뷰게시판 글쓰기
 	    @RequestMapping(value="reinsert", method=RequestMethod.POST)
 	    public String insert(@ModelAttribute reviewDTO vo) throws Exception{
+
+	    	System.out.println("컨트롤러"+vo);
 	    	reviewService.reviewcreate(vo);
 	        return "redirect:review";
 	    }

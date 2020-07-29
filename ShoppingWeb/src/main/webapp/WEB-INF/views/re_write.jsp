@@ -54,6 +54,7 @@
 <script type="text/javascript" src="resources/js/common.js"></script>
 <script type="text/javascript" src="smarteditor2/js/HuskyEZCreator.js"
 	charset="utf-8"></script>
+
 </head>
 
 <body class="sub_page">
@@ -64,8 +65,7 @@
 
 	<h2>리뷰 글 작성</h2>
 
-	<form name="form2" form action="${path}/shoppingweb/reinsert"
-		method="post" enctype="multipart/form-data">
+	<form id="form2" name="form2" action="${path}/shoppingweb/reinsert" method="post">
 		<table border="1" width="100%">
 			<tr>
 				<td bgcolor="orange" width="70">제목</td>
@@ -92,79 +92,67 @@
 	<hr>
 	<a href="review">리뷰 목록 가기</a>
 
+
 	<script type="text/javascript">
-
-
-	var oEditors = [];
-
-	nhn.husky.EZCreator.createInIFrame({
-
-	oAppRef : oEditors,
-
-	elPlaceHolder : "editor",
-
-	//SmartEditor2Skin.html 파일이 존재하는 경로
-
-	sSkinURI : "smarteditor2/SmartEditor2Skin.html",
-
-	htParams : {
-
-	// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-
-	bUseToolbar : true,
-
-	// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-
-	bUseVerticalResizer : false,
-
-	// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-
-	bUseModeChanger : false,
-
-	fOnBeforeUnload : function() {
-
-	}
-
-	},
-
-	fOnAppLoad : function() {
-
-	//기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-
-	oEditors.getById["editor"].exec("PASTE_HTML", [ ]);
-
-	},
-
-	fCreator : "createSEditor2"
-
-	});
-
 	
-	$(function() {
-			$("#btnSave").click(function() {
-				//var title = document.form1.title.value; ==> name속성으로 처리할 경우
-				//var content = document.form1.content.value;
-				//var writer = document.form1.writer.value;
-				var title = $("#title").val();
-				var editor = oEditors.getById["editor"].exec("UPDATE_EDITOR_FIELD", []);
-				var writer = $("#writer").val();
-				if (title == "") {
-					alert("제목을 입력하세요");
-					document.form1.title.focus();
-					return;
-				}
-				if (writer == "") {
-					alert("이름을 입력하세요");
-					document.form1.writer.focus();
-					return;
-				}
-				
-				//id가 smarteditor인 textarea에 에디터에서 대입
+		var oEditors = [];
+		$(function() {
+		nhn.husky.EZCreator.createInIFrame({
+			oAppRef : oEditors,
+			elPlaceHolder : "editor",
 
-				// 폼에 입력한 데이터를 서버로 전송
-				document.form2.submit();
-			});
-			
+			//SmartEditor2Skin.html 파일이 존재하는 경로
+			sSkinURI : "smarteditor2/SmartEditor2Skin.html",
+			htParams : {
+				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+				bUseToolbar : true,
+				// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+				bUseVerticalResizer : false,
+				// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+				bUseModeChanger : false,
+				fOnBeforeUnload : function() {
+				}
+			},
+			fOnAppLoad : function() {
+				//기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
+				oEditors.getById["editor"].exec("PASTE_HTML", []);
+			},
+			fCreator : "createSEditor2"
+		});
+			$("#btnSave").click(function() {
+						//var title = document.form1.title.value; ==> name속성으로 처리할 경우
+						//var content = document.form1.content.value;
+						//var writer = document.form1.writer.value;
+						//var title = $("#title").val();
+						oEditors.getById["editor"].exec("UPDATE_EDITOR_FIELD",
+								[]);
+						//var writer = $("#writer").val();
+						/* if (title == "") {
+							alert("제목을 입력하세요");
+							document.form2.title.focus();
+							return;
+						}
+						if (writer == "") {
+							alert("이름을 입력하세요");
+							document.form2.writer.focus();
+							return;
+						} */
+
+						var ir1 = $("#editor").val();
+alert($("#editor").val());
+						if (ir1 == "" || ir1 == null || ir1 == '&nbsp;'
+								|| ir1 == '<p>&nbsp;</p>') {
+							alert("내용을 입력하세요.");
+							oEditors.getById["editor"].exec("FOCUS"); //포커싱
+							return;
+						}
+						//id가 smarteditor인 textarea에 에디터에서 대입
+
+						// 폼에 입력한 데이터를 서버로 전송
+
+						$("#form2").submit();
+
+					});
 
 		});
 	</script>

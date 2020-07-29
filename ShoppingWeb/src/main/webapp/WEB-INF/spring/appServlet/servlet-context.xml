@@ -30,7 +30,7 @@ http://www.springframework.org/schema/tx
 	<resources mapping="/images/**" location="/resources/images/" />
 	<resources mapping="/js/**" location="/resources/js/" />
 	<resources location="file:///D:/upload/" mapping="/images/**"></resources>
-	<resources mapping="/smarteditor2/**" location="/smarteditor2/" /> 
+
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
@@ -45,18 +45,6 @@ http://www.springframework.org/schema/tx
 	<context:component-scan
 		base-package="com.project.shoppingweb" />
 
-<<<<<<< HEAD
-	<!-- 파일 업로드 설정 -->
-	<beans:bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!-- 파일 사이즈 설정 가능 byte 단위 <property name="maxUploadSize" value="100000" 
-			/> -->
-	</beans:bean>
-
-
-
-</beans:beans>
-=======
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="maxUploadSize" value="10485760" />
@@ -66,4 +54,4 @@ http://www.springframework.org/schema/tx
 	</beans:bean>
 
 </beans:beans>
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
+
