@@ -53,7 +53,6 @@
 	<button type="button" id="btnAdd">상품등록</button>
 	<table border="1" width="500px">
 		<tr>
-			<th>상품ID</th>
 			<th>상품사진</th>
 			<th>상품명</th>
 			<th>가격</th>
@@ -62,7 +61,6 @@
 		</tr>
 		<c:forEach var="row" items="${list}">
 			<tr align="center">
-				<td>${row.product_id}</td>
 				<td><img src="resources/images/${row.picture_url}" width="100"
 					height="100"></td>
 				<td>${row.product_name }</td>

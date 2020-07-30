@@ -59,17 +59,6 @@ public class shopServiceImpl implements shopService {
 		String title = vo.getTitle();
 		String content = vo.getContent();
 		String writer = vo.getWriter();
-		// *?��그문?�� 처리 (< ==> &lt; > ==> &gt;)
-		// replace(A, B) A�? B�? �?�?
-		title = title.replace("<", "&lt;");
-		title = title.replace("<", "&gt;");
-		writer = writer.replace("<", "&lt;");
-		writer = writer.replace("<", "&gt;");
-		// *공백문자 처리
-		title = title.replace("  ", "&nbsp;&nbsp;");
-		writer = writer.replace("  ", "&nbsp;&nbsp;");
-		// *줄바�? 문자처리
-		content = content.replace("\n", "<br>");
 		vo.setTitle(title);
 		vo.setContent(content);
 		vo.setWriter(writer);

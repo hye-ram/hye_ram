@@ -75,8 +75,13 @@ public class IndexController {
 
 	// 02_02. 게시�? ?��?��처리
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
-	public String insert(@ModelAttribute boardDTO vo) throws Exception {
-		shopService.create(vo);
+	public String insert(HttpServletRequest request, boardDTO dto) throws Exception {
+		dto.setTitle(request.getParameter("title"));
+		dto.setContent(request.getParameter("ir1"));
+		dto.setWriter(request.getParameter("writer"));
+		
+		 shopService.create(dto);
+		 
 		return "redirect:notice";
 	}
 

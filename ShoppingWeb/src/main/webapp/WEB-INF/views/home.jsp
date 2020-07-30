@@ -137,7 +137,7 @@
 								<li class="nav-item active"><a class="nav-link" href="home">Home
 										<span class="sr-only">(current)</span>
 								</a></li>
-								<li class="nav-item"><a class="nav-link" href="${path}/shoppingweb/product_list">Clothes
+								<li class="nav-item"><a class="nav-link" href="clothes">Clothes
 								</a></li>
 								<li class="nav-item"><a class="nav-link" href="review">Review
 								</a></li>
