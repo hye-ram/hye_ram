@@ -68,7 +68,7 @@
 			<tr>
 				<td bgcolor="orange" width="70">업로드</td>
 				<td align="left">
-					<div id="preview"></div> <input type="file" name="uploadFile" />
+					<div id="preview"></div><input type="file" name="uploadFile" />
 				</td>
 			</tr>
 			<tr>

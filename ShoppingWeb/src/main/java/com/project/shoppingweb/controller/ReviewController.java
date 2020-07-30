@@ -55,7 +55,7 @@ public class ReviewController {
 	    	dto.setTitle(request.getParameter("title"));
 	    	dto.setEditor(request.getParameter("ir1"));
 	    	dto.setWriter(request.getParameter("writer"));
-	    	
+
 	    	reviewService.reviewcreate(dto);
 	        return "redirect:review";
 	    }

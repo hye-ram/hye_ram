@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +15,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 
-<title>로그인 - Hye-Ram</title>
+<title>리뷰 - Hye-Ram</title>
 
 <!-- slider stylesheet -->
 <link rel="stylesheet" type="text/css"
@@ -52,7 +51,7 @@
 <script type="text/javascript" src="resources/js/bootstrap.js"></script>
 <script type="text/javascript" src="resources/js/custom.js"></script>
 <script type="text/javascript" src="resources/js/common.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/smarteditor2/js/service/HuskyEZCreator.js"
+<script type="text/javascript" src="<%=request.getContextPath() %>/smarteditor2/js/HuskyEZCreator.js"
 	charset="utf-8"></script>
 
 </head>
@@ -114,19 +113,15 @@
 				},
 				fOnAppLoad : function() {
 					//기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-					oEditors.getById["ir1"].exec("PASTE_HTML", ["ㅎㅎ"]);
+					oEditors.getById["ir1"].exec("PASTE_HTML", [""]);
 				},
 				fCreator : "createSEditor2"
 			});
 		}); 
 
-		
 		$(function() {
 			$("#btnSave").click(
 				 	function() {
-						var title = document.form1.title.value; ==> name속성으로 처리할 경우
-						var content = document.form1.content.value;
-						var writer = document.form1.writer.value;
 						var title = $("#title").val();
 						var writer = $("#writer").val();
 						 if (title == "") {
@@ -140,9 +135,7 @@
 							return;
 						} 
 
-					
 						oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD",[]);
-						
 						var ir1 = $("#ir1").val();
 						alert($("#ir1").val());
 						if ( ir1 == null) {
@@ -151,7 +144,6 @@
 							return;
 						}
 						//id가 smarteditor인 textarea에 에디터에서 대입
-
 						// 폼에 입력한 데이터를 서버로 전송 */
 
 						$("#form2").submit();

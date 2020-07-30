@@ -41,7 +41,7 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
 	rel="stylesheet">
-<script type="text/javascript" src="<%=request.getContextPath() %>/smarteditor2/js/service/HuskyEZCreator.js"
+<script type="text/javascript" src="<%=request.getContextPath() %>/smarteditor2/js/HuskyEZCreator.js"
 	charset="utf-8"></script>
 
 </head>
@@ -124,7 +124,6 @@
 			});
 			
 			$("#btnUpdete").click(function() {
-
 				var title = $("#title").val();
 				var ir1 = oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
 				var writer = $("#writer").val();
