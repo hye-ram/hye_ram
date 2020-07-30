@@ -36,8 +36,14 @@ import com.project.shoppingweb.bean.*;
 	@RequestMapping("product_list") // 세부적인 url mapping
 	public ModelAndView list(ModelAndView mav, HttpServletRequest request) {
 		String cate01 = request.getParameter("cate01");
+		System.out.println(cate01);
+		if(cate01 == null || cate01.length()==0) {
+			cate01 = "001' or cate01Id = '002' or cate01Id = '003' or cate01Id = '004' or cate01Id = '005' or cate01Id = '005";
+		}
+		System.out.println("if통과" + cate01);
 		mav.setViewName("product_list"); // 이동할 페이지 이름 (product_list.jsp 파일로 이동)
 		mav.addObject("list", productService.listProduct(cate01)); // 데이터 저장
+		System.out.println(mav);
 		// 서비스에서 상품 리스트를 받아와 list라는 이름의 변수에 저장
 		// service -> model -> mybatis -> 리스트를 받아옴
 		return mav; // 페이지 이동

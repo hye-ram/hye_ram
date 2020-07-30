@@ -87,7 +87,7 @@
 
 		<!-- end header section -->
 
-		</div>
+	</div>
 
 		<!-- slider section -->
 		<section class=" slider_section position-relative">

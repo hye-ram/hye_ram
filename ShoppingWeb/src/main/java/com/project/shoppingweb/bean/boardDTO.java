@@ -1,69 +1,63 @@
 package com.project.shoppingweb.bean;
 
+import java.sql.Date;
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class boardDTO {
-
-	private int bno; // �� ��ȣ
-	private String title; // �� ����
-	private String content; // �� ����
-	private String writer; // �۾���
-	private String regdate; // �۾� ��¥
-
-	private int viewcnt; // ��ȸ��
-
+	private int bno; 
+	private String title; 
+	private String content; 
+	private String writer; 
+	private Date regdate;;
+	private String fname;
+	private MultipartFile uploadFile;
 	public int getBno() {
 		return bno;
 	}
-
 	public void setBno(int bno) {
 		this.bno = bno;
 	}
-
 	public String getTitle() {
 		return title;
 	}
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 	public String getContent() {
 		return content;
 	}
-
 	public void setContent(String content) {
 		this.content = content;
 	}
-
 	public String getWriter() {
 		return writer;
 	}
-
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-
-	public String getRegdate() {
+	public Date getRegdate() {
 		return regdate;
 	}
-
-	public void setRegdate(String regdate) {
+	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-
-	public int getViewcnt() {
-		return viewcnt;
+	public String getFname() {
+		return fname;
 	}
-
-	public void setViewcnt(int viewcnt) {
-		this.viewcnt = viewcnt;
+	public void setFname(String fname) {
+		this.fname = fname;
 	}
-
-	
-	  // toString()
-	  
-	  @Override public String toString() { return "shopDTO [bno=" + bno +
-	  ", title=" + title + ", content=" + content + ", writer=" + writer +
-	  ", regdate=" + regdate + ", viewcnt=" + viewcnt + "]"; }
-	 
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+	@Override
+	public String toString() {
+		return "boardDTO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate="
+				+ regdate + ", fname=" + fname + "]";
+	}
 
 }

@@ -37,8 +37,9 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
 	rel="stylesheet">
+
 <script type="text/javascript"
-	src="<%=request.getContextPath() %>/smarteditor2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+	src="<%=request.getContextPath() %>/smarteditor2/js/HuskyEZCreator.js" charset="utf-8"></script>
 
 <script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="resources/js/bootstrap.js"></script>
@@ -47,9 +48,11 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"
 	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 	crossorigin="anonymous"></script>
+
 </head>
 
 <body class="sub_page">
+
 	<tr>
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
@@ -71,6 +74,11 @@
 			<button type="reset">취소</button>
 		</div>
 	</form>
+	<br>
+	<tr>
+		<td><jsp:include page="bottom.jsp" flush="false" /></td>
+	</tr>
+	
 	<script type="text/javascript">
 		var oEditors = [];
 		$(function() {
@@ -101,12 +109,7 @@
 		
 		$(document).ready(function() {
 			$("#btnSave").click(function() {
-
 				oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
-
-				//var title = document.form1.title.value; ==> name속성으로 처리할 경우
-				//var content = document.form1.content.value;
-				//var writer = document.form1.writer.value;
 				var title = $("#title").val();
 				var content = $("#ir1").val();
 				var writer = $("#writer").val();

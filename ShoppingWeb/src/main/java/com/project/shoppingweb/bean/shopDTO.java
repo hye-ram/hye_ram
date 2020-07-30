@@ -17,7 +17,6 @@ public class shopDTO {
 	public String toString() {
 		return "shopDTO [userId=" + userId + ", userPw=" + userPw  + ", userName=" + userName + ", userEmail=" + userEmail  + "]";
 	}
-
 	public String getUserId() {
 		return userId;
 	}
@@ -105,5 +104,5 @@ public class shopDTO {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-
 }
+
