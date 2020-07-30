@@ -55,7 +55,9 @@
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/smarteditor2/js/HuskyEZCreator.js"
 	charset="utf-8"></script>
-
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+	crossorigin="anonymous"></script>
 </head>
 
 <body class="sub_page">
@@ -93,6 +95,10 @@
 	</form>
 	<hr>
 	<a href="review">리뷰 목록 가기</a>
+	<br><br><br>
+	<tr>
+		<td><jsp:include page="bottom.jsp" flush="false" /></td>
+	</tr>
 
 
 	<script type="text/javascript">
@@ -123,10 +129,6 @@
 
 		$(function() {
 			$("#btnSave").click(function() {
-				alert("ddd");
-				var title = document.form1.title.value;
-				var content = document.form1.content.value;
-				var writer = document.form1.writer.value;
 				var title = $("#title").val();
 				var writer = $("#writer").val();
 				if (title == "") {
@@ -141,7 +143,7 @@
 				}
 
 				oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
-				
+				alert("값넣는다?");
 				
 				var ir1 = $("#ir1").val();
 				alert($("#ir1").val());
@@ -151,7 +153,6 @@
 					return;
 				}
 				
-				alert("유효성검사완");
 				//id가 smarteditor인 textarea에 에디터에서 대입
 				// 폼에 입력한 데이터를 서버로 전송 */
 

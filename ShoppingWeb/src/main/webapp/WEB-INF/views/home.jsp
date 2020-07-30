@@ -354,6 +354,7 @@
 	<tr>
 		<td><jsp:include page="bottom.jsp" flush="false" /></td>
 	</tr>
+	
 	<script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="resources/js/bootstrap.js"></script>
 	<script type="text/javascript" src="resources/js/custom.js"></script>

@@ -118,7 +118,7 @@
 			}); 
 			$("#btnDelete").click(function() {
 				if (confirm("삭제하시겠습니까?")) {
-					document.form2.action = "${path}/shoppingweb/re_delete";
+					document.form2.action = "${path}/shoppingweb/review_delete";
 					document.form2.submit();
 				}
 			});
@@ -138,7 +138,7 @@
 					document.form2.writer.focus();
 					return;
 				}
-				document.form2.action = "${path}/shoppingweb/re_update"
+				document.form2.action = "${path}/shoppingweb/review_update"
 				// 폼에 입력한 데이터를 서버로 전송
 				document.form2.submit();
 			});
