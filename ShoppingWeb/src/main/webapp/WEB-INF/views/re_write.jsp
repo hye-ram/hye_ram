@@ -52,7 +52,7 @@
 <script type="text/javascript" src="resources/js/bootstrap.js"></script>
 <script type="text/javascript" src="resources/js/custom.js"></script>
 <script type="text/javascript" src="resources/js/common.js"></script>
-<script type="text/javascript" src="smarteditor2/js/HuskyEZCreator.js"
+<script type="text/javascript" src="<%=request.getContextPath() %>/smarteditor2/js/service/HuskyEZCreator.js"
 	charset="utf-8"></script>
 
 </head>
@@ -65,7 +65,8 @@
 
 	<h2>리뷰 글 작성</h2>
 
-	<form id="form2" name="form2" action="${path}/shoppingweb/reinsert" method="post">
+	<form id="form2" name="form2" action="${path}/shoppingweb/reinsert"
+		method="post">
 		<table border="1" width="100%">
 			<tr>
 				<td bgcolor="orange" width="70">제목</td>
@@ -78,8 +79,8 @@
 			</tr>
 			<tr>
 				<td bgcolor="orange">내 용</td>
-				<td align="left"><textarea rows="10" cols="30" name="editor"
-						id="editor"></textarea></td>
+				<td align="left"><textarea rows="10" cols="30" name="ir1"
+						id="ir1"></textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
@@ -94,40 +95,41 @@
 
 
 	<script type="text/javascript">
-	
-		var oEditors = [];
+	 	var oEditors = [];
 		$(function() {
-		nhn.husky.EZCreator.createInIFrame({
-			oAppRef : oEditors,
-			elPlaceHolder : "editor",
+			nhn.husky.EZCreator.createInIFrame({
+				oAppRef : oEditors,
+				elPlaceHolder : "ir1",
+				//SmartEditor2Skin.html 파일이 존재하는 경로
+				sSkinURI : "smarteditor2/SmartEditor2Skin.html",
+				htParams : {
+					// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+					bUseToolbar : true,
+					// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+					bUseVerticalResizer : false,
+					// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+					bUseModeChanger : false,
+					fOnBeforeUnload : function() {
+					}
+				},
+				fOnAppLoad : function() {
+					//기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
+					oEditors.getById["ir1"].exec("PASTE_HTML", ["ㅎㅎ"]);
+				},
+				fCreator : "createSEditor2"
+			});
+		}); 
 
-			//SmartEditor2Skin.html 파일이 존재하는 경로
-			sSkinURI : "smarteditor2/SmartEditor2Skin.html",
-			htParams : {
-				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-				bUseToolbar : true,
-				// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-				bUseVerticalResizer : false,
-				// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-				bUseModeChanger : false,
-				fOnBeforeUnload : function() {
-				}
-			},
-			fOnAppLoad : function() {
-				//기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-				oEditors.getById["editor"].exec("PASTE_HTML", []);
-			},
-			fCreator : "createSEditor2"
-		});
-			$("#btnSave").click(function() {
-						//var title = document.form1.title.value; ==> name속성으로 처리할 경우
-						//var content = document.form1.content.value;
-						//var writer = document.form1.writer.value;
-						//var title = $("#title").val();
-						oEditors.getById["editor"].exec("UPDATE_EDITOR_FIELD",
-								[]);
-						//var writer = $("#writer").val();
-						/* if (title == "") {
+		
+		$(function() {
+			$("#btnSave").click(
+				 	function() {
+						var title = document.form1.title.value; ==> name속성으로 처리할 경우
+						var content = document.form1.content.value;
+						var writer = document.form1.writer.value;
+						var title = $("#title").val();
+						var writer = $("#writer").val();
+						 if (title == "") {
 							alert("제목을 입력하세요");
 							document.form2.title.focus();
 							return;
@@ -136,19 +138,21 @@
 							alert("이름을 입력하세요");
 							document.form2.writer.focus();
 							return;
-						} */
+						} 
 
-						var ir1 = $("#editor").val();
-alert($("#editor").val());
-						if (ir1 == "" || ir1 == null || ir1 == '&nbsp;'
-								|| ir1 == '<p>&nbsp;</p>') {
+					
+						oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD",[]);
+						
+						var ir1 = $("#ir1").val();
+						alert($("#ir1").val());
+						if ( ir1 == null) {
 							alert("내용을 입력하세요.");
-							oEditors.getById["editor"].exec("FOCUS"); //포커싱
+							oEditors.getById["ir1"].exec("FOCUS"); //포커싱
 							return;
 						}
 						//id가 smarteditor인 textarea에 에디터에서 대입
 
-						// 폼에 입력한 데이터를 서버로 전송
+						// 폼에 입력한 데이터를 서버로 전송 */
 
 						$("#form2").submit();
 

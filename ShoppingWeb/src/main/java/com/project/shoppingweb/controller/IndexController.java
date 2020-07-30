@@ -2,6 +2,7 @@ package com.project.shoppingweb.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
@@ -110,8 +111,8 @@ public class IndexController {
 		int result = shopService.idCheck(userId);
 		return Integer.toString(result);
 	}	
+
 	
-	//�Ƿ� ī�װ� ȭ��
 	@RequestMapping("mypage")
 	public String outer() {
 		return "mypage";

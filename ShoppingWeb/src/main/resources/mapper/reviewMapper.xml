@@ -42,7 +42,7 @@
     <update id="updateArticle">
         UPDATE review SET
             title = #{title},
-            content = #{editor},
+            editor = #{editor},
             writer = #{writer},
             regdate = now()
         WHERE bno = #{bno}

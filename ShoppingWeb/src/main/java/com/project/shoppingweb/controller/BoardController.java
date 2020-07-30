@@ -47,6 +47,11 @@ public class BoardController {
 	    public String write(){
 	        return "write"; // write.jsp�? ?��?��
 	    }
+		//게시판 글쓰기 페이지로 이동
+	    @RequestMapping(value="test", method=RequestMethod.GET)
+	    public String test(){
+	        return "test"; // write.jsp�? ?��?��
+	    }
 	    
 	    // 게시판 글 쓰기
 	 	@RequestMapping(value="insert") 

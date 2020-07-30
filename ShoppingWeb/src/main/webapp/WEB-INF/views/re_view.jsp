@@ -41,6 +41,8 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
 	rel="stylesheet">
+<script type="text/javascript" src="<%=request.getContextPath() %>/smarteditor2/js/service/HuskyEZCreator.js"
+	charset="utf-8"></script>
 
 </head>
 
@@ -65,8 +67,8 @@
 			</tr>
 			<tr>
 				<td bgcolor="orange">내용</td>
-				<td align="left"><textarea name="content" cols="40" rows="10"
-						placeholder="내용을 입력해주세요">${rdto.editor}</textarea></td>
+				<td align="left"><textarea rows="10" cols="30" name="ir1"
+						id="ir1">${rdto.editor}</textarea></td>
 			</tr>
 			<tr>
 				<td bgcolor="orange">등록일</td>
@@ -90,19 +92,41 @@
 	<script type="text/javascript" src="resources/js/custom.js"></script>
 	<script>
 		$(document).ready(function() {
+			var oEditors = [];
+			$(function() {
+				nhn.husky.EZCreator.createInIFrame({
+					oAppRef : oEditors,
+					elPlaceHolder : "ir1",
+					//SmartEditor2Skin.html 파일이 존재하는 경로
+					sSkinURI : "smarteditor2/SmartEditor2Skin.html",
+					htParams : {
+						// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+						bUseToolbar : true,
+						// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+						bUseVerticalResizer : false,
+						// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+						bUseModeChanger : false,
+						fOnBeforeUnload : function() {
+						}
+					},
+					fOnAppLoad : function() {
+						//기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
+						oEditors.getById["ir1"].exec("PASTE_HTML", [""]);
+					},
+					fCreator : "createSEditor2"
+				});
+			}); 
 			$("#btnDelete").click(function() {
 				if (confirm("삭제하시겠습니까?")) {
 					document.form2.action = "${path}/shoppingweb/re_delete";
 					document.form2.submit();
 				}
 			});
-
+			
 			$("#btnUpdete").click(function() {
-				//var title = document.form1.title.value; ==> name속성으로 처리할 경우
-				//var content = document.form1.content.value;
-				//var writer = document.form1.writer.value;
+
 				var title = $("#title").val();
-				var editor= oEditors.getById["editor"].exec("UPDATE_EDITOR_FIELD", []);
+				var ir1 = oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
 				var writer = $("#writer").val();
 				if (title == "") {
 					alert("제목을 입력하세요");

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.shoppingweb.bean.boardDTO;
 import com.project.shoppingweb.bean.reviewDTO;
 import com.project.shoppingweb.service.reviewService;
 
@@ -38,21 +39,24 @@ public class ReviewController {
 	        ModelAndView mav = new ModelAndView();
 	        mav.setViewName("review"); 
 	        mav.addObject("list", list); // ?��?��?���? ???��
-	        return mav; // list.jsp�? List�? ?��?��?��?��.
+	        return mav; 
 	    }
 		
 		//리뷰게시판 글쓰기 페이지로 이동
 	    @RequestMapping(value="re_write", method=RequestMethod.GET)
 	    public String re_write(){
-	        return "re_write"; // write.jsp�? ?��?��
+	        return "re_write"; 
 	    }
 		
 	    //리뷰게시판 글쓰기
 	    @RequestMapping(value="reinsert", method=RequestMethod.POST)
-	    public String insert(@ModelAttribute reviewDTO vo) throws Exception{
-
-	    	System.out.println("컨트롤러"+vo);
-	    	reviewService.reviewcreate(vo);
+	    public String insert(HttpServletRequest request, reviewDTO dto) throws Exception{
+	    	System.out.println(request.getParameter("ir1"));
+	    	dto.setTitle(request.getParameter("title"));
+	    	dto.setEditor(request.getParameter("ir1"));
+	    	dto.setWriter(request.getParameter("writer"));
+	    	
+	    	reviewService.reviewcreate(dto);
 	        return "redirect:review";
 	    }
 	    
@@ -67,8 +71,13 @@ public class ReviewController {
 	      
 	    //리뷰 업뎃
 	    @RequestMapping(value="re_update", method=RequestMethod.POST)
-	    public String re_update(@ModelAttribute reviewDTO vo) throws Exception{
-	    	reviewService.reviewupdate(vo);
+	    public String re_update(HttpServletRequest request, reviewDTO dto) throws Exception{
+	    	System.out.println(request.getParameter("ir1"));
+	    	dto.setTitle(request.getParameter("title"));
+	    	dto.setEditor(request.getParameter("ir1"));
+	    	dto.setWriter(request.getParameter("writer"));
+	    	
+	    	reviewService.reviewupdate(dto);
 	        return "redirect:review";
 	    }
 	    
