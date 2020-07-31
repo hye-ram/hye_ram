@@ -70,7 +70,7 @@
 
 	<form id="form2" name="form2" action="${path}/shoppingweb/review_insert"
 		method="post">
-		<table border="1" width="100%">
+		<table border="1" width="80%">
 			<tr>
 				<td bgcolor="orange" width="70">제목</td>
 				<td align="left"><input type="text" id="title" name="title" /></td>
@@ -82,7 +82,7 @@
 			</tr>
 			<tr>
 				<td bgcolor="orange">내 용</td>
-				<td align="left"><textarea rows="10" cols="30" name="ir1"
+				<td align="left"><textarea rows="10" cols="100" name="ir1"
 						id="ir1"></textarea></td>
 			</tr>
 			<tr>

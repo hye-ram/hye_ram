@@ -41,7 +41,7 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
 	rel="stylesheet">
-<script type="text/javascript" src="<%=request.getContextPath() %>/smarteditor2/js/service/HuskyEZCreator.js"
+<script type="text/javascript" src="<%=request.getContextPath() %>/smarteditor2/js/HuskyEZCreator.js"
 	charset="utf-8"></script>
 
 </head>
@@ -54,9 +54,9 @@
 
 	<form name="form2" method="post">
 		<input name="bno" type="hidden" value="${rdto.bno}" />
-		<table border="1">
+		<table border="1" style="width: 1000px;">
 			<tr>
-				<td bgcolor="orange" width="70">제목</td>
+				<td bgcolor="orange">제목</td>
 				<td align="left"><input name="title" type="text"
 					value="${rdto.title}" placeholder="제목을 입력해주세요" /></td>
 			</tr>
@@ -67,7 +67,7 @@
 			</tr>
 			<tr>
 				<td bgcolor="orange">내용</td>
-				<td align="left"><textarea rows="10" cols="30" name="ir1"
+				<td align="left"><textarea rows="10" cols="100" name="ir1"
 						id="ir1">${rdto.editor}</textarea></td>
 			</tr>
 			<tr>

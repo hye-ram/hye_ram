@@ -67,13 +67,14 @@
 				<td><fmt:formatNumber value="${row.price}" pattern="#,###" />
 				<td>${row.description}</td>
 				<!-- 상품 설명을 가져옴 -->
-				
+
 				<td>
 					<form name="form1" method="post"
 						action="${path}/shoppingweb/cart_insert">
 						<input type="hidden" name="product_id" value="${row.product_id}">
-						<input type="hidden" name="product_name" value="${row.product_name}">
-						<input type="hidden" name="price" value="${row.price}">
+						<input type="hidden" name="product_name"
+							value="${row.product_name}"> <input type="hidden"
+							name="price" value="${row.price}">
 						<!-- 상품코드를 히든타입으로 넘김 -->
 						<select name="amount">
 							<c:forEach begin="1" end="10" var="i">
@@ -83,6 +84,7 @@
 						</select>&nbsp;개 <input type="submit" value="장바구니에 담기">
 					</form>
 				</td>
+			</tr>
 		</c:forEach>
 	</table>
 

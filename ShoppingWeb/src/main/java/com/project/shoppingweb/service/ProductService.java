@@ -5,7 +5,7 @@ import java.util.List;
 import com.project.shoppingweb.bean.*;;
 
 public interface ProductService {
-	List<ProductDTO> listProduct(String cate02Id);
+	List<ProductDTO> listProduct(String cate01Id);
 
 	ProductDTO detailProduct(int product_id);
 
@@ -20,4 +20,6 @@ public interface ProductService {
 	List<ProductDTO> cate01List();
 
 	List<ProductDTO> cateCheck(String cate01Id);
+
+	List<ProductDTO> search(String result);
 }

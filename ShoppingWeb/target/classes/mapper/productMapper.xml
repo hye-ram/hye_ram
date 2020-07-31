@@ -6,7 +6,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
 
 <mapper namespace="product">
-	<select id="list_product"
+
+	<select id="productAll"
+		resultType="com.project.shoppingweb.bean.ProductDTO">
+		<!-- 코드의 자료형을 알려준다 DTO타입으로 받아야 되므로 DTO파일의 경로를 입력. -->
+		<!-- 이 코드가 호출되면 ProductDTO가 arraylist로 저장됨 -->
+		select * from product
+		order by product_id
+		<!-- id의 내림차순으로 검색한다. (id의 오름차순으로 검색 - 1,2,3,4,.....10) -->
+	</select>
+	<select id="product_list"
 		resultType="com.project.shoppingweb.bean.ProductDTO">
 		<!-- 코드의 자료형을 알려준다 DTO타입으로 받아야 되므로 DTO파일의 경로를 입력. -->
 		<!-- 이 코드가 호출되면 ProductDTO가 arraylist로 저장됨 -->
@@ -15,6 +24,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by product_id
 		<!-- id의 내림차순으로 검색한다. (id의 오름차순으로 검색 - 1,2,3,4,.....10) -->
 	</select>
+	<select id="search"
+		resultType="com.project.shoppingweb.bean.ProductDTO">
+		<!-- 코드의 자료형을 알려준다 DTO타입으로 받아야 되므로 DTO파일의 경로를 입력. -->
+		<!-- 이 코드가 호출되면 ProductDTO가 arraylist로 저장됨 -->
+		select * from product
+		where product_name like #{cate01Id}
+		order by product_id
+		<!-- id의 내림차순으로 검색한다. (id의 오름차순으로 검색 - 1,2,3,4,.....10) -->
+	</select>
+
 	<select id="list_cate01"
 		resultType="com.project.shoppingweb.bean.ProductDTO">
 		<!-- 코드의 자료형을 알려준다 DTO타입으로 받아야 되므로 DTO파일의 경로를 입력. -->

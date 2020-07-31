@@ -75,11 +75,8 @@ public class BoardController {
 	// 03.게시판 글 보기
 	@RequestMapping(value = "notice_view", method = RequestMethod.GET)
 	public ModelAndView view(@RequestParam int bno, HttpSession session) throws Exception {
-
 		ModelAndView mav = new ModelAndView();
-
 		mav.setViewName("view");
-
 		mav.addObject("dto", boardService.read(bno));
 		return mav;
 	}

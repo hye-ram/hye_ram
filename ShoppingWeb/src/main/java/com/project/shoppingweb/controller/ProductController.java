@@ -36,11 +36,6 @@ import com.project.shoppingweb.bean.*;
 	@RequestMapping("product_list") // 세부적인 url mapping
 	public ModelAndView list(ModelAndView mav, HttpServletRequest request) {
 		String cate01 = request.getParameter("cate01");
-		System.out.println(cate01);
-		if(cate01 == null || cate01.length()==0) {
-			cate01 = "001' or cate01Id = '002' or cate01Id = '003' or cate01Id = '004' or cate01Id = '005' or cate01Id = '005";
-		}
-		System.out.println("if통과" + cate01);
 		mav.setViewName("product_list"); // 이동할 페이지 이름 (product_list.jsp 파일로 이동)
 		mav.addObject("list", productService.listProduct(cate01)); // 데이터 저장
 		System.out.println(mav);
@@ -155,7 +150,7 @@ import com.project.shoppingweb.bean.*;
 		dto.setPicture_url(filename);
 		dto.setCate01Id(request.getParameter("cate01"));
 		dto.setCate02Id(request.getParameter("cate02"));
-		
+
 		productService.insertProduct(dto);
 
 		return "redirect:/product_list";
@@ -171,4 +166,21 @@ import com.project.shoppingweb.bean.*;
 		return mav;
 	}
 
+	// 검색화면 붙이기
+	@RequestMapping({ "search" })
+	public String search() {
+		return "search";
+	}
+
+	// 검색 기능 실행
+	@RequestMapping(value = "goSearch", method = RequestMethod.GET, produces = "application/text; charset=utf8")
+	@ResponseBody
+	public ModelAndView goSearch(HttpServletRequest request, ModelAndView mav) {
+		String result = request.getParameter("search_Term");
+		List<ProductDTO> list = productService.search(result);
+		mav.setViewName("result");
+		mav.addObject("search_result",list);
+		System.out.println(mav);
+		return mav;
+	}
 }
