@@ -29,6 +29,8 @@ body {
 }
 
 /*header section*/
+
+
 .sub_page .brand_box {
 	position: relative;
 	background-image: url(../images/new-slider-img.jpg);
@@ -111,9 +113,6 @@ a:hover, a:focus {
 	background-size: 42px;
 }
 
-.custom_nav-container .nav_search-btn {
-	margin: auto;
-}
 
 /*end header section*/
 
@@ -183,17 +182,144 @@ a:hover, a:focus {
 	justify-content: center;
 }
 
-.nav_section .custom_nav-container .nav_search-btn {
-	background-image: url(../images/search-icon.png);
-	background-size: 18px;
-	background-repeat: no-repeat;
-	width: 35px;
-	height: 35px;
-	padding: 0;
-	border: none;
-	margin: 0 40px 0 15px;
-	background-position: center;
+#search_Term{
+	margin: 0 10px 10px;
+	width: 400px;
+	height: 30px;
+	background-color: transparent !important;
+	border : none;
+	border-bottom: 1px solid white;
+	color : white;
 }
+#search_Term:focus{
+	outline: none;
+}
+#search_btn{
+	width: 50px;
+	height: 30px;
+	background-color: transparent !important;
+	font-family: "Poppins", sans-serif;
+	border : none;
+	color : white;
+	font-weight: bolder;
+	
+}
+#search_btn:focus{
+	outline: none;
+}
+
+/* hyejeong */
+#sub_title{
+	font-size: 30px;
+	text-align: center;
+	margin: 50px auto;
+	width: 80%;
+}
+#mypage_box{
+	margin: 10px auto;
+	width: 80%;
+	border:1px solid;
+	border-color: rgba(0,0,0,0.7);
+	display: flex;
+}
+#mypage_box div{
+	margin:10px auto;
+	width: 45%;
+	padding: 10px 20px;
+}
+#shopping_info{
+	border-right: 1px solid gray;
+}
+#shopping_info ul, #customer_info ul{
+	margin : 0;
+	padding: 0;
+	display: flex;
+}
+#shopping_info ul li, #customer_info ul li{
+	list-style-type: none;
+	margin: 20px 10px 5px 0px;
+}
+#shopping_info ul li a, #customer_info ul li a{
+	color:gray;
+}
+#mypage_infobox{
+	margin: 10px auto;
+	width: 80%;
+	border:1px solid;
+	border-color: rgba(0,0,0,0.1);
+	display: flex;
+}
+#mypage_infobox>div:nth-child(1){
+	width:100px;
+	text-align: center;
+	padding-top:7px;
+	margin: 20px;
+}
+#mypage_infobox>div:nth-child(1)>i{
+	width:100%;
+}
+#mypage_infobox>div:nth-child(2){
+	width: 55%;
+	margin: 20px;
+}
+
+#mypage_infobox>div:nth-child(3){
+	width: 20%;
+	margin: 20px;
+}
+#mypage_infobox>div>div{
+	margin: 5px 0;
+}
+.info_title{
+	font-weight: bold;
+	
+}
+.info_con{
+	color:gray;
+}
+
+#mypage_latestorder, #mypage_latestsubject{
+	width: 80%;
+	margin: 50px auto;
+	width: 80%;
+	display: flex;
+}
+
+#upMemFrm{
+	width: 80%;	
+	margin: 30px auto;
+}
+.mem_table{
+	width: 100%;
+}
+#userAddr02, #userAddr03{
+	width: 80%;
+}
+#btnbox{
+	width: 15%;
+	display:flex;
+	margin: 10px auto;
+}
+#btnbox input{
+	margin: 10px auto;
+}
+
+#loginFrm{
+	width: 20%;
+	height:100px;
+	margin: 10px auto;
+}
+#login{
+	margin: 10px 150px 0;
+	background-color: gray;
+	color:white;
+	font-weight: bold;
+	border: none;
+}
+
+
+
+/*hye end*/
 
 .shop_section .box {
 	display: -webkit-box;

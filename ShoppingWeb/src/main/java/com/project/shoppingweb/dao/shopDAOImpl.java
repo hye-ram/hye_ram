@@ -22,7 +22,6 @@ public class shopDAOImpl implements shopDAO {
 	public boolean loginCheck(shopDTO dto) {
 		String name = sqlSession.selectOne("member.loginCheck", dto);
 		return (Integer.parseInt(name) == 0) ? false : true;
-
 	}
 
 

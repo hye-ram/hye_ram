@@ -51,7 +51,7 @@
 
 	<h2>상품목록</h2>
 	<button type="button" id="btnAdd">상품등록</button>
-	<table border="1" width="500px">
+	<table border="1" width="80%">
 		<tr>
 			<th>상품사진</th>
 			<th>상품명</th>
@@ -64,7 +64,7 @@
 				<td><img src="resources/images/${row.picture_url}" width="100"
 					height="100"></td>
 				<td>${row.product_name }</td>
-				<td><fmt:formatNumber value="${row.price}" pattern="#,###" />
+				<td><fmt:formatNumber value="${row.price}" pattern="#,###" /></td>
 				<td>${row.description}</td>
 				<!-- 상품 설명을 가져옴 -->
 

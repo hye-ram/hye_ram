@@ -38,7 +38,7 @@ import com.project.shoppingweb.bean.*;
 		String cate01 = request.getParameter("cate01");
 		mav.setViewName("product_list"); // 이동할 페이지 이름 (product_list.jsp 파일로 이동)
 		mav.addObject("list", productService.listProduct(cate01)); // 데이터 저장
-		System.out.println(mav);
+	
 		// 서비스에서 상품 리스트를 받아와 list라는 이름의 변수에 저장
 		// service -> model -> mybatis -> 리스트를 받아옴
 		return mav; // 페이지 이동
@@ -176,9 +176,9 @@ import com.project.shoppingweb.bean.*;
 	@RequestMapping(value = "goSearch", method = RequestMethod.GET, produces = "application/text; charset=utf8")
 	@ResponseBody
 	public ModelAndView goSearch(HttpServletRequest request, ModelAndView mav) {
-		String result = request.getParameter("search_Term");
-		List<ProductDTO> list = productService.search(result);
-		mav.setViewName("result");
+		String search_Term = request.getParameter("search_Term");
+		List<ProductDTO> list = productService.search(search_Term);
+		mav.setViewName("search");
 		mav.addObject("search_result",list);
 		System.out.println(mav);
 		return mav;

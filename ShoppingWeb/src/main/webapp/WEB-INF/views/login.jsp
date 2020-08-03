@@ -53,22 +53,21 @@
 	<tr>
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
-	<h1>로그인 페이지</h1>
-	<hr />
+	
+	<div id="sub_title">로그인</div>
 	<c:choose>
 		<c:when test="${empty sessionScope.userId}">
-			<!-- 로그인이 안되어 있으면 -->
 			<form id="loginFrm" name="loginFrm" action="loginCheck">
 				<table>
 					<tr>
 						<td>아이디</td>
 						<td><input type="text" name="userId" id="userId"
-							placeholder="10글자" maxlength="10"></td>
+							placeholder="ID" maxlength="10"></td>
 					</tr>
 					<tr>
 						<td>패스워드</td>
 						<td><input type="password" name="userPw" id="userPw"
-							maxlength="20"></td>
+							placeholder="PASSWORD" maxlength="20"></td>
 					</tr>
 					<c:if test="${msg == '실패'}">
 						<tr>
@@ -81,11 +80,8 @@
 					</tr>
 				</table>
 			</form>
+			<br><br>
 		</c:when>
-		<c:otherwise>
-			<h3>${sessionScope.userId}님환영합니다.</h3>
-			<a href="logout">로그아웃</a>
-		</c:otherwise>
 	</c:choose>
 
 	<tr>

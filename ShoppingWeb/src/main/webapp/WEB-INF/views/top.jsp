@@ -108,12 +108,9 @@
 								</li>
 								<li class="nav-item"><a class="nav-link" href="qna">QnA</a>
 								</li>
-								<li><button class="btn  my-2 my-sm-0 nav_search-btn" onclick="location.href='search'" type="button"></button>
+								<li class="nav-item"><a class="nav-link" href="search"><i class="fas fa-search"> _________</i></a>
 								</li>
 							</ul>
-							<form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
-								<button class="btn  my-2 my-sm-0 nav_search-btn" href="search" type="button"></button>
-							</form>
 						</div>
 					</div>
 				</nav>

@@ -116,9 +116,11 @@ public class IndexController {
 
 	
 	@RequestMapping("mypage")
-	public String outer() {
+	public String mypage() {
 		return "mypage";
 	}	
+	
+	
 	
 	@RequestMapping("memInfo")
 	    public String listAll(Model model) throws Exception {
@@ -132,9 +134,23 @@ public class IndexController {
 		String userId = (String) session.getAttribute("userId");
 		if(userId!=null) { 
             //로그인한 상태이면 실행
-			
 			List<shopDTO> list = shopService.memInfo(userId);
             mav.setViewName("mypage"); //이동할 페이지의 이름
+            mav.addObject("memInfo", list); //데이터 저장
+            return mav; //화면 이동
+        }else { //로그인하지 않은 상태
+            return new ModelAndView("login", "", null);
+            //로그인을 하지 않았으면 로그인 페이지로 이동시킨다.
+        }
+	}
+	
+	@RequestMapping(value = "mem_edit", method = RequestMethod.GET)
+	public  ModelAndView mem_edit(HttpSession session, ModelAndView mav) {
+		String userId = (String) session.getAttribute("userId");
+		if(userId!=null) { 
+            //로그인한 상태이면 실행
+			List<shopDTO> list = shopService.memInfo(userId);
+            mav.setViewName("mem_edit"); //이동할 페이지의 이름
             mav.addObject("memInfo", list); //데이터 저장
             return mav; //화면 이동
         }else { //로그인하지 않은 상태
