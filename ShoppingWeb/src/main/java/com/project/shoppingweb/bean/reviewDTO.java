@@ -12,8 +12,14 @@ public class reviewDTO {
 	private String editor; 
 	private String writer; 
 	private Date regdate;
+	private MultipartFile Filedata;
 
-
+	public MultipartFile getFiledata() {
+		return Filedata;
+	}
+	public void setFiledata(MultipartFile filedata) {
+		Filedata = filedata;
+	}
 	public int getBno() {
 		return bno;
 	}

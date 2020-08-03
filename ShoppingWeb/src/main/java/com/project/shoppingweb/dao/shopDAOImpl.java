@@ -62,38 +62,6 @@ public class shopDAOImpl implements shopDAO {
 		sqlSession.insert("member.signUp", dto);
 
 	}
-
-	// 01. �Խñ� �ۼ�
-	@Override
-	public void create(boardDTO dto) throws Exception {
-		sqlSession.insert("board.insert", dto);
-	}
-
-	// 02. �Խñ� �󼼺���
-	@Override
-	public boardDTO read(int bno) throws Exception {
-		return sqlSession.selectOne("board.view", bno);
-	}
-
-	// 03. �Խñ� ����
-	@Override
-	public void update(boardDTO dto) throws Exception {
-		sqlSession.update("board.updateArticle", dto);
-	}
-
-	// 04. �Խñ� ����
-	@Override
-	public void delete(int bno) throws Exception {
-		sqlSession.delete("board.deleteArticle", bno);
-	}
-
-	// 05. �Խñ� ��ü ���
-	@Override
-	public List<boardDTO> listAll() {
-		// TODO Auto-generated method stub
-		return sqlSession.selectList("board.listAll");
-	}
-
 	// 패스워드 체크
 	public int passCheck(shopDTO dto) {
 		int result = Integer.parseInt((String) sqlSession.selectOne("member.loginCheck", dto));

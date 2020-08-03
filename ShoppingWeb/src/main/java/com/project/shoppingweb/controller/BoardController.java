@@ -21,81 +21,81 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.shoppingweb.bean.boardDTO;
 import com.project.shoppingweb.service.boardService;
+
 @Controller
 @SessionAttributes("login")
 
 public class BoardController {
-	 @Inject
-	 boardService boardService;
+	@Inject
+	boardService boardService;
 
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
+	// 게시판 리스트
+	@RequestMapping("notice")
+	public ModelAndView notice_list() throws Exception {
+		List<boardDTO> list = boardService.listAll();
+		// ModelAndView - 모델�? �?
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("notice");
+		mav.addObject("list", list); // ?��?��?���? ???��
+		return mav; // list.jsp�? List�? ?��?��?��?��.
+	}
 
-	//게시판 리스트
-		@RequestMapping("notice")
-		public ModelAndView list() throws Exception{
-	        List<boardDTO> list = boardService.listAll();
-	        // ModelAndView - 모델�? �?
-	        ModelAndView mav = new ModelAndView();
-	        mav.setViewName("notice"); 
-	        mav.addObject("list", list); // ?��?��?���? ???��
-	        return mav; // list.jsp�? List�? ?��?��?��?��.
-	    }
-		
-		//게시판 글쓰기 페이지로 이동
-	    @RequestMapping(value="write", method=RequestMethod.GET)
-	    public String write(){
-	        return "write"; // write.jsp�? ?��?��
-	    }
-		//게시판 글쓰기 페이지로 이동
-	    @RequestMapping(value="test", method=RequestMethod.GET)
-	    public String test(){
-	        return "test"; // write.jsp�? ?��?��
-	    }
-	    
-	    // 게시판 글 쓰기
-	 	@RequestMapping(value="insert") 
-	 	public String reinsert(boardDTO vo) throws Exception { 
-	 			// 파일 업로드 처리
-	 			String fname=null;
-	 			MultipartFile uploadFile = vo.getUploadFile();
-	 			if (!uploadFile.isEmpty()) {
-	 				String originalFileName = uploadFile.getOriginalFilename();
-	 				String ext = FilenameUtils.getExtension(originalFileName);	//확장자 구하기
-	 				UUID uuid = UUID.randomUUID();	//UUID 구하기
-	 				fname=uuid+"."+ext;
-	 				uploadFile.transferTo(new File("D:\\upload\\" + fname));
-	 			}
-	 			vo.setFname(fname);
-	 			boardService.create(vo); 
-	 			return "redirect:notice"; 
-	 	}
-	    
-	    // 03.게시판 글 보기
-	    @RequestMapping(value="view", method=RequestMethod.GET)
-	    public ModelAndView view(@RequestParam int bno, HttpSession session) throws Exception{
+	// 게시판 글쓰기 페이지로 이동
+	@RequestMapping(value = "notice_write", method = RequestMethod.GET)
+	public String notice_write() {
+		return "notice_write"; // write.jsp�? ?��?��
+	}
 
-	    	ModelAndView mav = new ModelAndView();
-	      
-	        mav.setViewName("view");
-	       
-	        mav.addObject("dto", boardService.read(bno));
-	        return mav;
-	    }
-	    
-	 // 게시판 업데이트
-	    @RequestMapping(value="update", method=RequestMethod.POST)
-	    public String update(@ModelAttribute boardDTO vo) throws Exception{
-	    	boardService.update(vo);
-	        return "redirect:notice";
-	    }
-	    
-	    // 게시판 삭제
-	    @RequestMapping("delete")
-	    public String delete(@RequestParam int bno) throws Exception{
-	    	boardService.delete(bno);
-	        return "redirect:notice";
-	    }
-	    
-		
+	// 게시판 글쓰기 페이지로 이동
+	@RequestMapping(value = "test", method = RequestMethod.GET)
+	public String test() {
+		return "test"; // write.jsp�? ?��?��
+	}
+
+	// 게시판 글 쓰기
+	@RequestMapping(value = "notice_insert")
+	public String notice_insert(boardDTO vo) throws Exception {
+		// 파일 업로드 처리
+		String fname = null;
+		MultipartFile uploadFile = vo.getUploadFile();
+		if (!uploadFile.isEmpty()) {
+			String originalFileName = uploadFile.getOriginalFilename();
+			String ext = FilenameUtils.getExtension(originalFileName); // 확장자 구하기
+			UUID uuid = UUID.randomUUID(); // UUID 구하기
+			fname = uuid + "." + ext;
+			uploadFile.transferTo(new File("D:\\upload\\" + fname));
+		}
+		vo.setFname(fname);
+		boardService.create(vo);
+		return "redirect:notice";
+	}
+
+	// 03.게시판 글 보기
+	@RequestMapping(value = "notice_view", method = RequestMethod.GET)
+	public ModelAndView view(@RequestParam int bno, HttpSession session) throws Exception {
+
+		ModelAndView mav = new ModelAndView();
+
+		mav.setViewName("view");
+
+		mav.addObject("dto", boardService.read(bno));
+		return mav;
+	}
+
+	// 게시판 업데이트
+	@RequestMapping(value = "notice_update", method = RequestMethod.POST)
+	public String update(@ModelAttribute boardDTO vo) throws Exception {
+		boardService.update(vo);
+		return "redirect:notice";
+	}
+
+	// 게시판 삭제
+	@RequestMapping("notice_delete")
+	public String delete(@RequestParam int bno) throws Exception {
+		boardService.delete(bno);
+		return "redirect:notice";
+	}
+
 }

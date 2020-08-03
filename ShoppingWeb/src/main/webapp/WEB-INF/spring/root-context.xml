@@ -48,6 +48,8 @@ xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.spring
 		<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 			<property name="basePackage" value="com.project.shoppingweb" />
 		</bean>
+		
+		
 
 	</beans>
 </beans>

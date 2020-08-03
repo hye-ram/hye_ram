@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.project.shoppingweb.bean.*;
 
 @Repository
-
 public interface boardDAO {
 	// 게시판 글쓰기
 		public void create(boardDTO dto) throws Exception;

@@ -35,19 +35,5 @@ public interface shopDAO {
 	// 회원탈퇴
 	public void secession(shopDTO dto, HttpSession session);
 
-	// 01. �Խñ� �ۼ�
-	public void create(boardDTO dto) throws Exception;
-
-	// 02. �Խñ� �󼼺���
-	public boardDTO read(int bno) throws Exception;
-
-	// 03. �Խñ� ����
-	public void update(boardDTO dto) throws Exception;
-
-	// 04. �Խñ� ����
-	public void delete(int bno) throws Exception;
-
-	// 05. �Խñ� ��ü ���
-	public List<boardDTO> listAll();
 
 }

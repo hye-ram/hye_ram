@@ -35,22 +35,4 @@ public interface shopService {
 	// 회원 탈퇴
 	public void secession(shopDTO dto, HttpSession session);
 
-	// 01. 게시글 작성
-	public void create(boardDTO dto) throws Exception;
-
-	// 02. �Խñ� �󼼺���
-	public boardDTO read(int bno) throws Exception;
-
-	// 03. �Խñ� ����
-	public void update(boardDTO dto) throws Exception;
-
-	// 04. �Խñ� ����
-	public void delete(int bno) throws Exception;
-
-	// 05. �Խñ� ��ü ���
-	public List<boardDTO> listAll();
-
-	// 06. �Խñ� ��ȸ
-	public void increaseViewcnt(int bno, HttpSession session) throws Exception;
-
 }

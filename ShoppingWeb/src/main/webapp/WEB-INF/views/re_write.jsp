@@ -51,7 +51,7 @@
 <script type="text/javascript" src="resources/js/bootstrap.js"></script>
 <script type="text/javascript" src="resources/js/custom.js"></script>
 <script type="text/javascript" src="resources/js/common.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/smarteditor2/js/HuskyEZCreator.js"
+<script type="text/javascript" src="<%=request.getContextPath() %>/smarteditor2/js/service/HuskyEZCreator.js"
 	charset="utf-8"></script>
 
 </head>
