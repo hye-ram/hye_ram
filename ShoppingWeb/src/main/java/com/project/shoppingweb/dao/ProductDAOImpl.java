@@ -68,7 +68,12 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public List<ProductDTO> search(String result) {
-		System.out.println(sqlSession.selectList("product.search", result));
 		return sqlSession.selectList("product.search", result);
+	}
+
+	@Override
+	public List<ProductDTO> productDetail(String product_id) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("product.product_detail", product_id);
 	}
 }

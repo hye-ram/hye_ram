@@ -62,9 +62,9 @@
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
 
-	<h2>게시글 목록</h2>
-	<button type="button" id="btnWrite">글쓰기</button>
-	<table border="1" width="600px">
+	<div id="sub_title">공 지 사 항</div>
+
+	<table id="board_table">
 		<tr>
 			<th>번 호</th>
 			<th>제 목</th>
@@ -74,13 +74,17 @@
 		<c:forEach var="row" items="${list}">
 			<tr>
 				<td>${row.bno}</td>
-				<td><a href="${path}/shoppingweb/notice_view?bno=${row.bno}">${row.title}</a></td>
+				<td><a id="board_tbl_title"  href="${path}/shoppingweb/notice_view?bno=${row.bno}">${row.title}</a></td>
 				<td>${row.writer}</td>
 				<td>${row.regdate}</td>
 
 			</tr>
 		</c:forEach>
 	</table>
+	
+	<br>
+	<button type="button" id="btnWrite">글쓰기</button>
+	<br><br>
 	<tr>
 		<td><jsp:include page="bottom.jsp" flush="false" /></td>
 	</tr>

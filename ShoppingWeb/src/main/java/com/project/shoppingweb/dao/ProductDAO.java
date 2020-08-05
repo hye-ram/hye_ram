@@ -15,5 +15,6 @@ public interface ProductDAO {
 	List<ProductDTO> cate01List();
 	List<ProductDTO> cateCheck(String cate01Id);
 	List<ProductDTO> search(String result);
+	List<ProductDTO> productDetail(String product_id);
 }
 

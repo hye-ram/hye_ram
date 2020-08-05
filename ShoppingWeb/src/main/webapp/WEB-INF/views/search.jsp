@@ -45,40 +45,31 @@
 <body class="sub_page">
 	<div class="hero_area">
 		<!-- header section strats -->
-		<c:choose>
-			<c:when test="${empty sessionScope.userId}">
-				<div class="brand_box"
-					style="background-image: url('resources/images/sub-top.jpg');">
-					<a class="navbar-brand" href="home"> <span> Hye-Ram </span>
-					</a>
-					<div class="icon-set">
-						<ul class="top-set">
+		<div class="brand_box">
+			<a class="navbar-brand" href="home"> <span> <!-- 사이트 제목 -->
+					Hye-Ram
+			</span>
+			</a>
+			<div class="icon-set">
+				<ul class="top-set">
+					<c:choose>
+						<c:when test="${empty sessionScope.userId}">
 							<li><a class="top-set-li" href="login">login</a></li>
 							<li><a class="top-set-li" href="join">join</a></li>
 							<li><a class="top-set-li" href="cart"><i
 									class="fas fa-shopping-cart"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</c:when>
-			<c:otherwise>
-				<div class="brand_box"
-					style="background-image: url('resources/images/sub-top.jpg');">
-					<a class="navbar-brand" href="home"> <span> Hye-Ram </span>
-					</a>
-					<div class="icon-set">
-						<ul class="top-set">
+						</c:when>
+						<c:otherwise>
 							<li class="top-set-li-id">${sessionScope.userId}님</li>
-							<li><a class="top-set-li" href="mypage">mypage</a></li>
+							<li><a class="top-set-li" href="${path}/shoppingweb/mypage">mypage</a></li>
 							<li><a class="top-set-li" href="logout">logout</a></li>
 							<li><a class="top-set-li" href="cart"><i
 									class="fas fa-shopping-cart"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</c:otherwise>
-		</c:choose>
-		<!-- end header section -->
+						</c:otherwise>
+					</c:choose>
+				</ul>
+			</div>
+		</div>
 	</div>
 
 	<!-- nav section -->
@@ -103,6 +94,7 @@
 							</ul>
 						</div>
 					</div>
+					<div id="endSearch"><i class="fas fa-times"></i></div>
 				</nav>
 			</div>
 		</div>
@@ -110,49 +102,26 @@
 
 
 	<c:choose>
-
 		<c:when test="${empty search_result}">
-			<div id="search_fail" style="height: 500px;"> 검색어를 입력해 주세요! </div>
+			<div id="search_fail" style="height: 500px;">검색어를 입력해 주세요!</div>
 		</c:when>
 		<c:otherwise>
-			<div id="search_success" style="height: 500px;">
-				<table id="product" border="1" width="500px;">
-					<tr>
-						<th>상품사진</th>
-						<th>상품명</th>
-						<th>가격</th>
-						<th>설명</th>
-						<th>담기</th>
-					</tr>
-					<c:forEach var="row" items="${search_result}">
-						<tr align="center">
-							<td><img src="resources/images/${row.picture_url}"
-								width="100" height="100"></td>
-							<td>${row.product_name }</td>
-							<td><fmt:formatNumber value="${row.price}" pattern="#,###" /></td>
-							<td>${row.description}</td>
-							<!-- 상품 설명을 가져옴 -->
-
-							<td>
-								<form name="form1" method="post"
-									action="${path}/shoppingweb/cart_insert">
-									<input type="hidden" name="product_id"
-										value="${row.product_id}"> <input type="hidden"
-										name="product_name" value="${row.product_name}"> <input
-										type="hidden" name="price" value="${row.price}">
-									<!-- 상품코드를 히든타입으로 넘김 -->
-									<select name="amount">
-										<c:forEach begin="1" end="10" var="i">
-											<option value="${i}">${i}</option>
-											<!-- 장바구니에  10개 까지 담을수 있다.-->
-										</c:forEach>
-									</select>&nbsp;개 <input type="submit" value="장바구니에 담기">
-								</form>
-							</td>
-						</tr>
-					</c:forEach>
-				</table>
+			<div id="product_list">
+				<c:forEach var="row" items="${search_result}">
+					<div id="product_box">
+						<div id="goDetail">
+							<img src="resources/images/${row.picture_url}">
+						</div>
+						<div>${row.product_name}</div>
+						<div>
+							<fmt:formatNumber value="${row.price}" pattern="#,###" />
+						</div>
+						<input type="hidden" id="product_id" name="product_id"
+							value="${row.product_id}">
+					</div>
+				</c:forEach>
 			</div>
+
 		</c:otherwise>
 	</c:choose>
 
@@ -170,7 +139,7 @@
 		$(document).ready(function(e) {
 			$('#search_btn').click(function() {
 				var url = "goSearch?search_Term=" + $('#search_Term').val();
-				window.location.href = url;
+				window.location.replace(url);
 			});
 			$('#search_Term').keypress(function(event) {
 				if (event.which == 13) {
@@ -178,6 +147,10 @@
 					return false;
 				}
 			});
+			$('#endSearch').click(function() {
+				window.history.back();
+			});
+			
 		});
 	</script>
 </body>

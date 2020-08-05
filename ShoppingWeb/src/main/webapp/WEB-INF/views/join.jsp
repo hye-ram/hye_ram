@@ -48,16 +48,15 @@
 	<tr>
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
-
+	<div id="sub_title">회원 정보 변경</div>
 	<form id="joinFrm" name="joinFrm" action="goJoin">
-		<div class="new">
-			<div class="title">회원가입</div>
-			<table>
+		<div class="mem_table">
+			<table style="width: 100%;">
 				<tr>
 					<th>아이디</th>
 					<th><input type="text" id="userId" name="userId"
-						class="userId"></th>
-					<th><input type="button" id="check" value="중복체크">
+						class="userId"> &nbsp &nbsp<input type="button" id="check" value="중복체크"></th>
+					<th>
 				</tr>
 				<tr>
 					<td colspan=3 id="idCheck"></td>
@@ -111,11 +110,14 @@
 						class="userEmail"></th>
 				</tr>
 			</table>
-			<input type="button" id="goJoin" value="회원가입"> <input
-				type="button" id="cancel" value="취소">
+			<br>
+			<div id="btnbox">
+				<input type="button" id="goJoin" value="회원가입">
+				<input type="button" id="cancel" value="취소">
+			</div>
 		</div>
 	</form>
-	
+	<br>
 	<tr>
 		<td><jsp:include page="bottom.jsp" flush="false" /></td>
 	</tr>
@@ -188,24 +190,24 @@
 									.click(
 											function() {
 												if ($.trim($('#userId').val()) == '') {
-													alert("아이디 입력.");
+													alert("아이디를 입력 해주세요");
 													$('#userId').focus();
 													return;
 												} else if ($.trim($('#userPw')
 														.val()) == '') {
 													alert($.trim($('#userPw')
 															.val())); //왜 빈값..???
-													alert("패스워드 입력.");
+													alert("패스워드를 입력 해주세요");
 													$('#userPw').focus();
 													return;
 												} else if ($.trim($(
 														'#userAddr01').val()) == '') {
-													alert("주소를 입력하세요.");
+													alert("주소를 입력 해주세요");
 													$('#userAddr01').focus();
 													return;
 												} else if ($.trim($(
 														'#userAddr03').val()) == '') {
-													alert("상세 주소를 입력하세요.");
+													alert("상세 주소를 입력 해주세요");
 													$('#userAddr03').focus();
 													return;
 												} else if ($.trim($(
@@ -213,12 +215,12 @@
 														|| $.trim($(
 																'#userCell03')
 																.val()) == '') {
-													alert("전화번호를 입력하세요.");
+													alert("전화번호를 입력 해주세요");
 													$('#userCell01').focus();
 													return;
 												} else if ($.trim($(
 														'#userEmail').val()) == '') {
-													alert("이메일을 입력하세요.");
+													alert("이메일를 입력 해주세요");
 													$('#userEmail').focus();
 													return;
 												}
@@ -226,13 +228,13 @@
 												//패스워드 확인
 												else if ($('#userPw').val() != $(
 														'#userPw02').val()) {
-													alert('패스워드가 일치하지 않습니다.');
+													alert('패스워드가 일치하지 않습니다');
 													$('#userPw').focus();
 													return;
 												}
 
 												if (idx == false) {
-													alert("아이디 중복체크를 해주세요.");
+													alert("아이디 중복확인");
 													return;
 												} else {
 													$('#joinFrm').submit();

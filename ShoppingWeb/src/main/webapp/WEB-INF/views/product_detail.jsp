@@ -44,24 +44,52 @@
 <script scr="//cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
 
 </head>
-<body class="sub_page" style="background-color: rgba(0,0,0,0.01);">
+<body class="sub_page" style="background-color: rgba(0, 0, 0, 0.01);">
 	<tr>
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
-	<div id="sub_title">product list</div>
-	<div id="product_list">
+	<div id="detail_box">
 		<c:forEach var="row" items="${list}">
-			<div id="product_box">
-				<div onclick="detailView(${row.product_id})"><img src="resources/images/${row.picture_url}" ></div>
-				<div>${row.product_name}</div>
-				<div><fmt:formatNumber value="${row.price}" pattern="#,###" /></div>
-				<input type="hidden" id="product_id" name="product_id" value="${row.product_id}">
+			<div id="detail_top">
+				<div id="detail_img">
+					<img src="resources/images/${row.picture_url}">
+				</div>
+				<div id="detail_info">
+					<div>${row.product_name}</div>
+					<div>
+						판매가격
+						<fmt:formatNumber value="${row.price}" pattern="#,###" />
+						원
+					</div>
+					<hr>
+					<div>${row.product_name}</div>
+					<div>
+						<form id="cartForm" name="form1" method="post"
+							action="${path}/shoppingweb/cart_insert">
+							<input type="hidden" name="product_id" value="${row.product_id}">
+							<input type="hidden" name="product_name"
+								value="${row.product_name}"> <input type="hidden"
+								name="price" id="price" value="${row.price}">
+							<!-- 상품코드를 히든타입으로 넘김 -->
+							<select id="amount" name="amount">
+								<c:forEach begin="1" end="10" var="i">
+									<option value="${i}">${i}</option>
+								</c:forEach>
+							</select>&nbsp;개 <span class="pricexamount"><fmt:formatNumber value="${row.price}" pattern="#,###" /> 원</span>
+						</form>
+					</div>
+					<hr>
+					<div>총 상품 금액 <span class="pricexamount"><fmt:formatNumber value="${row.price}" pattern="#,###" /> 원</span></div>
+					<div id="orderBtn">BUY IT NOW</div>
+					<div id="addCart">ADD TO CART</div>
+				</div>
 			</div>
+			<div id="detail_description">${row.description}</div>
+			<div id="detail_review">리뷰 게시판 연결</div>
+			<div id="detail_qna">qna 연결</div>
+
 		</c:forEach>
 	</div>
-
-
-	
 
 	<a href="${path}/shoppingweb/product_list">상품목록</a>
 
@@ -78,16 +106,31 @@
 		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 		crossorigin="anonymous"></script>
 	<script>
-		$(document).ready(function(e) {
-			//자바스크립트 태그안쪽에 
-			$('#btnAdd').click(function() {
-				location.href = "${path}/shoppingweb/product_write";
-			});
-			
-		});
-		function detailView(id) {
-			location.href = "${path}/shoppingweb/product_detail?product_id="+ id;
+		function addComma(num) {
+			var regexp = /\B(?=(\d{3})+(?!\d))/g;
+			return num.toString().replace(regexp, ',');
 		}
+		
+		$(document)
+				.ready(
+
+						function(e) {							
+							$('#addCart').click(function() {
+								$('#cartForm').submit();
+							});
+							$('#amount').change(
+									function() {
+										var amount = $('#amount').val();
+										var price = $('#price').val();
+										var pricexamount = amount * price;
+										alert(pricexamount.toLocaleString());
+										
+										$('.pricexamount').empty();
+										$('.pricexamount').append(
+												"<span>" + pricexamount.toLocaleString()
+														+ " 원</span>");
+									});
+						});
 	</script>
 </body>
 </html>

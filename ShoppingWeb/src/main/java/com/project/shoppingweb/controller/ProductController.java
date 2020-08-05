@@ -38,12 +38,22 @@ import com.project.shoppingweb.bean.*;
 		String cate01 = request.getParameter("cate01");
 		mav.setViewName("product_list"); // 이동할 페이지 이름 (product_list.jsp 파일로 이동)
 		mav.addObject("list", productService.listProduct(cate01)); // 데이터 저장
+		System.out.println(mav);
+		// 서비스에서 상품 리스트를 받아와 list라는 이름의 변수에 저장
+		// service -> model -> mybatis -> 리스트를 받아옴
+		return mav; // 페이지 이동
+	}
+	
+	@RequestMapping("product_detail") // 세부적인 url mapping
+	public ModelAndView detail(ModelAndView mav, HttpServletRequest request) {
+		String product_id = request.getParameter("product_id");
+		mav.setViewName("product_detail"); // 이동할 페이지 이름 (product_list.jsp 파일로 이동)
+		mav.addObject("list", productService.productDetail(product_id)); // 데이터 저장
 	
 		// 서비스에서 상품 리스트를 받아와 list라는 이름의 변수에 저장
 		// service -> model -> mybatis -> 리스트를 받아옴
 		return mav; // 페이지 이동
 	}
-
 	// cart_list페이지와 맵핑되는 메소드
 
 	@RequestMapping("cart")
@@ -180,7 +190,6 @@ import com.project.shoppingweb.bean.*;
 		List<ProductDTO> list = productService.search(search_Term);
 		mav.setViewName("search");
 		mav.addObject("search_result",list);
-		System.out.println(mav);
 		return mav;
 	}
 }

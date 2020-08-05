@@ -22,4 +22,6 @@ public interface ProductService {
 	List<ProductDTO> cateCheck(String cate01Id);
 
 	List<ProductDTO> search(String result);
+
+	List<ProductDTO> productDetail(String product_id);
 }
