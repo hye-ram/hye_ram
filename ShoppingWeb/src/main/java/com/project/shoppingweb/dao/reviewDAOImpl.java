@@ -50,4 +50,9 @@ public class reviewDAOImpl implements reviewDAO {
 	public void reviewdelete(int bno) throws Exception {
 		sqlSession.delete("review.deleteArticle",bno);
 	}
+	//리뷰업데이트페이지
+	@Override
+	public reviewDTO review_updatego(int bno) throws Exception {
+		 return sqlSession.selectOne("review.view", bno);
+	}
 }

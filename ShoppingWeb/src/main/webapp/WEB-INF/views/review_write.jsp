@@ -71,6 +71,10 @@
 	<form id="form2" name="form2"
 		action="${path}/shoppingweb/review_insert" method="post">
 		<table border="1" width="100%">
+
+	<form id="form2" name="form2" action="${path}/shoppingweb/review_insert"
+		method="post">
+		<table border="1" width="80%">
 			<tr>
 				<td bgcolor="orange" width="70">제목</td>
 				<td align="left"><input type="text" id="title" name="title" /></td>

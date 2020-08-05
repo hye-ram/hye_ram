@@ -19,13 +19,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 
-<<<<<<< HEAD
-  <title>공지사항 - Hye-Ram</title>
-
-=======
 <title>공지사항 - Hye-Ram</title>
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
-
 <!-- slider stylesheet -->
 <link rel="stylesheet" type="text/css"
 	href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
@@ -63,14 +57,11 @@
 </head>
 
 <body class="sub_page">
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 	<tr>
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
-<<<<<<< HEAD
+
 
   <div class="hero_area">
     <!-- header section strats -->
@@ -93,8 +84,6 @@
 
 
 	<!-- end nav section -->
-=======
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 
 	<h2>게시글 목록</h2>
 	<button type="button" id="btnWrite">글쓰기</button>
@@ -112,20 +101,15 @@
 				<td>${row.writer}</td>
 				<td>${row.regdate}</td>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
 			</tr>
 		</c:forEach>
 	</table>
-<<<<<<< HEAD
 
-=======
+
 	<tr>
 		<td><jsp:include page="bottom.jsp" flush="false" /></td>
 	</tr>
->>>>>>> branch 'master' of https://github.com/hye-ram/hye_ram.git
+
 
 </body>
 </html>

@@ -106,7 +106,6 @@
 					$('#userId').focus();
 					return;
 				} else if ($.trim($('#userPw').val()) == '') {
-					ㅣ
 					alert("패스워드를 입력해 주세요.");
 					$('#userPw').focus();
 					return;

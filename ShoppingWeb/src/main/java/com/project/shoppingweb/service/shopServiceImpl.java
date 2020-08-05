@@ -14,14 +14,14 @@ public class shopServiceImpl implements shopService {
 	@Inject
 	shopDAO shopDao;
 
-	// 01. ȸ�� �α��� üũ
+	// 01. 로그인 체크
 	@Override
 	public boolean loginCheck(shopDTO dto, HttpSession session) {
 		// TODO Auto-generated method stub
-
 		boolean result = shopDao.loginCheck(dto);
 
-		if (result == true) { // true �ϰ�� ���� ���
+		if (result == true) { 
+			session.setAttribute("userId", dto.getUserId());
 		}
 			return result;
 		

@@ -17,8 +17,8 @@ public class ProductServiceImpl implements ProductService {
     
     
     @Override
-    public List<ProductDTO> listProduct(String cate02Id) {
-        return productDao.listProduct(cate02Id); //데이터베이스에 저장된 상품 리스트를 리턴한다.
+    public List<ProductDTO> listProduct(String cate01Id) {
+        return productDao.listProduct(cate01Id); //데이터베이스에 저장된 상품 리스트를 리턴한다.
     }
 
 
@@ -65,4 +65,10 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDTO>  cateCheck(String cate01Id) {
         return productDao.cateCheck(cate01Id); //데이터베이스에 저장된 상품 리스트를 리턴한다.
     }
+
+
+	@Override
+	public List<ProductDTO> search(String result) {
+		return productDao.search(result);
+	}
 }

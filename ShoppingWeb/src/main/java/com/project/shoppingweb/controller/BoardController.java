@@ -42,16 +42,16 @@ public class BoardController {
 		return mav; // list.jsp�? List�? ?��?��?��?��.
 	}
 
+	//게시판 업데이트페이지로
+	@RequestMapping("notice_updatego")
+	public String clothes() {
+		return "notice_update";
+	}
+	
 	// 게시판 글쓰기 페이지로 이동
 	@RequestMapping(value = "notice_write", method = RequestMethod.GET)
 	public String notice_write() {
 		return "notice_write"; // write.jsp�? ?��?��
-	}
-
-	// 게시판 글쓰기 페이지로 이동
-	@RequestMapping(value = "test", method = RequestMethod.GET)
-	public String test() {
-		return "test"; // write.jsp�? ?��?��
 	}
 
 	// 게시판 글 쓰기
@@ -75,11 +75,8 @@ public class BoardController {
 	// 03.게시판 글 보기
 	@RequestMapping(value = "notice_view", method = RequestMethod.GET)
 	public ModelAndView view(@RequestParam int bno, HttpSession session) throws Exception {
-
 		ModelAndView mav = new ModelAndView();
-
-		mav.setViewName("view");
-
+		mav.setViewName("notice_view");
 		mav.addObject("dto", boardService.read(bno));
 		return mav;
 	}

@@ -14,12 +14,27 @@ public class reviewDTO {
 	private Date regdate;
 	private MultipartFile Filedata;
 
-	public MultipartFile getFiledata() {
-		return Filedata;
-	}
-	public void setFiledata(MultipartFile filedata) {
-		Filedata = filedata;
-	}
+    //callback URL
+    private String callback;
+    //콜백함수??
+    private String callback_func;
+ 
+    public String getCallback() {
+        return callback;
+    }
+ 
+    public void setCallback(String callback) {
+        this.callback = callback;
+    }
+ 
+    public String getCallback_func() {
+        return callback_func;
+    }
+ 
+    public void setCallback_func(String callback_func) {
+        this.callback_func = callback_func;
+    }
+
 	public int getBno() {
 		return bno;
 	}
@@ -51,6 +66,16 @@ public class reviewDTO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+
+	public MultipartFile getFiledata() {
+		return Filedata;
+	}
+
+	public void setFiledata(MultipartFile filedata) {
+		Filedata = filedata;
+	}
+
+	
 	@Override
 	public String toString() {
 		return "reviewDTO [bno=" + bno + ", title=" + title + ", editor=" + editor + ", writer=" + writer + ", regdate="

@@ -65,14 +65,16 @@ public class IndexController {
 	}
 
 	// �α��� ó��
-	@RequestMapping(value = "/loginCheck")
+	@RequestMapping(value = "loginCheck")
 	public ModelAndView loginCheck(@ModelAttribute shopDTO dto, HttpSession session) {
 		boolean result = shopService.loginCheck(dto, session);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("home");
 		if (result) {
+			mav.setViewName("home");
 			mav.addObject("msg", "성공");
 		} else {
+			mav.setViewName("login");
 			mav.addObject("msg", "실패");
 		}
 		System.out.println(mav);
@@ -162,5 +164,7 @@ public class IndexController {
 		int result = shopService.passCheck(dto);
 		return Integer.toString(result);
 	}
+	
+
 
 }

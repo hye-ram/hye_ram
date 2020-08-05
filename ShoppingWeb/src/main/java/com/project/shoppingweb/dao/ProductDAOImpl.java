@@ -18,8 +18,13 @@ public class ProductDAOImpl implements ProductDAO {
 	SqlSession sqlSession;
 
 	@Override
-	public List<ProductDTO> listProduct(String cate02Id) {
-		return sqlSession.selectList("product.list_product",cate02Id);
+	public List<ProductDTO> listProduct(String cate01Id) {
+		System.out.println(cate01Id);
+		if (cate01Id == null) {
+			return sqlSession.selectList("product.productAll");
+		} else {
+			return sqlSession.selectList("product.product_list", cate01Id);
+		}
 	}
 
 	@Override
@@ -55,9 +60,15 @@ public class ProductDAOImpl implements ProductDAO {
 	public List<ProductDTO> cate01List() {
 		return sqlSession.selectList("product.list_cate01");
 	}
-	
+
 	@Override
-	public List<ProductDTO> cateCheck(String cate01Id){
-		return sqlSession.selectList("product.list_cate02",cate01Id);
+	public List<ProductDTO> cateCheck(String cate01Id) {
+		return sqlSession.selectList("product.list_cate02", cate01Id);
+	}
+
+	@Override
+	public List<ProductDTO> search(String result) {
+		System.out.println(sqlSession.selectList("product.search", result));
+		return sqlSession.selectList("product.search", result);
 	}
 }
