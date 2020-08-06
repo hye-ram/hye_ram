@@ -15,6 +15,5 @@ public interface reviewService {
 		public void reviewupdate(reviewDTO dto) throws Exception;
 		//리뷰 삭제
 		public void reviewdelete(int bno) throws Exception;
-		//리뷰 업데이트 페이지
-		public reviewDTO review_updatego(int bno) throws Exception;
+
 }

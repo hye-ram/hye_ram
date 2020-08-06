@@ -53,79 +53,48 @@
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
 
-	본인 회원정보 조회/수정 , 찜, 장바, 주문내역, 리뷰, 문의 조회 가능
-	<br>
-	<hr>
-	<form id="upMemFrm" name="upMemFrm" action="updateMem">
-		<div class="new">
-			<div class="title">회원 정보 수정</div>
-			<br>
-			<table>
-				<c:forEach var="row" items="${memInfo}">
-					<tr>
-						<th>아이디</th>
-						<th>${row.userId}</th>
-					</tr>
-					<tr>
-						<th>패스워드</th>
-						<th><input type="password" id="userPw" name="userPw"
-							class="userPw"></th>
-					</tr>
-					<tr>
-						<th>패스워드 확인</th>
-						<th><input type="password" id="userPw02" name="userPw02"
-							class="userPw02"></th>
-					</tr>
-					<tr>
-						<th>이름</th>
-						<th>${row.userName}</th>
-					</tr>
-					<tr>
-						<th>우편번호</th>
-						<th><input class="form-control"
-							style="width: 40%; display: inline;" placeholder="우편번호"
-							name="userAddr01" id="userAddr01" type="text" readonly="readonly"
-							value="${row.userAddr01}">
-							<button type="button" class="btn btn-default"
-								onclick="execDaumPostCode();">
-								<i class="fa fa-search"></i> 우편번호 찾기
-							</button> <input class="form-control" style="top: 5px;"
-							placeholder="도로명 주소" name="userAddr02" id="userAddr02"
-							type="text" readonly="readonly" value="${row.userAddr02}" /> <input
-							class="form-control" placeholder="상세주소" name="userAddr03"
-							id="userAddr03" type="text" value="${row.userAddr03}" /></th>
-					</tr>
-					<tr>
-						<th>휴대폰 번호</th>
-						<th><select id="userCell01" name="userCell01">
-								<option value="010">010</option>
-								<option value="011">011</option>
-								<option value="016">016</option>
-								<option value="017">017</option>
-								<option value="018">018</option>
-								<option value="019">019</option>
-						</select> - <input type="number" id="userCell02" value="${row.userCell02}"
-							name="userCell02" style="width: 60px" maxlength="4"
-							oninput="numberMaxLength(this);"> - <input type="number"
-							id="userCell03" name="userCell03" value="${row.userCell03}"
-							style="width: 60px" maxlength="4"
-							oninput="numberMaxLength(this);"></th>
-					</tr>
-					<tr>
-						<th>이메일</th>
-						<th><input type="text" name="userEmail" id="userEmail"
-							class="userEmail" value="${row.userEmail}"></th>
-					</tr>
-				</c:forEach>
-			</table>
-			<br> <input type="button" id="updateMemer" value="수정하기"> <input
-				type="button" id="cancel" value="취소">
+	<div id="sub_title">MY PAGE</div>
+	<div id="mypage_box">
+		<div id="shopping_info">
+			shopping info
+			<ul>
+				<li><a href="order_list">주문내역</a></li>
+				<li><a href="cart">장바구니</a></li>
+				<li><a href="review">리뷰목록</a></li>
+				<li><a href="qna">문의내역</a></li>
+			</ul>
 		</div>
-	</form>
+		<div id="customer_info">
+			customer info
+			<ul>
+				<li><a href="mem_edit">회원정보변경</a></li>
+				<li><a href="secession">회원탈퇴신청</a></li>
+			</ul>
+		</div>
+	</div>
+	<br><br>
+	<div id="mypage_infobox">
+		<c:forEach var="row" items="${memInfo}">
+		<div><i class="far fa-user-circle fa_5x"></i></div>
+		<div>
+			<div><span class="info_title">${row.userName}</span> <span>[${row.userId}] 님</span>
+			<input type="button" id="mem_edit_btn" value="edit"></div>
+			<div><span class="info_title">전화번호</span> <span class="info_con">${row.userCell01}-${row.userCell02}-${row.userCell03}</span> </div> 
+			<div><span class="info_title">이메일</span> <span class="info_con">${row.userEmail}</span></div>
+			<div><span class="info_title">주소</span> <span class="info_con">${row.userAddr02}${row.userAddr03}</span></div>
+		 </div>
+		<div>총 주문 금액</div>
+		</c:forEach>
+	</div>
+	<div id="mypage_latestorder">
+	최근 주문 정보<br>
+	date/product/cost/detail
+	</div>
+	<div id="mypage_latestsubject">
+	최근 등록 게시글<br>
+	date/subject/board
+	</div>
 	<br>
-	
-	
-	<a href="secession">회원탈퇴</a>
 	<tr>
 		<td><jsp:include page="bottom.jsp" flush="false" /></td>
 	</tr>
@@ -135,6 +104,14 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.js"
 		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 		crossorigin="anonymous"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		
+		$("#mem_edit_btn").click(function() {
+			location.href = '${path}/shoppingweb/mem_edit';
+		});
+	});
+	</script>
 
 
 </body>

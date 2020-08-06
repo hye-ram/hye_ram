@@ -51,11 +51,11 @@
 	<h2>게시판 글 보기</h2>
 
 	<form name="form2" method="post">
-		<input name="bno" type="hidden" value="${dto.bno}" />
-		<table border="1" width="600px">
+		<input name="bno" type="hidden" value="${rdto.bno}" />
+		<table border="1">
 			<tr>
 				<td bgcolor="orange" width="70">제목</td>
-				<td align="left">${dto.title}"></td>
+				<td align="left">${dto.title}</td>
 			</tr>
 			<tr>
 				<td bgcolor="orange">작성자</td>
@@ -69,14 +69,21 @@
 				<td bgcolor="orange">등록일</td>
 				<td align="left">${dto.regdate}</td>
 			</tr>
-
+			<c:if test="${dto.fname ne null}">
+				<tr>
+					<td bgcolor="orange">첨부파일</td>
+					<td align="left"><a
+						href="${path}/shoppingweb/fileDownload?fname=${dto.fname}">${dto.fname}</a></td>
+				</tr>
+			</c:if>
 			<tr>
 				<td colspan="2" align="center">
-					<button type="button" onClick="location.href='notice_updatego'">수정</button>
+					<button type="button" id="btnUpdete"
+						onclick="location.href='review_update'">수정</button>
 					<button type="button" id="btnDelete">삭제</button>
 				</td>
 			</tr>
-			<a href="notice">글 목록</a>
+			<a href="review">글 목록</a>
 		</table>
 	</form>
 
@@ -85,23 +92,24 @@
 	<script type="text/javascript" src="resources/js/custom.js"></script>
 	<script>
 		$(document)
-		.ready(
-				function() {
-				
-					
-					$("#btnDelete")
-							.click(
-									function() {
-										if (confirm("삭제하시겠습니까?")) {
-											document.form2.action = "${path}/shoppingweb/notice_delete";
-											document.form2.submit();
-										}
-									});
+				.ready(
+						function() {
+							$("#btnDelete")
+									.click(
+											function() {
+												if (confirm("삭제하시겠습니까?")) {
+													document.form2.action = "${path}/shoppingweb/notice_delete";
+													document.form2.submit();
+												}
+											});
 
-
-				
-				});
-
+							/* $("#btnUpdete").click(function() {
+								
+								document.form2.action = "${path}/shoppingweb/notice_update"
+								// 폼에 입력한 데이터를 서버로 전송
+								document.form2.submit();
+							}); */
+						});
 	</script>
 
 </body>

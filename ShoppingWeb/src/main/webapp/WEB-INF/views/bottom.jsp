@@ -13,7 +13,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>로그인  - Hye-Ram</title>
+  <title>Hye-Ram</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
@@ -39,13 +39,13 @@
 	<section class="info_section layout_padding">
 		<div class="container">
 			<div class="info_logo">
-				<h2>NiNom</h2>
+				<h2>Hye-Ram</h2>
 			</div>
 			<div class="info_contact">
 				<div class="row">
 					<div class="col-md-4">
 						<a href=""> <img src="images/location.png" alt=""> <span>
-								Passages of Lorem Ipsum available </span>
+								Seoul, Korea </span>
 						</a>
 					</div>
 					<div class="col-md-4">

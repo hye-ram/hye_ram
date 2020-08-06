@@ -42,12 +42,6 @@ public class BoardController {
 		return mav; // list.jsp�? List�? ?��?��?��?��.
 	}
 
-	//게시판 업데이트페이지로
-	@RequestMapping("notice_updatego")
-	public String clothes() {
-		return "notice_update";
-	}
-	
 	// 게시판 글쓰기 페이지로 이동
 	@RequestMapping(value = "notice_write", method = RequestMethod.GET)
 	public String notice_write() {

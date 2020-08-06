@@ -47,9 +47,5 @@ public class reviewServiceImpl implements reviewService {
 	public void reviewdelete(int bno) throws Exception {
 		reviewDao.reviewdelete(bno);
 	}
-	//리뷰 업데이트 페이지
-	@Override
-	public reviewDTO review_updatego(int bno) throws Exception {
-		return reviewDao.review_updatego(bno);
-	}
+
 }
