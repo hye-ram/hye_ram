@@ -40,13 +40,8 @@ public class replyContoller {
 	@RequestMapping(value="reply_list", method=RequestMethod.GET)
 	public ModelAndView list(@RequestParam int bno, ModelAndView mav) {
 		List<replyDTO> list = replyService.list(bno);
-		System.out.println(list);
-		// 뷰이름 지정
 		mav.setViewName("replyList");
-		// 뷰에 전달할 데이터 지정
 		mav.addObject("list", list);
-		// replyList.jsp로 포워딩
-		System.out.println("mav"+mav);
 		return mav;
 	}
 

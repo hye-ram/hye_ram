@@ -11,18 +11,18 @@ import com.project.shoppingweb.dao.*;
 import com.project.shoppingweb.bean.*;
 
 @Service
-public class boardServiceImpl implements boardService{
-	
+public class boardServiceImpl implements boardService {
+
 	@Inject
 	boardDAO boardDao;
-	
+
 	// 게시판 리스트
 	@Override
 	public List<boardDTO> listAll() {
 		return boardDao.listAll();
 	}
-	
-	//게시판 글쓰기
+
+	// 게시판 글쓰기
 	@Transactional // 트랜잭션 처리 메서드로 설정
 	@Override
 	public void create(boardDTO vo) throws Exception {
@@ -45,23 +45,29 @@ public class boardServiceImpl implements boardService{
 		vo.setWriter(writer);
 		boardDao.create(vo);
 	}
-	//게시판 보기
-		@Override
-		public boardDTO read(int bno) throws Exception {
-			return boardDao.read(bno);
-		}
 
-		//게시판 업뎃
-		@Override
-		public void update(boardDTO vo) throws Exception {
-			boardDao.update(vo);
-		}
+	// 게시판 보기
+	@Override
+	public boardDTO read(int bno) throws Exception {
+		return boardDao.read(bno);
+	}
 
-		//게시판 삭제
-		@Override
-		public void delete(int bno) throws Exception {
-			boardDao.delete(bno);
-		}
+	// 리뷰 업데이트 보기
+	@Override
+	public boardDTO notice_updatego(int bno) throws Exception {
+		return boardDao.notice_updatego(bno);
+	}
 
+	// 게시판 업뎃
+	@Override
+	public void update(boardDTO vo) throws Exception {
+		boardDao.update(vo);
+	}
+
+	// 게시판 삭제
+	@Override
+	public void delete(int bno) throws Exception {
+		boardDao.delete(bno);
+	}
 
 }

@@ -60,27 +60,32 @@ public class ReviewController {
 
 	// 리뷰게시판 글쓰기
 	@RequestMapping(value = "review_insert", method = RequestMethod.POST)
-	public String insert(HttpServletRequest request, reviewDTO dto) throws Exception {
-		System.out.println(request.getParameter("ir1"));
+	public String insert(HttpServletRequest request, reviewDTO dto,HttpSession session) throws Exception {
+		String writer = (String) session.getAttribute("userId");
 		dto.setTitle(request.getParameter("title"));
 		dto.setEditor(request.getParameter("ir1"));
-		dto.setWriter(request.getParameter("writer"));
-
+		dto.setWriter(writer);
 		reviewService.reviewcreate(dto);
 		return "redirect:review";
 	}
-
-	// 리뷰 보기
+	// 리뷰  보기
 	@RequestMapping(value = "review_view", method = RequestMethod.GET)
 	public ModelAndView re_view(@RequestParam int bno, HttpSession session) throws Exception {
-		System.out.println(bno);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("review_view");
 		mav.addObject("rdto", reviewService.reviewread(bno));
-		System.out.println( reviewService.reviewread(bno));
-		System.out.println( reviewService);
 		return mav;
 	}
+	
+	// 리뷰 업데이트 보기
+	@RequestMapping(value = "review_updatego", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView reviewUp(@RequestParam int bno, HttpSession session) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("review_update");
+		mav.addObject("rdto", reviewService.review_updatego(bno));
+		return mav;
+	}
+	
 
 	// 리뷰 업뎃
 	@RequestMapping(value = "review_update", method = RequestMethod.POST)

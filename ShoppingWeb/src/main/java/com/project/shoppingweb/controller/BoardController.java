@@ -66,7 +66,7 @@ public class BoardController {
 		return "redirect:notice";
 	}
 
-	// 03.게시판 글 보기
+	// 게시판 글 보기
 	@RequestMapping(value = "notice_view", method = RequestMethod.GET)
 	public ModelAndView view(@RequestParam int bno, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView();
@@ -74,6 +74,15 @@ public class BoardController {
 		mav.addObject("dto", boardService.read(bno));
 		return mav;
 	}
+	// 게시판 업데이트 페이지 보기
+		@RequestMapping(value = "notice_updatego", method = {RequestMethod.GET, RequestMethod.POST})
+		public ModelAndView reviewUp(@RequestParam int bno, HttpSession session) throws Exception {
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("notice_update");
+			mav.addObject("dto", boardService.notice_updatego(bno));
+			return mav;
+		}
+		
 
 	// 게시판 업데이트
 	@RequestMapping(value = "notice_update", method = RequestMethod.POST)

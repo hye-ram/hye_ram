@@ -44,6 +44,12 @@
 		SELECT * FROM notice
 		WHERE bno = #{bno}
 	</select>
+	<!--04. 업뎃 페이지 상세보기 조회 -->
+	<select id="update"
+		resultType="com.project.shoppingweb.bean.boardDTO">
+		SELECT * FROM notice
+		WHERE bno = #{bno}
+	</select>
 	<!-- 05. 게시글 수정처리 -->
 	<update id="updateArticle">
 		UPDATE notice SET

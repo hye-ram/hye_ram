@@ -80,11 +80,6 @@
 				<td align="left"><input type="text" id="title" name="title" /></td>
 			</tr>
 			<tr>
-				<td bgcolor="orange">작성자</td>
-				<td align="left"><input type="text" id="writer" name="writer"
-					size="10" /></td>
-			</tr>
-			<tr>
 				<td bgcolor="orange">내 용</td>
 				<td align="left"><textarea rows="10" cols="100" name="ir1"
 						id="ir1"></textarea></td>
@@ -142,11 +137,7 @@
 					document.form2.title.focus();
 					return;
 				}
-				if (writer == "") {
-					alert("이름을 입력하세요");
-					document.form2.writer.focus();
-					return;
-				}
+				
 
 				oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
 				alert("값넣는다?");

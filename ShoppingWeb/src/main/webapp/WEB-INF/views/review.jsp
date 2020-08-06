@@ -60,7 +60,8 @@
 		<c:forEach var="row" items="${list}">
 			<tr>
 				<td>${row.bno}</td>
-				<td><a id="board_tbl_title" href="${path}/shoppingweb/review_view?bno=${row.bno}">${row.title}</a></td>
+				<td><a id="board_tbl_title"
+					href="${path}/shoppingweb/review_view?bno=${row.bno}">${row.title}</a></td>
 				<td>${row.writer}</td>
 				<td>${row.regdate}</td>
 
@@ -69,8 +70,11 @@
 
 	</table>
 	<br>
-	<button type="button" id="btnWrite">글쓰기</button>
-	<br><br>
+	<c:if test="${sessionScope.userId != null}">
+		<button type="button" id="btnWrite">글쓰기</button>
+	</c:if>
+	<br>
+	<br>
 	<tr>
 		<td><jsp:include page="bottom.jsp" flush="false" /></td>
 	</tr>
@@ -81,7 +85,7 @@
 	<script>
 		$(document).ready(function() {
 			$("#btnWrite").click(function() {
-				
+
 				location.href = "review_write";
 			});
 		});

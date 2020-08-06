@@ -62,32 +62,8 @@
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
 
-
-
-  <div class="hero_area">
-    <!-- header section strats -->
-    <div class="brand_box" style="background-image: url('resources/images/sub-top.jpg');">
-      <a class="navbar-brand" href="home">
-        <span>
-         	Hye-Ram
-        </span>
-      </a>
-      <div class="icon-set">
-	      <ul class="top-set">
-	      	<li><a class="top-set-li" href="login">login</a></li>
-	      	<li><a class="top-set-li" href="join">join</a></li>
-	      	<li><a class="top-set-li" href="cart"><i class="fas fa-shopping-cart"></i></a></li>
-	      </ul>
-      </div>
-    </div>
-    <!-- end header section -->
-  </div>
-
-
 	<!-- end nav section -->
 
-	<h2>게시글 목록</h2>
-	<button type="button" id="btnWrite">글쓰기</button>
 	<table border="1" width="600px">
 
 	<div id="sub_title">공 지 사 항</div>

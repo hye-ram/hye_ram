@@ -52,7 +52,7 @@
 
 	<form name="form2" method="post">
 		<input name="bno" type="hidden" value="${dto.bno}" />
-		<table border="1">
+		<table border="1" style="width: 1000px;">
 			<tr>
 				<td bgcolor="orange" width="70">제목</td>
 				<td align="left"><input name="title" type="text"

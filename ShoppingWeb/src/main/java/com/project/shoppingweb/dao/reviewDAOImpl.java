@@ -40,6 +40,11 @@ public class reviewDAOImpl implements reviewDAO {
 	public reviewDTO reviewread(int bno) throws Exception {
 		 return sqlSession.selectOne("review.view", bno);
 	}
+	//리뷰 업뎃페이지 보기
+	@Override
+	public reviewDTO review_updatego(int bno) throws Exception {
+		 return sqlSession.selectOne("review.update", bno);
+	}
 	//리뷰 업뎃
 	@Override
 	public void reviewupdate(reviewDTO dto) throws Exception {
