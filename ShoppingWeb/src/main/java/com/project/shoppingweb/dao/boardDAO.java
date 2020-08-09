@@ -13,6 +13,8 @@ public interface boardDAO {
 		public void create(boardDTO dto) throws Exception;
 		//게시판 읽기
 		public boardDTO read(int bno) throws Exception;
+		//리뷰 업뎃 페이지 보기 
+		public boardDTO notice_updatego(int bno) throws Exception;
 		//게시판 업뎃
 		public void update(boardDTO dto) throws Exception;
 		// 게시판 삭제

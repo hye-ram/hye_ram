@@ -41,108 +41,117 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
 	rel="stylesheet">
-<script type="text/javascript" src="<%=request.getContextPath() %>/smarteditor2/js/HuskyEZCreator.js"
-	charset="utf-8"></script>
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
 <body class="sub_page">
 	<tr>
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
-	<h2>리뷰 글 보기</h2>
+	<h2>게시판 글 보기</h2>
 
 	<form name="form2" method="post">
 		<input name="bno" type="hidden" value="${rdto.bno}" />
 		<table border="1" style="width: 1000px;">
 			<tr>
-				<td bgcolor="orange">제목</td>
-				<td align="left"><input name="title" type="text"
-					value="${rdto.title}" placeholder="제목을 입력해주세요" /></td>
+				<td bgcolor="orange" width="70">제목</td>
+				<td align="left">${rdto.title}</td>
 			</tr>
 			<tr>
 				<td bgcolor="orange">작성자</td>
-				<td align="left"><input name="writer" id="writer"
-					value="${rdto.writer}" placeholder="이름을 입력해주세요"></td>
+				<td align="left">${rdto.writer}</td>
 			</tr>
 			<tr>
 				<td bgcolor="orange">내용</td>
-				<td align="left"><textarea rows="10" cols="100" name="ir1"
-						id="ir1">${rdto.editor}</textarea></td>
+				<td align="left">${rdto.editor}</td>
 			</tr>
 			<tr>
 				<td bgcolor="orange">등록일</td>
-				<td align="left"><fmt:formatDate value="${rdto.regdate}"
-						pattern="yyyy-MM-dd" /></td>
+				<td align="left">${rdto.regdate}</td>
 			</tr>
-
-		
-			<tr>
-				<td colspan="2" align="center">
-					<button type="button" id="btnUpdete">수정</button>
-					<button type="button" id="btnDelete">삭제</button>
-				</td>
-			</tr>
+			<c:if test="${sessionScope.userId == rdto.writer}">
+				<tr>
+					<td colspan="2" align="center">
+						<button type="button" id="btnUpdete">수정</button>
+						<button type="button" id="btnDelete">삭제</button>
+					</td>
+				</tr>
+			</c:if>
 			<a href="review">글 목록</a>
 		</table>
 	</form>
-
+	<div style="width: 650px; text-align: center;">
+		<br>
+		<c:if test="${sessionScope.userId != null}">
+			<textarea rows="5" cols="80" id="replytext" placeholder="댓글을 작성해주세요"></textarea>
+			<br>
+			<button type="button" id="btnReply">댓글 작성</button>
+		</c:if>
+	</div>
+	<div id="listReply"></div>
 	<script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="resources/js/bootstrap.js"></script>
 	<script type="text/javascript" src="resources/js/custom.js"></script>
 	<script>
-		$(document).ready(function() {
-			var oEditors = [];
-			$(function() {
-				nhn.husky.EZCreator.createInIFrame({
-					oAppRef : oEditors,
-					elPlaceHolder : "ir1",
-					//SmartEditor2Skin.html 파일이 존재하는 경로
-					sSkinURI : "smarteditor2/SmartEditor2Skin.html",
-					htParams : {
-						// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-						bUseToolbar : true,
-						// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-						bUseVerticalResizer : false,
-						// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-						bUseModeChanger : false,
-						fOnBeforeUnload : function() {
-						}
-					},
-					fOnAppLoad : function() {
-						//기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-						oEditors.getById["ir1"].exec("PASTE_HTML", [""]);
-					},
-					fCreator : "createSEditor2"
-				});
-			}); 
-			$("#btnDelete").click(function() {
-				if (confirm("삭제하시겠습니까?")) {
-					document.form2.action = "${path}/shoppingweb/review_delete";
-					document.form2.submit();
-				}
-			});
-			
-			$("#btnUpdete").click(function() {
+		$(document)
+				.ready(
+						function() {
+							listReply();
+							$("#btnDelete")
+									.click(
+											function() {
+												if (confirm("삭제하시겠습니까?")) {
+													document.form2.action = "${path}/shoppingweb/review_delete";
+													document.form2.submit();
+												}
+											});
 
-				var title = $("#title").val();
-				var ir1 = oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
-				var writer = $("#writer").val();
-				if (title == "") {
-					alert("제목을 입력하세요");
-					document.form2.title.focus();
-					return;
+							$("#btnUpdete")
+									.click(
+											function() {
+
+												document.form2.action = "${path}/shoppingweb/review_updatego"
+												// 폼에 입력한 데이터를 서버로 전송
+												document.form2.submit();
+											});
+							$("#btnReply")
+									.click(
+											function() {
+												var replytext = $("#replytext")
+														.val();
+												var bno = "${rdto.bno}"
+												var param = "replytext="
+														+ replytext + "&bno="
+														+ bno;
+												$
+														.ajax({
+															type : "post",
+															url : "${path}/shoppingweb/reply_insert",
+															data : param,
+															success : function() {
+																alert("댓글이 등록되었습니다.");
+																listReply2();
+															},
+															error : function() {
+																alert("에러띵동");
+															}
+														});
+											});
+						});
+		function listReply() {
+			$.ajax({
+				type : "get",
+				url : "${path}/shoppingweb/reply_list?bno=${rdto.bno}",
+				success : function(result) {
+					// responseText가 result에 저장됨.
+					$("#listReply").html(result);
+				},
+				error : function() {
+					alert("에러임");
 				}
-				if (writer == "") {
-					alert("이름을 입력하세요");
-					document.form2.writer.focus();
-					return;
-				}
-				document.form2.action = "${path}/shoppingweb/review_update"
-				// 폼에 입력한 데이터를 서버로 전송
-				document.form2.submit();
 			});
-		});
+		}
 	</script>
 
 </body>

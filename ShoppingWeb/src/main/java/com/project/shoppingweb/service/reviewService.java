@@ -14,7 +14,10 @@ public interface reviewService {
 	// 리뷰보기
 	public reviewDTO reviewread(int bno) throws Exception;
 
-	// 리뷰수정
+	// 리뷰 업데이트 페이지 보기
+	public reviewDTO review_updatego(int bno) throws Exception;
+
+	//리뷰수정
 	public void reviewupdate(reviewDTO dto) throws Exception;
 
 	// 리뷰 삭제
@@ -22,4 +25,5 @@ public interface reviewService {
 
 	// 홈페이지 리뷰
 	List<reviewDTO> readReview();
+	
 }

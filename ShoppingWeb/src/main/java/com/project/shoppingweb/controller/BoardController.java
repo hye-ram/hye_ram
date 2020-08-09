@@ -48,12 +48,6 @@ public class BoardController {
 		return "notice_write"; // write.jsp�? ?��?��
 	}
 
-	// 게시판 글쓰기 페이지로 이동
-	@RequestMapping(value = "test", method = RequestMethod.GET)
-	public String test() {
-		return "test"; // write.jsp�? ?��?��
-	}
-
 	// 게시판 글 쓰기
 	@RequestMapping(value = "notice_insert")
 	public String notice_insert(boardDTO vo) throws Exception {
@@ -72,14 +66,23 @@ public class BoardController {
 		return "redirect:notice";
 	}
 
-	// 03.게시판 글 보기
+	// 게시판 글 보기
 	@RequestMapping(value = "notice_view", method = RequestMethod.GET)
 	public ModelAndView view(@RequestParam int bno, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("view");
+		mav.setViewName("notice_view");
 		mav.addObject("dto", boardService.read(bno));
 		return mav;
 	}
+	// 게시판 업데이트 페이지 보기
+		@RequestMapping(value = "notice_updatego", method = {RequestMethod.GET, RequestMethod.POST})
+		public ModelAndView reviewUp(@RequestParam int bno, HttpSession session) throws Exception {
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("notice_update");
+			mav.addObject("dto", boardService.notice_updatego(bno));
+			return mav;
+		}
+		
 
 	// 게시판 업데이트
 	@RequestMapping(value = "notice_update", method = RequestMethod.POST)

@@ -20,7 +20,6 @@
 <meta name="author" content="" />
 
 <title>공지사항 - Hye-Ram</title>
-
 <!-- slider stylesheet -->
 <link rel="stylesheet" type="text/css"
 	href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
@@ -58,13 +57,19 @@
 </head>
 
 <body class="sub_page">
+
 	<tr>
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
 
+	<!-- end nav section -->
+
+	<table border="1" width="600px">
+
 	<div id="sub_title">공 지 사 항</div>
 
 	<table id="board_table">
+
 		<tr>
 			<th>번 호</th>
 			<th>제 목</th>
@@ -81,13 +86,18 @@
 			</tr>
 		</c:forEach>
 	</table>
+
+
+
 	
 	<br>
 	<button type="button" id="btnWrite">글쓰기</button>
 	<br><br>
+
 	<tr>
 		<td><jsp:include page="bottom.jsp" flush="false" /></td>
 	</tr>
+
 
 </body>
 </html>

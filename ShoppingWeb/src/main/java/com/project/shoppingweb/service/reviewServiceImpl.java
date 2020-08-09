@@ -25,29 +25,20 @@ public class reviewServiceImpl implements reviewService {
 	@Transactional // 트랜잭션 처리 메서드로 설정
 	@Override
 	public void reviewcreate(reviewDTO vo) throws Exception {
-		/*
-		 * String title = vo.getTitle(); String editor = vo.getEditor(); String writer =
-		 * vo.getWriter();
-		 * 
-		 * title = title.replace("<", "&lt;"); title = title.replace("<", "&gt;");
-		 * writer = writer.replace("<", "&lt;"); writer = writer.replace("<", "&gt;");
-		 * title = title.replace("  ", "&nbsp;&nbsp;"); writer = writer.replace("  ",
-		 * "&nbsp;&nbsp;"); editor = editor.replace("\n", "<br>");
-		 * 
-		 * System.out.println(editor); vo.setTitle(title); vo.setEditor(editor);
-		 * vo.setWriter(writer);
-		 */
 		reviewDao.reviewcreate(vo);
 		System.out.println("서비스임플" + vo);
 
 	}
-
 	// 리뷰 보기
 	@Override
 	public reviewDTO reviewread(int bno) throws Exception {
 		return reviewDao.reviewread(bno);
 	}
-
+	//리뷰 업데이트 보기
+	@Override
+	public reviewDTO review_updatego(int bno) throws Exception {
+		return reviewDao.review_updatego(bno);
+	}
 	// 리뷰 업데이트
 	@Override
 	public void reviewupdate(reviewDTO vo) throws Exception {

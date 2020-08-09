@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reply">
+	<!-- 댓글 삽입 -->
+	<insert id="insertReply">
+		INSERT INTO reply (
+		rno,
+		bno, 
+		replytext,
+		replyer
+		)values(
+		null,
+		#{bno},
+		#{replytext},
+		#{replyer}
+		)
+	</insert>
+	<!-- 댓글 수정 -->
+	<update id="update">
+		update reply set
+		replytext = #{replytext}
+		where rno =
+		#{rno}
+	</update>
+	<!-- 댓글 삭제 -->
+	<delete id="delete">
+		delete from reply where rno = #{rno}
+	</delete>
+	
+	  <!-- 댓글 목록 -->
+    <select id="listReply" resultType="com.project.shoppingweb.bean.replyDTO">
+        SELECT rno, bno, replytext, replyer, r.regdate, r.updatedate
+        FROM reply r, member m
+        WHERE  r.replyer = m.id AND bno=#{bno}
+        ORDER BY rno
+    </select>
+
+	<select id="getTotalCount" resultType="int">
+		select count(bno)
+		from reply
+		where bno = #{bno}
+	</select>	
+</mapper>

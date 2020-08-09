@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.UUID;
@@ -21,10 +23,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mysql.jdbc.StringUtils;
 import com.project.shoppingweb.bean.boardDTO;
 import com.project.shoppingweb.bean.reviewDTO;
 import com.project.shoppingweb.service.reviewService;
@@ -44,7 +48,7 @@ public class ReviewController {
 		// ModelAndView - 모델�? �?
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("review");
-		mav.addObject("list", list); // ?��?��?���? ???��
+		mav.addObject("list", list);
 		return mav;
 	}
 
@@ -56,17 +60,15 @@ public class ReviewController {
 
 	// 리뷰게시판 글쓰기
 	@RequestMapping(value = "review_insert", method = RequestMethod.POST)
-	public String insert(HttpServletRequest request, reviewDTO dto) throws Exception {
-		System.out.println(request.getParameter("ir1"));
+	public String insert(HttpServletRequest request, reviewDTO dto,HttpSession session) throws Exception {
+		String writer = (String) session.getAttribute("userId");
 		dto.setTitle(request.getParameter("title"));
 		dto.setEditor(request.getParameter("ir1"));
-		dto.setWriter(request.getParameter("writer"));
-
+		dto.setWriter(writer);
 		reviewService.reviewcreate(dto);
 		return "redirect:review";
 	}
-
-	// 리뷰 보기
+	// 리뷰  보기
 	@RequestMapping(value = "review_view", method = RequestMethod.GET)
 	public ModelAndView re_view(@RequestParam int bno, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView();
@@ -74,11 +76,20 @@ public class ReviewController {
 		mav.addObject("rdto", reviewService.reviewread(bno));
 		return mav;
 	}
+	
+	// 리뷰 업데이트 보기
+	@RequestMapping(value = "review_updatego", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView reviewUp(@RequestParam int bno, HttpSession session) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("review_update");
+		mav.addObject("rdto", reviewService.review_updatego(bno));
+		return mav;
+	}
+	
 
 	// 리뷰 업뎃
 	@RequestMapping(value = "review_update", method = RequestMethod.POST)
 	public String re_update(HttpServletRequest request, reviewDTO dto) throws Exception {
-		System.out.println(request.getParameter("ir1"));
 		dto.setTitle(request.getParameter("title"));
 		dto.setEditor(request.getParameter("ir1"));
 		dto.setWriter(request.getParameter("writer"));
@@ -86,6 +97,7 @@ public class ReviewController {
 		reviewService.reviewupdate(dto);
 		return "redirect:review";
 	}
+	
 
 	// 리뷰 삭제
 	@RequestMapping("review_delete")
@@ -93,6 +105,7 @@ public class ReviewController {
 		reviewService.reviewdelete(bno);
 		return "redirect:review";
 	}
+
 	
 	//단일파일업로드
 	@RequestMapping("/photoUpload")
@@ -184,6 +197,7 @@ public class ReviewController {
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
+
 	}
 
 }

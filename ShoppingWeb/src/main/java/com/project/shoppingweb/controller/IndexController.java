@@ -47,7 +47,6 @@ public class IndexController {
 
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
-	// Ȩ������
 	@RequestMapping({ "/", "/home" })
 	public ModelAndView home(ModelAndView mav) {
 		mav.setViewName("home"); // 이동할 페이지 이름 (product_list.jsp 파일로 이동)
@@ -55,19 +54,16 @@ public class IndexController {
 		return mav;
 	}
 
-	// �� ī�װ�
 	@RequestMapping("clothes")
 	public String clothes() {
 		return "clothes";
 	}
 
-	// �α��� ȭ��
 	@RequestMapping("login")
 	public String login() {
 		return "login";
 	}
 
-	// �α��� ó��
 	@RequestMapping(value = "loginCheck")
 	public ModelAndView loginCheck(@ModelAttribute shopDTO dto, HttpSession session) {
 		boolean result = shopService.loginCheck(dto, session);
@@ -84,7 +80,6 @@ public class IndexController {
 		return mav;
 	}
 
-	// �α׾ƿ� ó��
 	@RequestMapping("logout")
 	public ModelAndView logout(HttpSession session) {
 		shopService.logout(session);
@@ -95,20 +90,17 @@ public class IndexController {
 		return mav;
 	}
 
-	// ȸ������ ȭ��
 	@RequestMapping("join")
 	public String join() {
 		return "join";
 	}
 
-	// ȸ������ ����
 	@RequestMapping("goJoin")
 	public String goJoin(shopDTO dto) {
 		shopService.signUp(dto);
 		return "login";
 	}
 
-	// produces�� ajax ���� ���� ����
 	@RequestMapping(value = "idCheck", method = RequestMethod.GET, produces = "application/text; charset=utf8")
 	@ResponseBody
 	public String idCheck(HttpServletRequest request) {

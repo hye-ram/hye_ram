@@ -68,17 +68,16 @@
 
 	<h2>리뷰 글 작성</h2>
 
+	<form id="form2" name="form2"
+		action="${path}/shoppingweb/review_insert" method="post">
+		<table border="1" width="100%">
+
 	<form id="form2" name="form2" action="${path}/shoppingweb/review_insert"
 		method="post">
 		<table border="1" width="80%">
 			<tr>
 				<td bgcolor="orange" width="70">제목</td>
 				<td align="left"><input type="text" id="title" name="title" /></td>
-			</tr>
-			<tr>
-				<td bgcolor="orange">작성자</td>
-				<td align="left"><input type="text" id="writer" name="writer"
-					size="10" /></td>
 			</tr>
 			<tr>
 				<td bgcolor="orange">내 용</td>
@@ -95,7 +94,9 @@
 	</form>
 	<hr>
 	<a href="review">리뷰 목록 가기</a>
-	<br><br><br>
+	<br>
+	<br>
+	<br>
 	<tr>
 		<td><jsp:include page="bottom.jsp" flush="false" /></td>
 	</tr>
@@ -121,7 +122,7 @@
 				},
 				fOnAppLoad : function() {
 					//기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-					oEditors.getById["ir1"].exec("PASTE_HTML", [ "ㅎㅎ" ]);
+					oEditors.getById["ir1"].exec("PASTE_HTML", [ "" ]);
 				},
 				fCreator : "createSEditor2"
 			});
@@ -136,15 +137,11 @@
 					document.form2.title.focus();
 					return;
 				}
-				if (writer == "") {
-					alert("이름을 입력하세요");
-					document.form2.writer.focus();
-					return;
-				}
+				
 
 				oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
 				alert("값넣는다?");
-				
+
 				var ir1 = $("#ir1").val();
 				alert($("#ir1").val());
 				if (ir1 == null) {
@@ -152,7 +149,7 @@
 					oEditors.getById["ir1"].exec("FOCUS"); //포커싱
 					return;
 				}
-				
+
 				//id가 smarteditor인 textarea에 에디터에서 대입
 				// 폼에 입력한 데이터를 서버로 전송 */
 

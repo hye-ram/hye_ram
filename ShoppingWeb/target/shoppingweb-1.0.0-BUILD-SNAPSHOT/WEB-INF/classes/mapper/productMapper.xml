@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+
+<mapper namespace="product">
+	<select id="list_product"
+		resultType="com.project.shoppingweb.bean.ProductDTO">
+		<!-- 코드의 자료형을 알려준다 DTO타입으로 받아야 되므로 DTO파일의 경로를 입력. -->
+		<!-- 이 코드가 호출되면 ProductDTO가 arraylist로 저장됨 -->
+		select * from product
+		where cate01Id = #{cate01Id}
+		order by product_id
+		<!-- id의 내림차순으로 검색한다. (id의 오름차순으로 검색 - 1,2,3,4,.....10) -->
+	</select>
+	<select id="list_cate01"
+		resultType="com.project.shoppingweb.bean.ProductDTO">
+		<!-- 코드의 자료형을 알려준다 DTO타입으로 받아야 되므로 DTO파일의 경로를 입력. -->
+		<!-- 이 코드가 호출되면 ProductDTO가 arraylist로 저장됨 -->
+		select * from cate01
+		order by cate01Id
+		<!-- id의 내림차순으로 검색한다. (id의 오름차순으로 검색 - 1,2,3,4,.....10) -->
+	</select>
+	<select id="list_cate02"
+		resultType="com.project.shoppingweb.bean.ProductDTO">
+		<!-- 코드의 자료형을 알려준다 DTO타입으로 받아야 되므로 DTO파일의 경로를 입력. -->
+		<!-- 이 코드가 호출되면 ProductDTO가 arraylist로 저장됨 -->
+		select * from cate02
+		where cate01Id = #{cate01Id}
+		order by cate02Id
+		<!-- id의 내림차순으로 검색한다. (id의 오름차순으로 검색 - 1,2,3,4,.....10) -->
+	</select>
+	<insert id="insert">
+		INSERT INTO product (
+		product_name,
+		price,
+		description,
+		picture_url,
+		cate02Id,
+		cate01Id
+		) VALUES (
+		#{product_name},
+		#{price},
+		#{description},
+		#{picture_url},
+		#{cate02Id},
+		#{cate01Id}
+		)
+	</insert>
+
+</mapper>

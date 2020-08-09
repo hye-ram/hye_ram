@@ -52,33 +52,28 @@
 
 	<form name="form2" method="post">
 		<input name="bno" type="hidden" value="${dto.bno}" />
-		<table border="1">
+		<table border="1" style="width: 1000px;">
 			<tr>
 				<td bgcolor="orange" width="70">제목</td>
-				<td align="left"><input name="title" type="text"
-					value="${dto.title}" placeholder="제목을 입력해주세요" /></td>
+				<td align="left">${dto.title}</td>
 			</tr>
 			<tr>
 				<td bgcolor="orange">작성자</td>
-				<td align="left"><input name="writer" id="writer"
-					value="${dto.writer}" placeholder="이름을 입력해주세요"></td>
+				<td align="left">${dto.writer}</td>
 			</tr>
 			<tr>
 				<td bgcolor="orange">내용</td>
-				<td align="left"><textarea name="content" cols="40" rows="10"
-						placeholder="내용을 입력해주세요">${dto.content}</textarea></td>
+				<td align="left">${dto.content}</td>
 			</tr>
 			<tr>
 				<td bgcolor="orange">등록일</td>
-				<td align="left"><fmt:formatDate value="${dto.regdate}"
-						pattern="yyyy-MM-dd" /></td>
+				<td align="left">${dto.regdate}</td>
 			</tr>
 
 			<c:if test="${dto.fname ne null}">
 				<tr>
 					<td bgcolor="orange">첨부파일</td>
-					<td align="left"><a
-						href="${path}/shoppingweb/fileDownload?fname=${dto.fname}">${dto.fname}</a></td>
+					<td align="left">${dto.fname}</td>
 				</tr>
 			</c:if>
 			<tr>
@@ -87,7 +82,7 @@
 					<button type="button" id="btnDelete">삭제</button>
 				</td>
 			</tr>
-			<a href="review">글 목록</a>
+			<a href="notice">글 목록</a>
 		</table>
 	</form>
 
@@ -103,33 +98,14 @@
 				}
 			});
 
-			$("#btnUpdete").click(function() {
-				//var title = document.form1.title.value; ==> name속성으로 처리할 경우
-				//var content = document.form1.content.value;
-				//var writer = document.form1.writer.value;
-				var title = $("#title").val();
-				var content = $("#content").val();
-				var writer = $("#writer").val();
-				if (title == "") {
-					alert("제목을 입력하세요");
-					document.form2.title.focus();
-					return;
-				}
-				if (content == "") {
-					alert("내용을 입력하세요");
-					document.form2.content.focus();
-					return;
-				}
-				if (writer == "") {
-					alert("이름을 입력하세요");
-					document.form2.writer.focus();
-					return;
-				}
-				document.form2.action = "${path}/shoppingweb/notice_update"
-				// 폼에 입력한 데이터를 서버로 전송
-				document.form2.submit();
+			 $("#btnUpdete").click(function() {
+					
+					document.form2.action = "${path}/shoppingweb/notice_updatego"
+					// 폼에 입력한 데이터를 서버로 전송
+					document.form2.submit();
+				}); 
 			});
-		});
+	
 	</script>
 
 </body>

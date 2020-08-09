@@ -18,6 +18,9 @@ public interface reviewDAO {
 	// 리뷰보기
 	public reviewDTO reviewread(int bno) throws Exception;
 
+	// 리뷰 업뎃 페이지 보기
+	public reviewDTO review_updatego(int bno) throws Exception;
+
 	// 리뷰 업뎃
 	public void reviewupdate(reviewDTO dto) throws Exception;
 
