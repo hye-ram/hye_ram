@@ -19,7 +19,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 
-<title>로그인 - Hye-Ram</title>
+<title>리뷰게시판 - Hye-Ram</title>
 
 <!-- slider stylesheet -->
 <link rel="stylesheet" type="text/css"

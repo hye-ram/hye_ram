@@ -60,4 +60,9 @@ public class reviewServiceImpl implements reviewService {
 		reviewDao.reviewdelete(bno);
 	}
 
+	// 홈페이지 리뷰
+	@Override
+	public List<reviewDTO> readReview() {
+		return reviewDao.readReview();
+	}
 }

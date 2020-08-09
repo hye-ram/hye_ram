@@ -26,13 +26,7 @@ public class ProductDAOImpl implements ProductDAO {
 			return sqlSession.selectList("product.product_list", cate01Id);
 		}
 	}
-
-	@Override
-	public ProductDTO detailProduct(int product_id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public void updateProduct(ProductDTO dto) {
 		// TODO Auto-generated method stub

@@ -147,15 +147,14 @@
 			<div class="container">
 				<div class="box">
 					<div class="detail-box">
-						<h2>Fruit shop</h2>
-						<p>There are many variations of passages of Lorem Ipsum
-							available</p>
+						<h2>NEW ARRIVAL</h2>
+						<p>365일 매일매일 신상을 만나보세요!</p>
 					</div>
 					<div class="img-box">
-						<img src="resources/images/shop-img.jpg" alt="">
+						<img src="resources/images/acc.jfif" alt="">
 					</div>
 					<div class="btn-box">
-						<a href=""> Buy Now </a>
+						<a href=""> VIEW MORE </a>
 					</div>
 				</div>
 			</div>
@@ -203,45 +202,45 @@
 
 				<div class="fruit_container">
 					<div class="box">
-						<img src="resources/images/f-1.jpg" alt="">
+						<img src="resources/images/top.jfif" alt="">
 						<div class="link_box">
-							<h5>Orange</h5>
-							<a href=""> Buy Now </a>
+							<h5>Tops</h5>
+							<a href="product_list?cate01=001"> View </a>
 						</div>
 					</div>
 					<div class="box">
-						<img src="resources/images/f-2.jpg" alt="">
+						<img src="resources/images/outer.jfif" alt="">
 						<div class="link_box">
-							<h5>Blueberry</h5>
-							<a href=""> Buy Now </a>
+							<h5>Outers</h5>
+							<a href="product_list?cate01=002"> View </a>
 						</div>
 					</div>
 					<div class="box">
-						<img src="resources/images/f-3.jpg" alt="">
+						<img src="resources/images/dress.jfif" alt="">
 						<div class="link_box">
-							<h5>Banana</h5>
-							<a href=""> Buy Now </a>
+							<h5>Dresses</h5>
+							<a href="product_list?cate01=003"> View </a>
 						</div>
 					</div>
 					<div class="box">
-						<img src="resources/images/f-4.jpg" alt="">
+						<img src="resources/images/bottom.jfif" alt="">
 						<div class="link_box">
-							<h5>Apple</h5>
-							<a href=""> Buy Now </a>
+							<h5>Bottoms</h5>
+							<a href="product_list?cate01=004"> View </a>
 						</div>
 					</div>
 					<div class="box">
-						<img src="resources/images/f-5.jpg" alt="">
+						<img src="resources/images/dress.jfif" alt="">
 						<div class="link_box">
-							<h5>Mango</h5>
-							<a href=""> Buy Now </a>
+							<h5>Inner wear</h5>
+							<a href="product_list?cate01=005"> View </a>
 						</div>
 					</div>
 					<div class="box">
-						<img src="resources/images/f-6.jpg" alt="">
+						<img src="resources/images/acc.jfif" alt="">
 						<div class="link_box">
-							<h5>Strawberry</h5>
-							<a href=""> Buy Now </a>
+							<h5>etc.</h5>
+							<a href="product_list?cate01=006"> View </a>
 						</div>
 					</div>
 				</div>
@@ -256,12 +255,25 @@
 		<section class="client_section layout_padding-bottom">
 			<div class="container ">
 				<div class="heading_container">
-					<h2>What Syas Cutomer</h2>
+					<h2>REVIEW</h2>
 					<hr>
 				</div>
 				<div id="carouselExample2Controls" class="carousel slide"
 					data-ride="carousel">
 					<div class="carousel-inner">
+						<c:forEach var="row" items="${review}">
+							<div id="product_box">
+								<div onclick="detailView(${row.writer})">
+									<img src="resources/images/${row.picture_url}">
+								</div>
+								<div>${row.product_name}</div>
+								<div>
+									<fmt:formatNumber value="${row.price}" pattern="#,###" />
+								</div>
+								<input type="hidden" id="product_id" name="product_id"
+									value="${row.product_id}">
+							</div>
+						</c:forEach>
 						<div class="carousel-item active">
 							<div class="client_container layout_padding-top">
 								<div class="img-box">
@@ -305,19 +317,14 @@
 						<div class="carousel-item">
 							<div class="client_container layout_padding-top">
 								<div class="img-box">
-									<img src="resources/images/client-img.png" alt="">
+									<img src="resources/images/이미지링크.png" alt="">
 								</div>
 								<div class="detail-box">
-									<h5>Jone Mark</h5>
+									<h5>id불러오기.</h5>
 									<p>
 										<img src="resources/images/left-quote.png" alt=""> <span>
-											Lorem ipsum dolor sit amet, </span> <img
-											src="resources/images/right-quote.png" alt=""> <br>
-										consectetur adipiscing elit, sed do eiusmod tempor incididunt
-										ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-										quis nostrud exercitation ullamco laboris ut aliquip ex ea
-										commodo consequat. Duis aute irure dolor in reprehenderit in
-										voluptate velit esse
+											제목불러오기 </span> <img src="resources/images/right-quote.png" alt="">
+										<br> 내용불러오기
 									</p>
 								</div>
 							</div>

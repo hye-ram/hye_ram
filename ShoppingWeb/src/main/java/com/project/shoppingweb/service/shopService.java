@@ -12,14 +12,12 @@ public interface shopService {
 	public List<shopDTO> viewMember() throws Exception;
 	// 03. ȸ�� �α׾ƿ�
 
-
 	// 02. 회원 정보
 	public List<shopDTO> memInfo(String userId);
 
 	// 03. 로그아웃
 
 	public void logout(HttpSession session);
-
 
 	// 01. 아이디 중복 체크
 

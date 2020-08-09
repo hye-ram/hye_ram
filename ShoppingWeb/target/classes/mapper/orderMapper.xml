@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+
+<mapper namespace="order">
+	<insert id="orderInfo">
+		insert into tbl_order (orderId, userId, orderRec,
+		userAddr1, userAddr2, userAddr3, orderPhon, amount, orderDate)
+		values
+		(#{orderId},
+		#{userId}, #{orderRec}, #{userAddr1}, #{userAddr2},
+		#{userAddr3},
+		#{orderPhon}, #{amount}, now())
+	</insert>
+	<insert id="orderInfo_Details">
+		insert into tbl_order_details(orderDetailsNum, orderId, gdsNum, cartStock)
+		select null, #{orderId}, product_id, amount
+		from cart
+		<!-- gdsNum : 상품번호 productid -->
+		<!-- cartStock : 카트수량 amount -->
+	</insert>
+</mapper>

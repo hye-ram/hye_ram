@@ -83,6 +83,7 @@ body {
 	font-weight: bold;
 	color: #ffffff;
 	text-transform: uppercase;
+	font-style: italic;
 }
 
 a, a:hover, a:focus {
@@ -366,7 +367,6 @@ a:hover, a:focus {
 #detail_box{
 	width: 80%;
 	margin: 10px auto;
-	border : 1px solid red;
 }
 #detail_top{
 	display: flex;
@@ -380,9 +380,13 @@ a:hover, a:focus {
 	width: 400px;
 }
 #orderBtn, #addCart{
-	width: 100px;
+	width: 80%;
+	height: 50px;
+	margin: 30px auto;
 	background-color: rgba(0,0,0,0.2);
 	cursor:pointer;
+	text-align: center;
+	padding-top: 10px;
 	
 }
 /* 게시판 */
@@ -432,14 +436,17 @@ a:hover, a:focus {
 
 .shop_section .box .detail-box h2 {
 	font-weight: bold;
-	font-size: 3rem;
+	font-style:italic;
+	font-size: 2rem;
 	text-transform: uppercase;
 }
 
 .shop_section .box .detail-box p {
 	margin-bottom: 0;
 }
-
+.shop_section .box .img-box {
+	margin-top: 20px;
+}
 .shop_section .box .img-box img {
 	max-width: 100%;
 }

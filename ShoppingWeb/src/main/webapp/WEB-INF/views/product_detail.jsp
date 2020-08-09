@@ -123,8 +123,6 @@
 										var amount = $('#amount').val();
 										var price = $('#price').val();
 										var pricexamount = amount * price;
-										alert(pricexamount.toLocaleString());
-										
 										$('.pricexamount').empty();
 										$('.pricexamount').append(
 												"<span>" + pricexamount.toLocaleString()

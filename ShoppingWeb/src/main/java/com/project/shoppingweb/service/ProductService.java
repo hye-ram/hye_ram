@@ -6,9 +6,7 @@ import com.project.shoppingweb.bean.*;;
 
 public interface ProductService {
 	List<ProductDTO> listProduct(String cate01Id);
-
-	ProductDTO detailProduct(int product_id);
-
+	
 	String fileInfo(int product_id);
 
 	void updateProduct(ProductDTO dto);

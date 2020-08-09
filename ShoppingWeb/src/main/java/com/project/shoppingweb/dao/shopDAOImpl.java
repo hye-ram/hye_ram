@@ -24,12 +24,11 @@ public class shopDAOImpl implements shopDAO {
 		return (Integer.parseInt(name) == 0) ? false : true;
 	}
 
-
 	@Override
 
 	public List<shopDTO> viewMember() throws Exception {
 		return sqlSession.selectList("testMapper.listAll");
-    }
+	}
 	// 03. ȸ�� �α׾ƿ�
 
 	public List<shopDTO> memInfo(String userId) {
@@ -43,7 +42,6 @@ public class shopDAOImpl implements shopDAO {
 		session.invalidate();
 	}
 
-
 	@Override
 	public int idCheck(String userId) {
 		int result = sqlSession.selectOne("member.idCheck", userId);
@@ -54,13 +52,10 @@ public class shopDAOImpl implements shopDAO {
 
 	@Override
 	public void signUp(shopDTO dto) {
-
-		System.out.println("ȸ������");
 		sqlSession.insert("memberMapper.signUp", dto);
-
 		sqlSession.insert("member.signUp", dto);
-
 	}
+
 	// 패스워드 체크
 	public int passCheck(shopDTO dto) {
 		int result = Integer.parseInt((String) sqlSession.selectOne("member.loginCheck", dto));
@@ -73,6 +68,5 @@ public class shopDAOImpl implements shopDAO {
 		// 세션 삭제
 		session.invalidate();
 	}
-
 
 }

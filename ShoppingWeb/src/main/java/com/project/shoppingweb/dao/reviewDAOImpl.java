@@ -7,8 +7,6 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.project.shoppingweb.bean.reviewDTO;
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -50,4 +48,11 @@ public class reviewDAOImpl implements reviewDAO {
 	public void reviewdelete(int bno) throws Exception {
 		sqlSession.delete("review.deleteArticle",bno);
 	}
+	
+	//홈페이지 리뷰
+	@Override
+	public List<reviewDTO> readReview() {
+		return sqlSession.selectList("review.readReview");
+	}
+
 }

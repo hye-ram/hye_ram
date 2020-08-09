@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
-
 import javax.servlet.http.HttpServletRequest;
 
 import java.util.HashMap;
@@ -43,13 +42,17 @@ import com.project.shoppingweb.service.*;
 public class IndexController {
 	@Inject
 	shopService shopService;
+	@Inject
+	reviewService reviewService;
 
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
 	// Ȩ������
 	@RequestMapping({ "/", "/home" })
-	public String home() {
-		return "home";
+	public ModelAndView home(ModelAndView mav) {
+		mav.setViewName("home"); // 이동할 페이지 이름 (product_list.jsp 파일로 이동)
+		mav.addObject("review", reviewService.readReview()); // 데이터 저장
+		return mav;
 	}
 
 	// �� ī�װ�
@@ -112,53 +115,50 @@ public class IndexController {
 		String userId = request.getParameter("userId");
 		int result = shopService.idCheck(userId);
 		return Integer.toString(result);
-	}	
+	}
 
-	
 	@RequestMapping("mypage")
 	public String mypage() {
 		return "mypage";
-	}	
-	
-	
-	
-	@RequestMapping("memInfo")
-	    public String listAll(Model model) throws Exception {
-	        List<shopDTO> list = shopService.viewMember();
-	       model.addAttribute("list",list);
-	        return "member_list";
-	}
-	// 회원정보
-	@RequestMapping(value = "mypage", method = RequestMethod.GET)
-	public  ModelAndView mypage(HttpSession session, ModelAndView mav) {
-		String userId = (String) session.getAttribute("userId");
-		if(userId!=null) { 
-            //로그인한 상태이면 실행
-			List<shopDTO> list = shopService.memInfo(userId);
-            mav.setViewName("mypage"); //이동할 페이지의 이름
-            mav.addObject("memInfo", list); //데이터 저장
-            return mav; //화면 이동
-        }else { //로그인하지 않은 상태
-            return new ModelAndView("login", "", null);
-            //로그인을 하지 않았으면 로그인 페이지로 이동시킨다.
-        }
-	}
-	
-	@RequestMapping(value = "mem_edit", method = RequestMethod.GET)
-	public  ModelAndView mem_edit(HttpSession session, ModelAndView mav) {
-		String userId = (String) session.getAttribute("userId");
-		if(userId!=null) { 
-            //로그인한 상태이면 실행
-			List<shopDTO> list = shopService.memInfo(userId);
-            mav.setViewName("mem_edit"); //이동할 페이지의 이름
-            mav.addObject("memInfo", list); //데이터 저장
-            return mav; //화면 이동
-        }else { //로그인하지 않은 상태
-            return new ModelAndView("login", "", null);
-            //로그인을 하지 않았으면 로그인 페이지로 이동시킨다.
-        }
 	}
 
+	@RequestMapping("memInfo")
+	public String listAll(Model model) throws Exception {
+		List<shopDTO> list = shopService.viewMember();
+		model.addAttribute("list", list);
+		return "member_list";
+	}
+
+	// 회원정보
+	@RequestMapping(value = "mypage", method = RequestMethod.GET)
+	public ModelAndView mypage(HttpSession session, ModelAndView mav) {
+		String userId = (String) session.getAttribute("userId");
+		if (userId != null) {
+			// 로그인한 상태이면 실행
+			List<shopDTO> list = shopService.memInfo(userId);
+			mav.setViewName("mypage"); // 이동할 페이지의 이름
+			mav.addObject("memInfo", list); // 데이터 저장
+			return mav; // 화면 이동
+		} else { // 로그인하지 않은 상태
+			return new ModelAndView("login", "", null);
+			// 로그인을 하지 않았으면 로그인 페이지로 이동시킨다.
+		}
+	}
+
+	@RequestMapping(value = "mem_edit", method = RequestMethod.GET)
+	public ModelAndView mem_edit(HttpSession session, ModelAndView mav) {
+		String userId = (String) session.getAttribute("userId");
+		if (userId != null) {
+			// 로그인한 상태이면 실행
+			List<shopDTO> list = shopService.memInfo(userId);
+			mav.setViewName("mem_edit"); // 이동할 페이지의 이름
+			mav.addObject("memInfo", list); // 데이터 저장
+			return mav; // 화면 이동
+		} else { // 로그인하지 않은 상태
+			return new ModelAndView("login", "", null);
+			// 로그인을 하지 않았으면 로그인 페이지로 이동시킨다.
+		}
+	}
 
 	// 회원탈퇴 페이지
 	@RequestMapping(value = "secession")
@@ -180,7 +180,5 @@ public class IndexController {
 		int result = shopService.passCheck(dto);
 		return Integer.toString(result);
 	}
-	
-
 
 }

@@ -67,4 +67,6 @@ public class shopServiceImpl implements shopService {
 	public void secession(shopDTO dto, HttpSession session) {
 		shopDao.secession(dto, session);
 	}
+	
+	
 }

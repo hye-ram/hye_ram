@@ -12,6 +12,7 @@ public class reviewDTO {
 	private String editor; 
 	private String writer; 
 	private Date regdate;
+	private int product_id;
 	
 	 //photo_uploader.html페이지의 form태그내에 존재하는 file 태그의 name명과 일치시켜줌
     private MultipartFile Filedata;
@@ -69,6 +70,14 @@ public class reviewDTO {
 	}
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
+	}
+
+	public int getProduct_id() {
+		return product_id;
+	}
+
+	public void setProduct_id(int product_id) {
+		this.product_id = product_id;
 	}
 
 	public MultipartFile getFiledata() {
