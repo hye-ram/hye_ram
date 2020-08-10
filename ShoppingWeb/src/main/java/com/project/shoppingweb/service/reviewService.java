@@ -25,5 +25,8 @@ public interface reviewService {
 
 	// 홈페이지 리뷰
 	List<reviewDTO> readReview();
+
+	// 제품상세페이지 리뷰
+	List<reviewDTO> review_product(int product_id);
 	
 }

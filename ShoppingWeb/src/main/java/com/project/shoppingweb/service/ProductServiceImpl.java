@@ -20,6 +20,11 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDTO> listProduct(String cate01Id) {
         return productDao.listProduct(cate01Id); //데이터베이스에 저장된 상품 리스트를 리턴한다.
     }
+    
+    @Override
+    public List<ProductDTO> listProduct_group(String cate02Id) {
+        return productDao.listProduct_group(cate02Id); //데이터베이스에 저장된 상품 리스트를 리턴한다.
+    }
 
 
 	@Override
@@ -68,5 +73,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<ProductDTO> productDetail(String product_id) {
 		return productDao.productDetail(product_id);
+	}
+
+
+	@Override
+	public List<ProductDTO> listCate(String cate01Id) {
+		return productDao.listCate(cate01Id); 
 	}
 }

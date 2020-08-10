@@ -16,7 +16,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 
-<title>Hye-Ram > clothes</title>
+<title>카테고리 - Hye-Ram</title>
 
 <!-- slider stylesheet -->
 <link rel="stylesheet" type="text/css"

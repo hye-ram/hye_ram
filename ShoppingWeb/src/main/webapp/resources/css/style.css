@@ -29,8 +29,6 @@ body {
 }
 
 /*header section*/
-
-
 .sub_page .brand_box {
 	position: relative;
 	background-image: url(../images/new-slider-img.jpg);
@@ -114,7 +112,6 @@ a:hover, a:focus {
 	background-size: 42px;
 }
 
-
 /*end header section*/
 
 /* slider section */
@@ -183,235 +180,305 @@ a:hover, a:focus {
 	justify-content: center;
 }
 
-#search_Term{
+#search_Term {
 	margin: 0 10px 10px;
 	width: 400px;
 	height: 30px;
 	background-color: transparent !important;
-	border : none;
+	border: none;
 	border-bottom: 1px solid white;
-	color : white;
+	color: white;
 }
-#search_Term:focus{
+
+#search_Term:focus {
 	outline: none;
 }
-#search_btn{
+
+#search_btn {
 	width: 50px;
 	height: 30px;
 	background-color: transparent !important;
 	font-family: "Poppins", sans-serif;
-	border : none;
-	color : white;
+	border: none;
+	color: white;
 	font-weight: bolder;
-	
 }
-#search_btn:focus{
+
+#search_btn:focus {
 	outline: none;
 }
 
 /* hyejeong */
+
 #sub_title{
-	font-size: 30px;
-	text-align: center;
-	margin: 50px auto;
-	width: 80%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin: 30px 0 35px 10%;
 }
-#mypage_box{
+
+#sub_title h2 {
+	font-weight: bold;
+	font-style: italic;
+	font-size: 2rem;
+	text-transform: uppercase;
+}
+
+#sub_title hr {
+	width: 20%;
+	height: 1px;
+	border: none;
+	margin: 0;
+	margin-right: 10px;
+	background-color: #b7b7b7;
+}
+
+#mypage_box {
 	margin: 10px auto;
 	width: 80%;
-	border:1px solid;
-	border-color: rgba(0,0,0,0.7);
+	border: 1px solid;
+	border-color: rgba(0, 0, 0, 0.7);
 	display: flex;
 }
-#mypage_box div{
-	margin:10px auto;
+
+#mypage_box div {
+	margin: 10px auto;
 	width: 45%;
 	padding: 10px 20px;
 }
-#shopping_info{
+
+#shopping_info {
 	border-right: 1px solid gray;
 }
-#shopping_info ul, #customer_info ul{
-	margin : 0;
+
+#shopping_info ul, #customer_info ul {
+	margin: 0;
 	padding: 0;
 	display: flex;
 }
-#shopping_info ul li, #customer_info ul li{
+
+#shopping_info ul li, #customer_info ul li {
 	list-style-type: none;
 	margin: 20px 10px 5px 0px;
 }
-#shopping_info ul li a, #customer_info ul li a{
-	color:gray;
+
+#shopping_info ul li a, #customer_info ul li a {
+	color: gray;
 }
-#mypage_infobox{
+
+#mypage_infobox {
 	margin: 10px auto;
 	width: 80%;
-	border:1px solid;
-	border-color: rgba(0,0,0,0.1);
+	border: 1px solid;
+	border-color: rgba(0, 0, 0, 0.1);
 	display: flex;
 }
-#mypage_infobox>div:nth-child(1){
-	width:100px;
+
+#mypage_infobox>div:nth-child(1) {
+	width: 100px;
 	text-align: center;
-	padding-top:7px;
+	padding-top: 7px;
 	margin: 20px;
 }
-#mypage_infobox>div:nth-child(1)>i{
-	width:100%;
+
+#mypage_infobox>div:nth-child(1)>i {
+	width: 100%;
 }
-#mypage_infobox>div:nth-child(2){
+
+#mypage_infobox>div:nth-child(2) {
 	width: 55%;
 	margin: 20px;
 }
 
-#mypage_infobox>div:nth-child(3){
+#mypage_infobox>div:nth-child(3) {
 	width: 20%;
 	margin: 20px;
 }
-#mypage_infobox>div>div{
+
+#mypage_infobox>div>div {
 	margin: 5px 0;
 }
-.info_title{
+
+.info_title {
 	font-weight: bold;
-	
-}
-.info_con{
-	color:gray;
 }
 
-#mypage_latestorder, #mypage_latestsubject{
+.info_con {
+	color: gray;
+}
+
+#mypage_latestorder, #mypage_latestsubject {
 	width: 80%;
 	margin: 50px auto;
 	width: 80%;
 	display: flex;
 }
 
-#upMemFrm, #joinFrm{
-	width: 80%;	
+#upMemFrm, #joinFrm {
+	width: 80%;
 	margin: 30px auto;
 }
-.mem_table{
+
+.mem_table {
 	width: 100%;
 }
-#userAddr02, #userAddr03{
+
+#userAddr02, #userAddr03 {
 	width: 80%;
 }
-#btnbox{
+
+#btnbox {
 	width: 15%;
-	display:flex;
-	margin: 10px auto;
-}
-#btnbox input{
+	display: flex;
 	margin: 10px auto;
 }
 
-#loginFrm{
-	width: 20%;
-	height:100px;
+#btnbox input {
 	margin: 10px auto;
 }
-#login{
+
+#loginFrm {
+	width: 20%;
+	height: 100px;
+	margin: 10px auto;
+}
+
+#login {
 	margin: 10px 150px 0;
 	background-color: transparent !important;
 	font-weight: bold;
 	border: 1px solid black;
 	border-radius: 5px;
 }
-#check{
+
+#check {
 	background-color: transparent !important;
 	border: none;
 }
-#check:foc{
+
+#check:foc {
 	border: 0;
 	outline: 0;
 }
 
-
-
 /*hye end*/
 
 /* 상품목록 */
-#product_list{
+#product_list {
 	margin: 10px auto;
 	width: 80%;
 	display: flex;
 	flex-flow: row wrap;
-	justify-content:space-between;
+	justify-content: space-between;
 }
-#product_box{
+
+#product_box {
 	margin: 20px 0;
 	width: 23%;
 	background-color: white;
-	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
 }
-#product_box div{
+
+#product_box div {
 	width: 80%;
 	margin: 10px auto;
 	text-align: center;
 }
-#product_box div img{
+
+#product_box div img {
 	margin: 20px 0;
 	width: 100%;
-	cursor:pointer;
+	cursor: pointer;
 }
 /* 검색 */
-#endSearch{
-	width:10px;
-	position:absolute;
+#endSearch {
+	width: 10px;
+	position: absolute;
 	color: white;
 	font-size: 25px;
 	font-weight: lighter;
 	right: 5%;
 }
 /* 상세페이지 */
-#detail_box{
+#detail_box {
 	width: 80%;
 	margin: 10px auto;
 }
-#detail_top{
+
+#detail_top {
 	display: flex;
 	justify-content: space-around;
 }
-#detail_img, #detail_info{
+
+#detail_img, #detail_info {
 	width: 45%;
 	margin: 20px;
 }
-#detail_img img{
+
+#detail_img img {
 	width: 400px;
 }
-#orderBtn, #addCart{
+
+#orderBtn, #addCart {
 	width: 80%;
 	height: 50px;
 	margin: 30px auto;
-	background-color: rgba(0,0,0,0.2);
-	cursor:pointer;
+	background-color: rgba(0, 0, 0, 0.2);
+	cursor: pointer;
 	text-align: center;
 	padding-top: 10px;
-	
+}
+
+#detail_description {
+	width: 90%;
+	padding: 40px 0;
+	margin: 30px auto;
+	text-align: center;
+}
+
+#de_de_title {
+	font-size: 40px;
+	font-style: italic;
+}
+
+#detail_review, #detail_qna {
+	text-align: center;
+}
+
+#detail_review span, #detail_qna span {
+	font-size: 20px;
+	font-style: italic;
 }
 /* 게시판 */
-#board_table{
+#board_table {
 	width: 80%;
 	margin: 10px auto;
 	border-top: 2px solid;
 	position: relative;
 }
-#board_table tr th{
+
+#board_table tr th {
 	padding: 10px 5px;
 	border-bottom: 1px solid;
-	border-color: rgba(0,0,0,0.15);
+	border-color: rgba(0, 0, 0, 0.15);
 }
-#board_table tr td{
+
+#board_table tr td {
 	padding: 10px 5px;
 	border-bottom: 1px solid;
-	border-color: rgba(0,0,0,0.15);
+	border-color: rgba(0, 0, 0, 0.15);
 }
-#board_tbl_title{
-	color : black;
+
+#board_tbl_title {
+	color: black;
 }
-#btnWrite{
+
+#btnWrite, #btnWrite_qna {
 	position: absolute;
-	right: 10%;
+	right: 20%;
 	background-color: transparent !important;
 	font-weight: bold;
 	border: 1px solid black;
@@ -419,7 +486,6 @@ a:hover, a:focus {
 }
 
 /*게시판 end*/
-
 .shop_section .box {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -436,7 +502,7 @@ a:hover, a:focus {
 
 .shop_section .box .detail-box h2 {
 	font-weight: bold;
-	font-style:italic;
+	font-style: italic;
 	font-size: 2rem;
 	text-transform: uppercase;
 }
@@ -444,11 +510,16 @@ a:hover, a:focus {
 .shop_section .box .detail-box p {
 	margin-bottom: 0;
 }
+
 .shop_section .box .img-box {
 	margin-top: 20px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
 }
+
 .shop_section .box .img-box img {
-	max-width: 100%;
+	max-width: 30%;
 }
 
 .shop_section .box .btn-box {
@@ -469,6 +540,8 @@ a:hover, a:focus {
 }
 
 .about_section .img-box {
+	margin-left: 20%;
+	width: 567px;
 	padding: 35px 0;
 	background-color: #ececec;
 }
@@ -504,6 +577,13 @@ a:hover, a:focus {
 	border: none;
 	background-color: #b7b7b7;
 	margin-bottom: 10px;
+}
+
+.about_section .detail-box .heading_container h2 {
+	font-weight: bold;
+	font-style: italic;
+	font-size: 2rem;
+	text-transform: uppercase;
 }
 
 .about_section .detail-box p {
@@ -545,6 +625,10 @@ a:hover, a:focus {
 
 .fruit_section .heading_container h2 {
 	margin: 0;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 2rem;
+	text-transform: uppercase;
 }
 
 .fruit_section .fruit_container {
@@ -641,6 +725,13 @@ a:hover, a:focus {
 	background-color: #b7b7b7;
 }
 
+.client_section .heading_container h2 {
+	font-weight: bold;
+	font-style: italic;
+	font-size: 2rem;
+	text-transform: uppercase;
+}
+
 .client_section .client_container {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -659,11 +750,14 @@ a:hover, a:focus {
 
 .client_section .client_container .img-box {
 	width: 175px;
+	height: 175px;
 	border-radius: 100%;
+	overflow: hidden;
 }
 
 .client_section .client_container .img-box img {
-	width: 100%;
+	max-width: initial;
+	margin: auto;
 }
 
 .client_section .client_container .detail-box {
@@ -969,8 +1063,6 @@ a:hover, a:focus {
 
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
-
-
 .userCell02, .userCell03 {
 	-webkit-appearance: none;
 	margin: 0;

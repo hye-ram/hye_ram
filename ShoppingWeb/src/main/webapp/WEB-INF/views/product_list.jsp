@@ -20,7 +20,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 
-<title>Hye-Ram</title>
+<title>상품목록 - Hye-Ram</title>
 
 <!-- slider stylesheet -->
 <link rel="stylesheet" type="text/css"
@@ -44,28 +44,40 @@
 <script scr="//cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
 
 </head>
-<body class="sub_page" style="background-color: rgba(0,0,0,0.01);">
+<body class="sub_page" style="background-color: rgba(0, 0, 0, 0.01);">
 	<tr>
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
-	<div id="sub_title">product list</div>
+	<div id="sub_title">
+		<hr>
+		<h2>product list</h2>
+	</div>
+	<div id="cate_list">
+		<c:forEach var="caterow" items="${catelist}">
+			<a href="product_list_gourp?cate02=${caterow.cate02Id}">${caterow.cate02Name}</a>
+		</c:forEach>
+	</div>
 	<div id="product_list">
 		<c:forEach var="row" items="${list}">
 			<div id="product_box">
-				<div onclick="detailView(${row.product_id})"><img src="resources/images/${row.picture_url}" ></div>
+				<div onclick="detailView(${row.product_id})">
+					<img src="resources/images/${row.picture_url}">
+				</div>
 				<div>${row.product_name}</div>
-				<div><fmt:formatNumber value="${row.price}" pattern="#,###" /></div>
-				<input type="hidden" id="product_id" name="product_id" value="${row.product_id}">
+				<div>
+					<fmt:formatNumber value="${row.price}" pattern="#,###" />
+				</div>
+				<input type="hidden" id="product_id" name="product_id"
+					value="${row.product_id}">
 			</div>
 		</c:forEach>
 	</div>
 
 
-	
-
 	<a href="${path}/shoppingweb/product_list">상품목록</a>
-
-	<button type="button" id="btnAdd">상품등록</button>
+	<c:if test="${sessionScope.userId eq 'admin'}">
+		<button type="button" id="btnAdd">상품등록</button>
+	</c:if>
 
 	<tr>
 		<td><jsp:include page="bottom.jsp" flush="false" /></td>

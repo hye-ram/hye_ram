@@ -151,11 +151,14 @@
 						<p>365일 매일매일 신상을 만나보세요!</p>
 					</div>
 					<div class="img-box">
-						<img src="resources/images/acc.jfif" alt="">
+						<img src="resources/images/testproduct.jpg" alt=""> <img
+							src="resources/images/testproduct.jpg" alt=""> <img
+							src="resources/images/testproduct.jpg" alt="">
 					</div>
 					<div class="btn-box">
-						<a href=""> VIEW MORE </a>
+						<a href="clothes"> VIEW MORE </a>
 					</div>
+
 				</div>
 			</div>
 		</section>
@@ -169,19 +172,17 @@
 				<div class="row">
 					<div class="col-md-6 px-0">
 						<div class="img-box">
-							<img src="resources/images/about-img.jpg" alt="">
+							<img src="resources/images/summersale.jpg" alt="">
 						</div>
 					</div>
 					<div class="col-md-5">
 						<div class="detail-box">
 							<div class="heading_container">
 								<hr>
-								<h2>About Our Fruit Shop</h2>
+								<h2>OUR SPECIAL BENEFITS</h2>
 							</div>
-							<p>There are many variations of passages of Lorem Ipsum
-								available, but the majority have suffered alteration in some
-								form, by injected humour</p>
-							<a href=""> Read More </a>
+							<p>오직 hye-ram만의 특별한 혜택 <br>놓치지 마세요</p>
+							<a href="notice"> Read More </a>
 						</div>
 					</div>
 				</div>
@@ -189,13 +190,13 @@
 		</section>
 		<!-- end about section -->
 
-		<!-- fruit section -->
+		<!-- cate section -->
 
 		<section class="fruit_section layout_padding">
 			<div class="container">
 				<div class="heading_container">
 					<hr>
-					<h2>Fresh Fruit</h2>
+					<h2>CATEGORY</h2>
 				</div>
 			</div>
 			<div class="container-fluid">
@@ -230,7 +231,7 @@
 						</div>
 					</div>
 					<div class="box">
-						<img src="resources/images/dress.jfif" alt="">
+						<img src="resources/images/innerwear.jpg" alt="">
 						<div class="link_box">
 							<h5>Inner wear</h5>
 							<a href="product_list?cate01=005"> View </a>
@@ -247,89 +248,58 @@
 			</div>
 		</section>
 
-		<!-- end fruit section -->
 
 
-		<!-- client section -->
+		<!-- review section -->
 
 		<section class="client_section layout_padding-bottom">
 			<div class="container ">
 				<div class="heading_container">
-					<h2>REVIEW</h2>
+					<h2>NEW REVIEW!</h2>
 					<hr>
 				</div>
 				<div id="carouselExample2Controls" class="carousel slide"
 					data-ride="carousel">
 					<div class="carousel-inner">
-						<c:forEach var="row" items="${review}">
-							<div id="product_box">
-								<div onclick="detailView(${row.writer})">
-									<img src="resources/images/${row.picture_url}">
+						<c:forEach var="row" items="${review}" begin="0" end="0">
+							<div class="carousel-item active">
+								<div class="client_container layout_padding-top">
+									<div class="img-box">
+										<img src="resources/images/${row.picture_url}" alt="">
+									</div>
+									<div class="detail-box">
+										<h5>${row.writer}</h5>
+										<p>
+											<img src="resources/images/left-quote.png" alt=""> <span>
+												${row.product_name} </span> <img
+												src="resources/images/right-quote.png" alt=""> <br>
+											${row.editor}
+										</p>
+									</div>
 								</div>
-								<div>${row.product_name}</div>
-								<div>
-									<fmt:formatNumber value="${row.price}" pattern="#,###" />
-								</div>
-								<input type="hidden" id="product_id" name="product_id"
-									value="${row.product_id}">
 							</div>
 						</c:forEach>
-						<div class="carousel-item active">
-							<div class="client_container layout_padding-top">
-								<div class="img-box">
-									<img src="resources/images/client-img.png" alt="">
-								</div>
-								<div class="detail-box">
-									<h5>Jone Mark</h5>
-									<p>
-										<img src="resources/images/left-quote.png" alt=""> <span>
-											Lorem ipsum dolor sit amet, </span> <img
-											src="resources/images/right-quote.png" alt=""> <br>
-										consectetur adipiscing elit, sed do eiusmod tempor incididunt
-										ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-										quis nostrud exercitation ullamco laboris ut aliquip ex ea
-										commodo consequat. Duis aute irure dolor in reprehenderit in
-										voluptate velit esse
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<div class="client_container layout_padding-top">
-								<div class="img-box">
-									<img src="resources/images/client-img.png" alt="">
-								</div>
-								<div class="detail-box">
-									<h5>Jone Mark</h5>
-									<p>
-										<img src="resources/images/left-quote.png" alt=""> <span>
-											Lorem ipsum dolor sit amet, </span> <img
-											src="resources/images/right-quote.png" alt=""> <br>
-										consectetur adipiscing elit, sed do eiusmod tempor incididunt
-										ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-										quis nostrud exercitation ullamco laboris ut aliquip ex ea
-										commodo consequat. Duis aute irure dolor in reprehenderit in
-										voluptate velit esse
-									</p>
+
+						<c:forEach var="row" items="${review}" begin="1" end="4">
+							<div class="carousel-item">
+								<div class="client_container layout_padding-top">
+									<div class="img-box">
+										<img src="resources/images/${row.picture_url}" alt="">
+									</div>
+									<div class="detail-box">
+										<h5>${row.writer}</h5>
+										<p>
+											<img src="resources/images/left-quote.png" alt=""> <span>
+												${row.product_name} </span> <img
+												src="resources/images/right-quote.png" alt=""> <br>
+											${row.editor}
+										</p>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="carousel-item">
-							<div class="client_container layout_padding-top">
-								<div class="img-box">
-									<img src="resources/images/이미지링크.png" alt="">
-								</div>
-								<div class="detail-box">
-									<h5>id불러오기.</h5>
-									<p>
-										<img src="resources/images/left-quote.png" alt=""> <span>
-											제목불러오기 </span> <img src="resources/images/right-quote.png" alt="">
-										<br> 내용불러오기
-									</p>
-								</div>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
+
 					<a class="carousel-control-prev" href="#carouselExample2Controls"
 						role="button" data-slide="prev"> <span class="sr-only">Previous</span>
 					</a> <a class="carousel-control-next" href="#carouselExample2Controls"
@@ -340,7 +310,7 @@
 			</div>
 		</section>
 
-		<!-- end client section -->
+
 
 		<tr>
 			<td><jsp:include page="bottom.jsp" flush="false" /></td>

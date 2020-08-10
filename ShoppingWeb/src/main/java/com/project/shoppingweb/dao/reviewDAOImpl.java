@@ -32,7 +32,6 @@ public class reviewDAOImpl implements reviewDAO {
 	@Override
 	public void reviewcreate(reviewDTO dto) throws Exception {
 		sqlSession.insert("review.reinsert", dto);
-		System.out.println("dao" + dto);
 	}
 
 	// 리뷰 읽기
@@ -63,5 +62,10 @@ public class reviewDAOImpl implements reviewDAO {
 	@Override
 	public List<reviewDTO> readReview() {
 		return sqlSession.selectList("review.readReview");
+	}
+
+	@Override
+	public List<reviewDTO> review_product(int product_id) {
+		return sqlSession.selectList("review.review_product", product_id);
 	}
 }

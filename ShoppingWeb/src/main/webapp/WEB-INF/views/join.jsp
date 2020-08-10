@@ -48,7 +48,7 @@
 	<tr>
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
-	<div id="sub_title">회원 정보 변경</div>
+	<div id="sub_title">회원 가입</div>
 	<form id="joinFrm" name="joinFrm" action="goJoin">
 		<div class="mem_table">
 			<table style="width: 100%;">

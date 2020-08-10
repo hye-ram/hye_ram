@@ -19,13 +19,23 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public List<ProductDTO> listProduct(String cate01Id) {
-		System.out.println(cate01Id);
 		if (cate01Id == null) {
 			return sqlSession.selectList("product.productAll");
 		} else {
 			return sqlSession.selectList("product.product_list", cate01Id);
 		}
 	}
+	
+	@Override
+	public List<ProductDTO> listProduct_group(String cate02Id) {
+		return sqlSession.selectList("product.product_list_group", cate02Id);
+	}
+	
+	@Override
+	public List<ProductDTO> listCate(String cate01Id) {
+		return sqlSession.selectList("product.list_cate02", cate01Id);
+	}
+	
 	
 	@Override
 	public void updateProduct(ProductDTO dto) {

@@ -5,8 +5,6 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.UUID;
@@ -19,17 +17,12 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mysql.jdbc.StringUtils;
-import com.project.shoppingweb.bean.boardDTO;
 import com.project.shoppingweb.bean.reviewDTO;
 import com.project.shoppingweb.service.reviewService;
 
@@ -45,7 +38,6 @@ public class ReviewController {
 	@RequestMapping("review")
 	public ModelAndView reviewlist() throws Exception {
 		List<reviewDTO> list = reviewService.reviewlistAll();
-		// ModelAndView - 모델�? �?
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("review");
 		mav.addObject("list", list);
@@ -54,7 +46,8 @@ public class ReviewController {
 
 	// 리뷰게시판 글쓰기 페이지로 이동
 	@RequestMapping(value = "review_write", method = RequestMethod.GET)
-	public String re_write() {
+	public String re_write(HttpServletRequest request) {
+		String id = request.getParameter("product_id");
 		return "review_write";
 	}
 
@@ -62,9 +55,11 @@ public class ReviewController {
 	@RequestMapping(value = "review_insert", method = RequestMethod.POST)
 	public String insert(HttpServletRequest request, reviewDTO dto,HttpSession session) throws Exception {
 		String writer = (String) session.getAttribute("userId");
+		String product_id = request.getParameter("product_id");
 		dto.setTitle(request.getParameter("title"));
 		dto.setEditor(request.getParameter("ir1"));
 		dto.setWriter(writer);
+		dto.setProduct_id(product_id);
 		reviewService.reviewcreate(dto);
 		return "redirect:review";
 	}
@@ -95,7 +90,7 @@ public class ReviewController {
 		dto.setWriter(request.getParameter("writer"));
 
 		reviewService.reviewupdate(dto);
-		return "redirect:review";
+		return "redirect:review_view?bno="+dto.getBno();
 	}
 	
 
@@ -159,9 +154,10 @@ public class ReviewController {
 	         filename_ext = filename_ext.toLowerCase();
 	         //파일 기본경로
 	         String dftFilePath = request.getSession().getServletContext().getRealPath("/");
-	         System.out.println(dftFilePath);
+	         
 	         //파일 기본경로 _ 상세경로
 	         String filePath = dftFilePath + "smarteditor2/photo_upload" + File.separator;
+	         System.out.println(filePath);
 	         File file = new File(filePath);
 	         if(!file.exists()) {
 	            file.mkdirs();

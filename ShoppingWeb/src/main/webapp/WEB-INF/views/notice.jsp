@@ -88,10 +88,11 @@
 	</table>
 
 
-
-	
 	<br>
-	<button type="button" id="btnWrite">글쓰기</button>
+	<c:if test="${sessionScope.userId eq 'admin'}">
+		<button type="button" id="btnWrite">글쓰기</button>
+	</c:if>
+
 	<br><br>
 
 	<tr>

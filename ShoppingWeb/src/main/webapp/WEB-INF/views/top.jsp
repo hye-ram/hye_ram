@@ -18,7 +18,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 
-<title>로그인 - Hye-Ram</title>
+<title>상단 - Hye-Ram</title>
 
 <!-- slider stylesheet -->
 <link rel="stylesheet" type="text/css"

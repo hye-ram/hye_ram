@@ -20,7 +20,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 
-<title>Hye-Ram</title>
+<title>장바구니 - Hye-Ram</title>
 
 <!-- slider stylesheet -->
 <link rel="stylesheet" type="text/css"
@@ -48,7 +48,10 @@
 	<tr>
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
-	<h2>장바구니</h2>
+	<div id="sub_title">
+		<hr>
+		<h2>장바구니</h2>
+	</div>
 	<c:choose>
 		<c:when test="${map.count == 0 }">
 			<!-- when은 ~~일때 라는 뜻 그러니까 map의 count가 0일때... -->

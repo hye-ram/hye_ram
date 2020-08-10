@@ -48,8 +48,10 @@
 	<tr>
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
-
-	<div id="sub_title">리 뷰 게 시 판</div>
+	<div id="sub_title">
+		<hr>
+		<h2>리뷰 게시판</h2>
+	</div>
 	<table id="board_table">
 		<tr>
 			<th>번 호</th>
@@ -64,15 +66,11 @@
 					href="${path}/shoppingweb/review_view?bno=${row.bno}">${row.title}</a></td>
 				<td>${row.writer}</td>
 				<td>${row.regdate}</td>
-
 			</tr>
 		</c:forEach>
-
 	</table>
 	<br>
-	<c:if test="${sessionScope.userId != null}">
-		<button type="button" id="btnWrite">글쓰기</button>
-	</c:if>
+
 	<br>
 	<br>
 	<tr>
@@ -82,13 +80,5 @@
 	<script type="text/javascript" src="resources/js/bootstrap.js"></script>
 	<script type="text/javascript" src="resources/js/custom.js"></script>
 
-	<script>
-		$(document).ready(function() {
-			$("#btnWrite").click(function() {
-
-				location.href = "review_write";
-			});
-		});
-	</script>
 </body>
 </html>

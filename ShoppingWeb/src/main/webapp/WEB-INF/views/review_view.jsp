@@ -19,7 +19,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 
-<title>리뷰게시판 - Hye-Ram</title>
+<title>리뷰 상세 - Hye-Ram</title>
 
 <!-- slider stylesheet -->
 <link rel="stylesheet" type="text/css"
@@ -49,7 +49,10 @@
 	<tr>
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
-	<h2>게시판 글 보기</h2>
+	<div id="sub_title">
+		<hr>
+		<h2>REVIEW</h2>
+	</div>
 
 	<form name="form2" method="post">
 		<input name="bno" type="hidden" value="${rdto.bno}" />
@@ -124,8 +127,7 @@
 												var param = "replytext="
 														+ replytext + "&bno="
 														+ bno;
-												$
-														.ajax({
+												$.ajax({
 															type : "post",
 															url : "${path}/shoppingweb/reply_insert",
 															data : param,
@@ -137,6 +139,8 @@
 																alert("에러띵동");
 															}
 														});
+												
+												location.reload();
 											});
 						});
 		function listReply() {

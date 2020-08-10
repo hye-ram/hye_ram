@@ -33,23 +33,42 @@ import com.project.shoppingweb.bean.*;
 	@Inject
 	CartService cartService;
 
+	@Inject
+	reviewService reviewService;
+	
+	@Inject
+	QnaService qnaService;
+
 	@RequestMapping("product_list") // 세부적인 url mapping
 	public ModelAndView list(ModelAndView mav, HttpServletRequest request) {
 		String cate01 = request.getParameter("cate01");
 		mav.setViewName("product_list"); // 이동할 페이지 이름 (product_list.jsp 파일로 이동)
 		mav.addObject("list", productService.listProduct(cate01)); // 데이터 저장
-		System.out.println(mav);
+		mav.addObject("catelist", productService.listCate(cate01));
 		// 서비스에서 상품 리스트를 받아와 list라는 이름의 변수에 저장
 		// service -> model -> mybatis -> 리스트를 받아옴
 		return mav; // 페이지 이동
 	}
-	
+
+	@RequestMapping("product_list_gourp") // 세부적인 url mapping
+	public ModelAndView listProduct_group(ModelAndView mav, HttpServletRequest request) {
+		String cate02 = request.getParameter("cate02");
+		mav.setViewName("product_list"); // 이동할 페이지 이름 (product_list.jsp 파일로 이동)
+		mav.addObject("list", productService.listProduct_group(cate02)); // 데이터 저장
+		// 서비스에서 상품 리스트를 받아와 list라는 이름의 변수에 저장
+		// service -> model -> mybatis -> 리스트를 받아옴
+		return mav; // 페이지 이동
+	}
+
 	@RequestMapping("product_detail") // 세부적인 url mapping
-	public ModelAndView detail(ModelAndView mav, HttpServletRequest request) {
+	public ModelAndView detail(ModelAndView mav, HttpServletRequest request) throws Exception {
 		String product_id = request.getParameter("product_id");
+		int p_id = Integer.parseInt(product_id);
 		mav.setViewName("product_detail"); // 이동할 페이지 이름 (product_list.jsp 파일로 이동)
 		mav.addObject("list", productService.productDetail(product_id)); // 데이터 저장
-	
+		mav.addObject("review", reviewService.review_product(p_id));
+		mav.addObject("qna", qnaService.qna_product(p_id));
+
 		// 서비스에서 상품 리스트를 받아와 list라는 이름의 변수에 저장
 		// service -> model -> mybatis -> 리스트를 받아옴
 		return mav; // 페이지 이동
@@ -189,7 +208,7 @@ import com.project.shoppingweb.bean.*;
 		String search_Term = request.getParameter("search_Term");
 		List<ProductDTO> list = productService.search(search_Term);
 		mav.setViewName("search");
-		mav.addObject("search_result",list);
+		mav.addObject("search_result", list);
 		return mav;
 	}
 }

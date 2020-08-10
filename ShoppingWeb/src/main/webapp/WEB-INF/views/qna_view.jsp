@@ -19,7 +19,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 
-<title>공지사항 - Hye-Ram</title>
+<title>문의 내용 - Hye-Ram</title>
 
 <!-- slider stylesheet -->
 <link rel="stylesheet" type="text/css"
@@ -41,80 +41,68 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
 	rel="stylesheet">
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
 <body class="sub_page">
 	<tr>
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
-	<div id="sub_title">
-		<hr>
-		<h2>notice</h2>
-	</div>
+	<h2>문의사항</h2>
 
 	<form name="form2" method="post">
-		<input name="bno" type="hidden" value="${dto.bno}" />
+		<input name="bno" type="hidden" value="${qdto.bno}" />
 		<table border="1" style="width: 1000px;">
 			<tr>
 				<td bgcolor="orange" width="70">제목</td>
-				<td align="left">${dto.title}</td>
+				<td align="left">${qdto.title}</td>
 			</tr>
 			<tr>
 				<td bgcolor="orange">작성자</td>
-				<td align="left">${dto.writer}</td>
+				<td align="left">${qdto.writer}</td>
 			</tr>
 			<tr>
 				<td bgcolor="orange">내용</td>
-				<td align="left">${dto.content}</td>
+				<td align="left">${qdto.editor}</td>
 			</tr>
 			<tr>
 				<td bgcolor="orange">등록일</td>
-				<td align="left">${dto.regdate}</td>
+				<td align="left">${qdto.regdate}</td>
 			</tr>
-
-			<c:if test="${dto.fname ne null}">
+			<c:if test="${sessionScope.userId == qdto.writer}">
 				<tr>
-					<td bgcolor="orange">첨부파일</td>
-					<td align="left"><a
-						href="${path}/shoppingweb/fileDownload?fileName=${dto.fname}">${dto.fname}</a></td>
+					<td colspan="2" align="center">
+						<button type="button" id="btnUpdete">수정</button>
+						<button type="button" id="btnDelete">삭제</button>
+					</td>
 				</tr>
 			</c:if>
-			<tr>
-				<td colspan="2" align="center">
-					<button type="button" id="btnUpdete">수정</button>
-					<button type="button" id="btnDelete">삭제</button>
-				</td>
-			</tr>
-			<a href="notice">글 목록</a>
+			<a href="review">글 목록</a>
 		</table>
 	</form>
-
+	
+	<div id="listReply"></div>
 	<script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="resources/js/bootstrap.js"></script>
 	<script type="text/javascript" src="resources/js/custom.js"></script>
 	<script>
-		$(document)
-				.ready(
-						function() {
-							$("#btnDelete")
-									.click(
-											function() {
-												if (confirm("삭제하시겠습니까?")) {
-													document.form2.action = "${path}/shoppingweb/notice_delete";
-													document.form2.submit();
-												}
-											});
+		$(document).ready(function() {
+			$("#btnDelete").click(function() {
+				if (confirm("삭제하시겠습니까?")) {
+					document.form2.action = "${path}/shoppingweb/qna_delete";
+					document.form2.submit();
+				}
+			});
 
-							$("#btnUpdete")
-									.click(
-											function() {
+			$("#btnUpdete").click(function() {
 
-												document.form2.action = "${path}/shoppingweb/notice_updatego"
-												// 폼에 입력한 데이터를 서버로 전송
-												document.form2.submit();
-											});
-						});
+				document.form2.action = "${path}/shoppingweb/qna_updatego"
+				// 폼에 입력한 데이터를 서버로 전송
+				document.form2.submit();
+			});
+
+		});
 	</script>
 
 </body>

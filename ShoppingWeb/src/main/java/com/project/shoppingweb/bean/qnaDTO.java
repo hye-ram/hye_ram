@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class reviewDTO {
+public class qnaDTO {
 	private int bno;
 	private String title;
 	private String editor;

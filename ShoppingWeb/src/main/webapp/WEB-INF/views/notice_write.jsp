@@ -15,7 +15,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 
-<title>로그인 - Hye-Ram</title>
+<title>[admin] 공지사항 작성 - Hye-Ram</title>
 
 <!-- slider stylesheet -->
 <link rel="stylesheet" type="text/css"

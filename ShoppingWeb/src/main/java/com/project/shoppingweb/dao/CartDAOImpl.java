@@ -26,7 +26,6 @@ public class CartDAOImpl implements CartDAO {
     @Override
     public void insert(CartDTO dto) {
     //dto에 저장된 값을 받아서 sql세션에 저장하고 cart.insert로 넘어감 mapper로.
-    	System.out.println("dao dto : " + dto);
         sqlSession.insert("cart.insert", dto); 
     }
  

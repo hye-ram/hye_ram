@@ -29,16 +29,19 @@ public class reviewServiceImpl implements reviewService {
 		System.out.println("서비스임플" + vo);
 
 	}
+
 	// 리뷰 보기
 	@Override
 	public reviewDTO reviewread(int bno) throws Exception {
 		return reviewDao.reviewread(bno);
 	}
-	//리뷰 업데이트 보기
+
+	// 리뷰 업데이트 보기
 	@Override
 	public reviewDTO review_updatego(int bno) throws Exception {
 		return reviewDao.review_updatego(bno);
 	}
+
 	// 리뷰 업데이트
 	@Override
 	public void reviewupdate(reviewDTO vo) throws Exception {
@@ -55,5 +58,11 @@ public class reviewServiceImpl implements reviewService {
 	@Override
 	public List<reviewDTO> readReview() {
 		return reviewDao.readReview();
+	}
+
+	// 리뷰 보기
+	@Override
+	public List<reviewDTO> review_product(int product_id) {
+		return reviewDao.review_product(product_id);
 	}
 }

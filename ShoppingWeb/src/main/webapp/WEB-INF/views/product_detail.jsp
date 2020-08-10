@@ -20,7 +20,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 
-<title>Hye-Ram</title>
+<title>상품 상세페이지 - Hye-Ram</title>
 
 <!-- slider stylesheet -->
 <link rel="stylesheet" type="text/css"
@@ -66,34 +66,87 @@
 					<div>
 						<form id="cartForm" name="form1" method="post"
 							action="${path}/shoppingweb/cart_insert">
-							<input type="hidden" name="product_id" value="${row.product_id}">
-							<input type="hidden" name="product_name"
-								value="${row.product_name}"> <input type="hidden"
-								name="price" id="price" value="${row.price}">
+							<input type="hidden" name="product_id" id="product_id"
+								value="${row.product_id}"> <input type="hidden"
+								name="product_name" value="${row.product_name}"> <input
+								type="hidden" name="price" id="price" value="${row.price}">
 							<!-- 상품코드를 히든타입으로 넘김 -->
 							<select id="amount" name="amount">
 								<c:forEach begin="1" end="10" var="i">
 									<option value="${i}">${i}</option>
 								</c:forEach>
-							</select>&nbsp;개 <span class="pricexamount"><fmt:formatNumber value="${row.price}" pattern="#,###" /> 원</span>
+							</select>&nbsp;개 <span class="pricexamount"><fmt:formatNumber
+									value="${row.price}" pattern="#,###" /> 원</span>
 						</form>
 					</div>
 					<hr>
-					<div>총 상품 금액 <span class="pricexamount"><fmt:formatNumber value="${row.price}" pattern="#,###" /> 원</span></div>
+					<div>
+						총 상품 금액 <span class="pricexamount"><fmt:formatNumber
+								value="${row.price}" pattern="#,###" /> 원</span>
+					</div>
 					<div id="orderBtn">BUY IT NOW</div>
 					<div id="addCart">ADD TO CART</div>
 				</div>
 			</div>
-			<div id="detail_description">${row.description}</div>
-			<div id="detail_review">리뷰 게시판 연결</div>
-			<div id="detail_qna">qna 연결</div>
-
+			<div id="detail_description">
+				<span id="de_de_title">제품 상세 설명</span><br> <br>${row.description}
+			</div>
 		</c:forEach>
+
+		<div id="detail_review">
+			<span>REVIEW</span>
+			<table id="board_table">
+				<tr>
+					<th>NO</th>
+					<th>SUBJECT</th>
+					<th>NAME</th>
+					<th>DATE</th>
+				</tr>
+				<c:forEach var="re_row" items="${review}">
+					<tr>
+						<td>${re_row.bno}</td>
+						<td><a id="board_tbl_title"
+							href="${path}/shoppingweb/review_view?bno=${re_row.bno}">${re_row.title}</a></td>
+						<td>${re_row.writer}</td>
+						<td>${re_row.regdate}</td>
+					</tr>
+				</c:forEach>
+			</table>
+			<c:if test="${sessionScope.userId != null}">
+				<button type="button" id="btnWrite">리뷰작성</button>
+			</c:if>
+		</div>
+		<br>
+
+		<div id="detail_qna">
+			<span>QNA</span>
+			<table id="board_table">
+				<tr>
+					<th>NO</th>
+					<th>SUBJECT</th>
+					<th>NAME</th>
+					<th>DATE</th>
+				</tr>
+				<c:forEach var="qna_row" items="${qna}">
+					<tr>
+						<td>${qna_row.bno}</td>
+						<td><a id="board_tbl_title"
+							href="${path}/shoppingweb/qna_view?bno=${qna_row.bno}">${qna_row.title}</a></td>
+						<td>${qna_row.writer}</td>
+						<td>${qna_row.regdate}</td>
+					</tr>
+				</c:forEach>
+			</table>
+			<c:if test="${sessionScope.userId != null}">
+				<button type="button" id="btnWrite_qna">문의작성</button>
+			</c:if>
+		</div>
+		<br>
+
+
 	</div>
 
 	<a href="${path}/shoppingweb/product_list">상품목록</a>
-
-	<button type="button" id="btnAdd">상품등록</button>
 
 	<tr>
 		<td><jsp:include page="bottom.jsp" flush="false" /></td>
@@ -106,28 +159,41 @@
 		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 		crossorigin="anonymous"></script>
 	<script>
-		function addComma(num) {
-			var regexp = /\B(?=(\d{3})+(?!\d))/g;
-			return num.toString().replace(regexp, ',');
-		}
-		
 		$(document)
 				.ready(
-
-						function(e) {							
+						function(e) {
 							$('#addCart').click(function() {
 								$('#cartForm').submit();
 							});
-							$('#amount').change(
-									function() {
-										var amount = $('#amount').val();
-										var price = $('#price').val();
-										var pricexamount = amount * price;
-										$('.pricexamount').empty();
-										$('.pricexamount').append(
-												"<span>" + pricexamount.toLocaleString()
-														+ " 원</span>");
-									});
+							$('#amount')
+									.change(
+											function() {
+												var amount = $('#amount').val();
+												var price = $('#price').val();
+												var pricexamount = amount
+														* price;
+												$('.pricexamount').empty();
+												$('.pricexamount')
+														.append(
+																"<span>"
+																		+ pricexamount
+																				.toLocaleString()
+																		+ " 원</span>");
+											});
+							$('#btnWrite')
+									.click(
+											function() {
+												var id = $('#product_id').val();
+												location.href = "${path}/shoppingweb/review_write?product_id="
+														+ id;
+											});
+							$('#btnWrite_qna')
+									.click(
+											function() {
+												var id = $('#product_id').val();
+												location.href = "${path}/shoppingweb/qna_write?product_id="
+														+ id;
+											});
 						});
 	</script>
 </body>

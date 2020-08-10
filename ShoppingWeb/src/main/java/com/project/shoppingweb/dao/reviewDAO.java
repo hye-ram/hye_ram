@@ -30,4 +30,6 @@ public interface reviewDAO {
 	// 홈페이지 리뷰
 	List<reviewDTO> readReview();
 
+	public List<reviewDTO> review_product(int product_id);
+
 }

@@ -65,10 +65,10 @@
 		<td><jsp:include page="top.jsp" flush="false" /></td>
 	</tr>
 
-	<h2>리뷰 글 작성</h2>
+	<h2>문의 글 작성</h2>
 
-	<form id="form2" name="form2"
-		action="${path}/shoppingweb/review_insert" method="post">
+	<form id="form2" name="form2" action="${path}/shoppingweb/qna_insert"
+		method="post">
 		<input type="hidden" name="product_id" id="product_id"
 			value="<%=request.getParameter("product_id")%>">
 		<table border="1" width="80%">
@@ -90,7 +90,7 @@
 		</table>
 	</form>
 	<hr>
-	<a href="review">리뷰 목록 가기</a>
+	<a href="qna">목록 가기</a>
 	<br>
 	<br>
 	<br>
